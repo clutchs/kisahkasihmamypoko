@@ -6,8 +6,8 @@
 
 /* Account for fixed navbar */
 body {
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-top: 70px;
+  padding-bottom: 30px;
 }
 
 body,
@@ -40,19 +40,9 @@ body,
 .container {
   width: 810px;
   max-width: none !important;
-  background: red;
 }
 
 /* Demonstrate the grids */
-.col-xs-4 {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: #eee;
-  background-color: rgba(86,61,124,.15);
-  border: 1px solid #ddd;
-  border: 1px solid rgba(86,61,124,.2);
-}
-
 .container .navbar-header,
 .container .navbar-collapse {
   margin-right: 0;
@@ -102,6 +92,10 @@ body,
 }
 
 /* Undo custom dropdowns */
+.navbar-default{
+    background-color: transparent;
+    border-color: transparent;
+}
 .navbar .navbar-nav .open .dropdown-menu {
   position: absolute;
   float: left;
@@ -203,8 +197,49 @@ body,
 .navbar-form .has-feedback .form-control-feedback {
   top: 0;
 }
-.top-menu, .footer {width: 600px;}
-.top-menu img, .footer img{float: left;}
-.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9
-{padding: 0px;}
-.inline-items{padding-left: 15px;}
+
+/* CUSTOM CSS */
+
+/* GRADIENT */
+.navbar-default .navbar-collapse{
+  border-bottom-color: #800000;
+}
+.bg-mm{
+  background: rgba(0,147,220,1);
+  background: -moz-linear-gradient(top, rgba(0,147,220,1) 0%, rgba(0,108,180,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,147,220,1)), color-stop(100%, rgba(0,108,180,1)));
+  background: -webkit-linear-gradient(top, rgba(0,147,220,1) 0%, rgba(0,108,180,1) 100%);
+  background: -o-linear-gradient(top, rgba(0,147,220,1) 0%, rgba(0,108,180,1) 100%);
+  background: -ms-linear-gradient(top, rgba(0,147,220,1) 0%, rgba(0,108,180,1) 100%);
+  background: linear-gradient(to bottom, rgba(0,147,220,1) 0%, rgba(0,108,180,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0093dc', endColorstr='#006cb4', GradientType=0 );
+  border-radius: 0px 0px 10px 10px;
+  -moz-border-radius: 0px 0px 10px 10px;
+  -webkit-border-radius: 0px 0px 10px 10px;
+  border: 0px solid #000000;
+  border-bottom: solid 3px;
+}
+.navbar-default .navbar-nav>li>a{
+  color: #fff;
+  font-weight: bold;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover
+{
+  background-color: transparent;
+  color: #000;
+}
+.bg-yellow{
+  background: transparent url('../img/bg-yellow.jpg') center 50px repeat-x;
+}
+.baby-mom{
+}
+.bg-pink{
+  border-radius: 10px 0px 0px 10px;
+  -moz-border-radius: 10px 0px 0px 10px;
+  -webkit-border-radius: 10px 0px 0px 10px;
+  border: 0px solid #000000;
+  background-color: #ec008c;
+  color: #fff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

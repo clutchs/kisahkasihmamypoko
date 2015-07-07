@@ -26,83 +26,74 @@
   </head>
 
   <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div id="navbar" class="navbar-collapse collapse bg-mm">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
     <div class="container">
-      <div class="top-menu">
-        <img src="img/logo.png" alt="logo"><a href="http://www.uniqlo.com/id/#!women" target="blank"><img src="img/women.png" alt="women"></a>
-        <a href="http://www.uniqlo.com/id/#!men" target="blank"><img src="img/men.png" alt="men"></a>
-        <a href="http://www.uniqlo.com/id/product/kids/tops/cutsewn" target="blank"><img src="img/kids.png" alt="kids"></a>
-        <a href="http://www.uniqlo.com/id/product/baby/newborn/newborn" target="blank"><img src="img/baby.png" alt="baby"></a>
-        <a href="http://www.uniqlo.com/id/corp/" target="blank"><img src="img/company.png" alt="company"></a>
-        <a href="http://www.uniqlo.com/id/shop/" target="blank"><img src="img/store.png" alt="store"></a>
+
+      <div class="page-header bg-yellow row">
+        <div class="col-xs-7">
+           <h2>Lomba Foto</h2>
+          <h1>Kisah Kasih Mamupoko</h1>
+          <h3>
+            Foto dan Ceritakan kisah dengan MamyPoko
+          </h3>
+        </div>
+        <div class="col-xs-5">
+          <img class="baby-mom" src="img/baby-mother.jpg" alt="foto ibu bayi">
+        </div>
+        <div class="col-xs-5">
+          <img class="baby-mom" src="img/mobil-brio.jpg" alt="foto ibu bayi">
+        </div>
+        <div class="col-xs-7 bg-pink">
+          <div class="col-xs-9">
+            Dan raih Hadiah Hiburan setiap 2 minggu sekali
+            berupa ratusan karton popok Mamypoko Pants
+          </div>
+          <div class="col-xs-3"><button type="button" class="btn btn-success">Success</button></div>
+        </div>
       </div>
-      <!-- START CONTENT -->
-      <div>
-        <a href="http://www.uniqlo.com/id/ut/" target="blank">
-          <img src="img/items/uniqlo01.jpg" alt="items 00">
-        </a>
+
+      <h3>What changes</h3>
+      <p>Note the lack of the <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code>, which disables the zooming aspect of sites in mobile devices. In addition, we reset our container's width and are basically good to go.</p>
+
+      <h3>Non-responsive grid system</h3>
+      <div class="row">
+        <div class="col-xs-4">One third</div>
+        <div class="col-xs-4">One third</div>
+        <div class="col-xs-4">One third</div>
       </div>
-      <table cellpadding="0" cellspacing="0">
-        <tr><td><a href="#" target="blank">
-          <img src="img/items/uniqlo02.jpg" alt="items 00">
-        </a></td>
-          <td><a href="#" target="blank">
-          <img src="img/items/uniqlo03.jpg" alt="items 00">
-        </a></td></tr>
-      </table>
-      
-      <div>
-        <a href="#" target="blank">
-          <img src="img/items/uniqlo04.jpg" alt="items 00">
-        </a>
-      </div>
-      <div>
-        <a href="#" target="blank">
-          <img src="img/items/uniqlo05.jpg" alt="items 00">
-        </a>
-      </div>
-      <div>
-        <a href="#" target="blank">
-          <img src="img/items/uniqlo06.jpg" alt="items 00">
-        </a>
-      </div>
-      <div>
-        <a href="http://ut.uniqlo.com/kabuki/id/" target="blank">
-          <img src="img/items/uniqlo07.jpg" alt="items 00">
-        </a>
-      </div>
-      
-      <div>
-        <a href="http://ut.uniqlo.com/kabuki/id/" target="blank">
-          <img src="img/items/uniqlo08.jpg" alt="items 00">
-        </a>
-      </div>
-      <!-- END CONTENT -->
-      <div class="locator">
-        <a href="http://www.uniqlo.com/id/shop/" target="blank">
-          <img src="img/locator.jpg" alt="store locator">
-        </a>
-      </div>
-      <div class="footer">
-        <a href="" target="blank">
-          <img src="img/copy.jpg" alt="copy">
-        </a>
-        <a href="https://www.facebook.com/UniqloIndonesiaOfficial" target="blank">
-          <img src="img/fb.jpg" alt="facebook">
-        </a>
-        <a href="https://twitter.com/UNIQLOINDONESIA/" target="blank">
-          <img src="img/tw.jpg" alt="twitter">
-        </a>
-        <a href="https://plus.google.com/+Uniqlo/posts" target="blank">
-          <img src="img/gp.jpg" alt="google plus">
-        </a>
-      </div>
+
     </div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
