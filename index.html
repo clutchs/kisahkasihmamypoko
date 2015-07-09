@@ -29,24 +29,15 @@
 
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
+      <div class="container main-menu">
         <div id="navbar" class="navbar-collapse collapse bg-mm">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
+            <li><a href="#">Mekanisme</a></li>
+            <li><a href="#">Daftar</a></li>
+            <li><a href="#">Hadiah</a></li>
+            <li><a href="#">Galeri</a></li>
+            <li><a href="#">Syarat &amp; Ketentuan</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -54,37 +45,71 @@
 
     <div class="container">
 
-      <div class="page-header bg-yellow row">
+      <div class="bg-yellow row">
         <div class="col-xs-7">
-           <h2>Lomba Foto</h2>
-          <h1>Kisah Kasih Mamupoko</h1>
-          <h3>
-            Foto dan Ceritakan kisah dengan MamyPoko
-          </h3>
+          <h1><img class="kisah-title" src="img/kisah-kasih.png" alt="kisah kasih mamypoko"></h1>
+          <h2><img class="dapatkan-hadiah" src="img/dapatkan-hadiah.png" alt="foto dan ceritakan kisah dengan mamypoko, dapatkan hadiahnya"></h2>
+          <img class="baby-mesin" src="img/baby-mesin.png" alt="hadiah kecil">
         </div>
+
         <div class="col-xs-5">
-          <img class="baby-mom" src="img/baby-mother.jpg" alt="foto ibu bayi">
+          <img class="baby-mom" src="img/baby-mother.png" alt="foto ibu bayi">
         </div>
+
+      </div>
+
+      <div class="row">
         <div class="col-xs-5">
-          <img class="baby-mom" src="img/mobil-brio.jpg" alt="foto ibu bayi">
+          <img class="mobil-brio" src="img/mobil-brio.png" alt="hadiah mobil">
         </div>
+        
         <div class="col-xs-7 bg-pink">
           <div class="col-xs-9">
             Dan raih Hadiah Hiburan setiap 2 minggu sekali
             berupa ratusan karton popok Mamypoko Pants
           </div>
-          <div class="col-xs-3"><button type="button" class="btn btn-success">Success</button></div>
+          <div class="col-xs-3"><a href="#"><img class="daftar-button" src="img/daftar.png" alt="daftar button"></a></div>
+        </div>
+        <div class="note">
+          &ast;Gambar hanya ilustrasi. Tipe warna, merek hadiah sesuai dengan ketentuan pihak Unicharm.
+          Pajak hadiah ditanggung oleh Unicharm. Hadiah tidak dapat diuangkan.
+          Hati-hati penipuan atas nama Unicharm. Pemenang tidak dipungut biaya apapun.
         </div>
       </div>
 
-      <h3>What changes</h3>
-      <p>Note the lack of the <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code>, which disables the zooming aspect of sites in mobile devices. In addition, we reset our container's width and are basically good to go.</p>
-
-      <h3>Non-responsive grid system</h3>
       <div class="row">
-        <div class="col-xs-4">One third</div>
-        <div class="col-xs-4">One third</div>
-        <div class="col-xs-4">One third</div>
+        <div class="col-md-12">
+          <div id="Carousel" class="carousel slide">
+             
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                
+            <div class="item active">
+              <div class="row"> <!-- tiap thumnail item ukuran nya 106x106px -->
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+              </div><!--.row-->
+            </div><!--.item-->
+
+            <div class="item">
+              <div class="row">
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+              </div><!--.row-->
+            </div><!--.item-->
+             
+            </div><!--.carousel-inner-->
+              <a data-slide="prev" href="#Carousel" class="left carousel-control"><img class="nav-carousel" src="img/right-arrow-right-hi.png" alt="next"></a>
+              <a data-slide="next" href="#Carousel" class="right carousel-control"><img class="nav-carousel" src="img/left-arrow-right-hi.png" alt="next"></a>
+          </div><!--.Carousel-->
+                     
+        </div>
       </div>
 
     </div> <!-- /container -->
@@ -95,7 +120,5 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
