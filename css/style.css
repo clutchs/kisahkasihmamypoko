@@ -206,6 +206,7 @@ body,
 
 /* CUSTOM CSS */
 .h1, .h2, .h3, h1, h2, h3{margin: 0;}
+.font-12{font-size: 12px;font-weight: bold;}
 /* CAROUSEL */
 .carousel {
     margin-bottom: 0;
@@ -385,8 +386,30 @@ margin-bottom: 10px;}
   -webkit-border-radius: 30px 30px 30px 30px;
   border: 0px solid #000000;
 }
+.sub-mekanisme{
+  border-radius: 0px 0px 10px 10px;
+  -moz-border-radius: 0px 0px 10px 10px;
+  -webkit-border-radius: 0px 0px 10px 10px;
+  border: 0px solid #000000;
+  margin-top: -20px;
+  margin-bottom: 50px;
+}
 .pembatas{
   background: transparent url('../img/pembatas.png') right top no-repeat;
-  height: 300px;
   padding-right: 35px;
+}
+.mekanisme-body .col-xs-4{text-align: center;}
+.mekanisme-body ul{
+  list-style-type: disc;
+  text-align: left;
+  margin-left: -25px;
+}
+.sub-mekanisme ul a{
+  color: #fff; 
+  text-align: center; 
+  font-size: 22px;
+}
+.sub-mekanisme ul a:hover{background: #7ba02e;}
+.sub-mekanisme ul{
+  margin-left: 0;
 }
