@@ -466,3 +466,19 @@ ul.galeri li{margin-bottom: 15px;}
 .nama-mamy{color: #ec008c; font-size: 12px;}
 .nama-baby{color: #AAE1F7; font-size: 12px;}
 .galeri-thumbnail{margin-left: -14px;}
+.note-hadiah1, .note-hadiah2{
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
+  background: #179bd7 url('../img/arrow-hadiah.png') 10px 10px no-repeat;
+  padding: 0 10px 10px 30px ;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.note-hadiah2{padding-top: 10px;}
+.date-event, .date-announce{
+  color: #ec008c;
+  font-weight: bold;
+}
+.date-announce{font-size: 24px;-webkit-text-stroke: 1px #fff;}
