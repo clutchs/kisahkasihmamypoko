@@ -1,6 +1,6 @@
 @font-face {
     font-family: vagrounded;
-    src: url(../font/VAG_Bold.TTF);
+    src: url(../fonts/VAG_Bold.TTF);
 }
 .vag-font{font-family: vagrounded;}
 /* Template-specific stuff
@@ -255,6 +255,16 @@ background: #428bca;
     width: 20%;
   }
 }
+/* SCROLLPANE */
+.scroll-pane,
+.scroll-pane-arrows
+{
+  width: 100%;
+  height: 360px;
+  overflow: auto;
+  padding: 20px;
+}
+.scroll-pane-arrows .col-xs-3 img{height: 86px;}
 /* GRADIENT */
 .navbar-default .navbar-collapse{
   border-bottom-color: #800000;
@@ -332,6 +342,10 @@ background: #428bca;
   background: #fff;
   padding: 20px;
 }
+.scroll-body{
+  padding-left: 20px !important;
+  width: 753px;
+}
 .form-horizontal .control-label{
   text-align: left;
   color: #AAE1F7;
@@ -408,8 +422,47 @@ margin-bottom: 10px;}
   color: #fff; 
   text-align: center; 
   font-size: 22px;
+  -webkit-text-stroke: 2px #005e2b;
 }
 .sub-mekanisme ul a:hover{background: #7ba02e;}
 .sub-mekanisme ul{
   margin-left: 0;
 }
+.via-pos-img{
+  float: left;
+  margin-right: 5px;
+  height: 290px;
+}
+.via-pos-img img{width: 250px;}
+.item-via-pos-img{width: 90px;}
+.bot-left-info{
+  border-radius: 0px 15px  0px 15px ;
+  -moz-border-radius: 0px 15px  0px 15px ;
+  -webkit-border-radius: 0px 15px  0px 15px ;
+  border: 0px solid #000000;
+  background: #e9078a;
+  margin: 0 0 -15px -15px;
+  padding: 10px;
+  color: #fff;
+  -webkit-text-stroke: 1px #820f46;
+  font-weight: bold;
+}
+.kriteria{
+  color: #e9078a;
+}
+ul.galeri{
+  list-style-type: none;
+  margin-left: -40px;
+  margin-top: 15px;
+}
+ul.galeri li{margin-bottom: 15px;}
+.search-galeri{width: 700px; margin-top: 10px; margin-bottom: 10px;}
+.border-blue{
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 5px solid #820f46;
+}
+.nama-mamy{color: #ec008c; font-size: 12px;}
+.nama-baby{color: #AAE1F7; font-size: 12px;}
+.galeri-thumbnail{margin-left: -14px;}
