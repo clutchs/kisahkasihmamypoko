@@ -26,20 +26,7 @@
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container main-menu">
-        <div id="navbar" class="navbar-collapse collapse bg-mm">
-          <ul class="nav navbar-nav vag-font">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Mekanisme</a></li>
-            <li><a href="#">Daftar</a></li>
-            <li><a href="#">Hadiah</a></li>
-            <li><a href="#">Galeri</a></li>
-            <li><a href="#">Syarat &amp; Ketentuan</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+    <?php include 'mainmenu.php';?>
 
     <div class="container">
       <div class="bg-yellow row">

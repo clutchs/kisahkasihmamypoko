@@ -28,20 +28,7 @@
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container main-menu">
-        <div id="navbar" class="navbar-collapse collapse bg-mm">
-          <ul class="nav navbar-nav vag-font">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Mekanisme</a></li>
-            <li><a href="#">Daftar</a></li>
-            <li><a href="#">Hadiah</a></li>
-            <li><a href="#">Galeri</a></li>
-            <li><a href="#">Syarat &amp; Ketentuan</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+    <?php include 'mainmenu.php';?>
 
     <div class="container">
       <div class="bg-yellow row">
@@ -50,24 +37,28 @@
           <div class="row">
             <div class="col-xs-7 font-12">Kirimkan foto dan cerita tersebut melalui salah satu cara berikut :</div>
             <div class="col-xs-5 sub-mekanisme submit-color">
-              <ul class="nav navbar-nav vag-font">
-                <li><a href="#">Via Facebook</a></li>
-                <li><a href="#">Via Pos</a></li>
-              </ul>
+              <?php include 'submekan.php';?>
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-4 pembatas">
-              <img class="cara-satu" src="img/cara-satu.png" alt="cara satu">
-              <ul><li>Tunjukkan ekspresi bahagia dan penuh kasih antara Mamy dan si Kecil lewat foto</li></ul>
+            <div class="col-xs-6 pembatas">
+              <img class="via-fb" src="img/icon-up-fb.png" alt="cara kirim pakai FB">
             </div>
-            <div class="col-xs-4 pembatas">
-              <img class="cara-dua" src="img/cara-dua.png" alt="cara dua">
-              <ul><li>Pastikan si Kecil menggunakan popok MamyPoko Pants / Tipe Celana (Standar/Extra Dry/Extra Soft)</li></ul>
-            </div>
-            <div class="col-xs-4">
-              <img class="cara-tiga" src="img/cara-tiga.png" alt="cara tiga">
-              <ul><li>Ceritakan secara singkat dan menarik mengenai momen indah Mamy dan si Kecil bersama MamyPoko</li></ul>
+            <div class="col-xs-6">
+              <ul>
+                <li>Foto boleh menggunakan ponsel atau kamera 
+  namun pastikan kualitas foto baik (Foto terang, 
+  tidak buram dan terlihat jelas)</li>
+                <li>Kunjungi Facebook Mamypoko Indonesia 
+  (Tab Kisah Kasih Mamypoko)</li>
+                <li>Login via Facebook</li>
+                <li>Isi data diri secara lengkap</li>
+                <li>Upload foto dan tulis cerita singkat yang menarik 
+  tentang Mamy, si Kecil dan MamyPoko</li>
+                <li>Jika ingin mengikutsertakan lebih dari 1 orang anak, 
+   silakan ulangi proses mengisi data diri si Kecil 
+  dengan lengkap kemudian upload foto beserta cerita.</li>
+              </ul>
             </div>
           </div>
           
