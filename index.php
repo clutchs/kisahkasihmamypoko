@@ -18,7 +18,7 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-    define('ENVIRONMENT', 'development');
+    define('ENVIRONMENT', 'production');
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -31,17 +31,17 @@ if (defined('ENVIRONMENT'))
 {
     switch (ENVIRONMENT)
     {
-	case 'development':
-		error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING); //error_reporting(E_ALL); /* Original Setting */
-	break;
+   case 'development':
+      error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING); //error_reporting(E_ALL); /* Original Setting */
+   break;
 
-	case 'testing':
-	case 'production':
-		error_reporting(0);
-	break;
+   case 'testing':
+   case 'production':
+      error_reporting(0);
+   break;
 
-	default:
-		exit('The application environment is not set correctly.');
+   default:
+      exit('The application environment is not set correctly.');
     }
 }
 
@@ -134,12 +134,12 @@ if (defined('ENVIRONMENT'))
     // Set the current directory correctly for CLI requests
     if (defined('STDIN'))
     {
-	chdir(dirname(__FILE__));
+   chdir(dirname(__FILE__));
     }
 
     if (realpath($system_path) !== FALSE)
     {
-	$system_path = realpath($system_path).'/';
+   $system_path = realpath($system_path).'/';
     }
 
     // ensure there's a trailing slash
@@ -148,7 +148,7 @@ if (defined('ENVIRONMENT'))
     // Is the system path correct?
     if ( ! is_dir($system_path))
     {
-	exit("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ".pathinfo(__FILE__, PATHINFO_BASENAME));
+   exit("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ".pathinfo(__FILE__, PATHINFO_BASENAME));
     }
 
 /*
@@ -176,16 +176,16 @@ if (defined('ENVIRONMENT'))
     // The path to the "application" folder
     if (is_dir($application_folder))
     {
-	define('APPPATH', $application_folder.'/');
+   define('APPPATH', $application_folder.'/');
     }
     else
     {
-	if ( ! is_dir(BASEPATH.$application_folder.'/'))
-	{
-		exit("Your application folder path does not appear to be set correctly. Please open the following file and correct this: ".SELF);
-	}
+   if ( ! is_dir(BASEPATH.$application_folder.'/'))
+   {
+      exit("Your application folder path does not appear to be set correctly. Please open the following file and correct this: ".SELF);
+   }
 
-	define('APPPATH', BASEPATH.$application_folder.'/');
+   define('APPPATH', BASEPATH.$application_folder.'/');
     }
 
 /*
