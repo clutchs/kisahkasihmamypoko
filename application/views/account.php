@@ -9,7 +9,7 @@
                 <fieldset>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label" for="fullname">Nama Mamy</label>
+                        <label class="col-sm-4 control-label" for="fullname">Nama Lengkap</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo set_value('fullname', $fields['fullname']) ?>" placeholder="Nama Mamy" required="required" />
                         </div>
@@ -19,24 +19,24 @@
                     <div class="form-group">
                       <label class="col-sm-4 control-label" for="id_number">No. KTP</label>
                       <div class="col-sm-8">
-                        <input type="text" placeholder="No. KTP" class="form-control" name="id_number">
+                        <input type="text" placeholder="No. KTP" class="form-control" name="id_number" id="id_number">
                       </div>
                       <small class="text-danger"><?php echo $errors['id_number'];?></small>
                     </div>
 
                     <div class="form-group">
-                      <label class="col-sm-4 control-label" for="textinput">Nama Bayi</label>
+                      <label class="col-sm-4 control-label" for="baby_name">Nama Bayi</label>
                       <div class="col-sm-8">
-                        <input type="text" placeholder="Nama Bayi" class="form-control">
+                        <input type="text" placeholder="Nama Bayi" class="form-control" name="baby_name" id="baby_name">
                       </div>
                       <small class="text-danger"><?php echo $errors['fullname'];?></small>
                     </div>
 
                     <!-- Text input-->
                     <div class="form-group">
-                      <label class="col-sm-4 control-label" for="textinput">Tanggal Lahir Bayi</label>
+                      <label class="col-sm-4 control-label" for="baby_birthday">Tanggal Lahir Bayi</label>
                       <div class="col-sm-8">
-                        <input type="text" placeholder="Tanggal Lahir Bayi" class="form-control datepicker">
+                        <input type="text" placeholder="Tanggal Lahir Bayi" class="form-control datepicker" name="baby_birthday" id="baby_birthday">
                       </div>                  
                     </div>
 
@@ -50,11 +50,11 @@
 
                     <!-- Text input-->
                     <div class="form-group">
-                      <label class="col-sm-4 control-label" for="textinput">No. Telp</label>
+                      <label class="col-sm-4 control-label" for="phone_home">No. Telp</label>
                       <div class="col-sm-3">
-                        <input type="text" placeholder="No. Telp" class="form-control">
+                        <input type="text" placeholder="No. Telp" class="form-control" id="phone_home" name="phone_home">
                       </div>
-                      <small class="text-danger"><?php echo $errors['phone_number'];?></small>     
+                      <small class="text-danger"><?php echo $errors['phone_home'];?></small>     
                       <label class="col-sm-2 control-label" for="phone_number">No. Hp</label>
                       <div class="col-sm-3">
                         <input type="text" placeholder="No. Hp" class="form-control" id="phone_number" name="phone_number" value="<?php echo $fields['phone_number']; ?>">
@@ -64,9 +64,9 @@
 
                     <!-- Text input-->
                     <div class="form-group">
-                      <label class="col-sm-12 control-label" for="message">Ceritakan Momen Momy & si Kecil</label>
+                      <label class="col-sm-12 control-label" for="about">Ceritakan Momen Momy & si Kecil</label>
                       <div class="col-sm-12 textarea-message">
-                        <textarea class="form-control" type="textarea" id="message" placeholder="Message" name="about" maxlength="140" rows="6"><?php echo $fields['about']; ?></textarea>
+                        <textarea class="form-control" type="textarea" id="about" placeholder="Cerita.." name="about" maxlength="140" rows="6"><?php echo $fields['about']; ?></textarea>
                       </div>
                       <small class="text-danger"><?php echo $errors['about'];?></small>
                     </div>
@@ -92,15 +92,15 @@
             </div><!-- /.register-form -->
         </div><!-- /.row -->
       </div>
-
-      <div class="col-xs-4 cari-foto vag-font">
-        
+      <div class="col-xs-4 cari-foto vag-font">        
         <?php echo form_open_multipart(base_url('upload/photo?data='.$this->session->userdata('user_id')), array('id'=>'fileUploadForm'));?>
 				<div class="img_holder_xhr">
-                    <img src="<?php echo base_url('assets/static/img/250x250.jpg');?>" class="img-thumbnail" alt="Upload">
+                    <div class="img-thumbnail">
+                        <a href="#" class="colorbox"><img src="<?php echo base_url('assets/static/img/250x250.jpg');?>" class="img-rounded" alt="Upload"></a>
+                    </div>
 				</div>
 				<div class="text-center">
-					<div class="container">
+					<div class="container-fluid">
 						<!-- The global progress bar -->
 						<div id="progress" class="progress" style="display:none;">
 							<div class="progress-bar progress-bar-danger"></div>
@@ -114,14 +114,12 @@
 					</div>
 				</div>
 				<input type="hidden" name="image_temp" value="">
-			<div class="text-center button-submit" style="display: block">
+			<div class="text-center button-submit" style="display: none">
                 <button type="submit" class="btn submit-color">Kirim</button>
             </div>
 		<?php echo form_close(); ?>
         <small class="text-danger">Mohon untuk diperhatikan foto nya Momy sebelum di Kirim</small>        
-      
-      </div>
-        
+      </div>        
       <?php echo form_close();?>   
         
     </div>

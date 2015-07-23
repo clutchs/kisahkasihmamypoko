@@ -158,17 +158,33 @@ class Account extends Public_Controller {
                         'email_register' => '',
                         'id_number'      => '',
 						'image_temp'     => '',
+            
                         'phone_number'   => '',
+                        'phone_home'     => '',
+                        
+                        'baby_name'     => '',
+                        'baby_birthday' => '',
+                        
+                        'about'          => '',
                         'captcha'        => '');
 
         $errors	= $fields;
-        $this->form_validation->set_rules('fullname', 'Full Name', 'trim|required|min_length[5]|max_length[32]|xss_clean');
+        
+        $this->form_validation->set_error_delimiters('<p><div class="text-info"><span class="fa fa-warning text-danger"></span>&nbsp;&nbsp;<strong>', '</strong></div></p>');
+        
+        $this->form_validation->set_rules('fullname', 'Nama Lengkap Mamy', 'trim|required|min_length[5]|max_length[32]|xss_clean');
 		$this->form_validation->set_rules('email_register', 'Email','trim|valid_email|required|max_length[55]|callback_match_email|xss_clean');
         $this->form_validation->set_rules('id_number', 'No. KTP','trim|required|max_length[55]|xss_clean');
-        $this->form_validation->set_rules('image_temp', 'Foto belum tersedia','trim|required|max_length[55]|xss_clean');
-        //$this->form_validation->set_rules('gender', 'Gender','trim|required');		
-        $this->form_validation->set_rules('phone_number', 'No. Telp','trim|is_numeric|xss_clean|max_length[25]');
-        $this->form_validation->set_rules('captcha', 'Captcha Code','trim|required|xss_clean|callback_match_captcha');
+        $this->form_validation->set_rules('image_temp', 'Foto','trim|required|max_length[55]|xss_clean');
+        
+        $this->form_validation->set_rules('phone_number', 'No. HP','trim|required|is_numeric|xss_clean|max_length[25]');
+        $this->form_validation->set_rules('phone_home', 'No. Telp','trim|is_numeric|xss_clean|max_length[25]');
+        
+        $this->form_validation->set_rules('baby_name', 'Nama Bayi','trim|required|max_length[55]|xss_clean');
+        $this->form_validation->set_rules('baby_birthday', 'Tanggal Lahir Bayi','trim|required|max_length[55]|xss_clean');
+        
+        $this->form_validation->set_rules('about', 'Cerita Momy','trim|required|xss_clean|max_length[1000]');
+        $this->form_validation->set_rules('captcha', 'Kode Captcha','trim|required|xss_clean|callback_match_captcha');
 		
         // Check if post is requested
         if ($this->input->server('REQUEST_METHOD') == 'POST') {			

@@ -37,6 +37,14 @@
     <script src="<?php echo base_url();?>assets/public/js/jquery.colorbox-min.js"></script>
     <script src="<?php echo base_url();?>assets/public/js/bootbox/bootbox.min.js"></script>
     <script src="<?php echo base_url();?>assets/static/js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    
+    <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.ui.widget.min.js"></script>
+    <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload-process.js"></script>
+    <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload-validate.js"></script>
+    <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload-ui.js"></script>
+	
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url();?>assets/public/js/custom.js"></script>
 </body>

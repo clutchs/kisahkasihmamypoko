@@ -367,7 +367,7 @@ div.navbar-mamypoko .navbar-default .navbar-nav> li >a:hover { background-color:
 }
 .cari-foto div{
 margin-bottom: 10px;}
-.submit-color{
+.submit-color, .submit-color:active {
   background: rgba(195,220,71,1);
   background: -moz-linear-gradient(top, rgba(195,220,71,1) 0%, rgba(77,110,25,1) 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(195,220,71,1)), color-stop(100%, rgba(77,110,25,1)));

@@ -46,8 +46,8 @@
 	});
 	
        
-    /*
-    $('#fileupload,#fileupload2,#fileupload16').fileupload({
+    
+    $('#fileupload').fileupload({
         url: $(this).attr('data-url'),
         dataType: 'json',
         //acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
@@ -110,7 +110,13 @@
             // Log the current bitrate for this upload:
             //console.log(data.bitrate);
     });
-    */
+    $(".colorbox").colorbox({
+            rel: 'nofollow',
+            width:'640',
+            maxWidth:'640px',
+            innerWidth:'640px',
+            preloading:false
+    });
     $('.datepicker').datepicker();
     $('.popover_bootbox').click(function(){
             var image = $(this).attr('rel');
@@ -161,25 +167,25 @@
 		});    
     });  
     
-        $('.reload_captcha').click(function() {
-            var url	= $(this).attr('rel');		
-            $.ajax({
-                type: "POST",
-                url: url,
-                cache: false,
-                async: false,	
-                success: function(msg){
-                    $('.reload_captcha').empty().html(msg);
-                    // Need random for browser recache
-                    img = $('.reload_captcha').find('img');
-                    src = img.attr('src');
-                    ran	= img.fadeOut(50).fadeIn(50).attr('src', src + '?=' + Math.random());
-                },
-                complete: function(msg) {},
-                error: function(msg) {}
-            });
-            return false;	
+    $('.reload_captcha').click(function() {
+        var url	= $(this).attr('rel');		
+        $.ajax({
+            type: "POST",
+            url: url,
+            cache: false,
+            async: false,	
+            success: function(msg){
+                $('.reload_captcha').empty().html(msg);
+                // Need random for browser recache
+                img = $('.reload_captcha').find('img');
+                src = img.attr('src');
+                ran	= img.fadeOut(50).fadeIn(50).attr('src', src + '?=' + Math.random());
+            },
+            complete: function(msg) {},
+            error: function(msg) {}
         });
+        return false;	
+    });
         
 })(jQuery);
 
