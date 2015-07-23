@@ -110,14 +110,18 @@
             // Log the current bitrate for this upload:
             //console.log(data.bitrate);
     });
-    $(".colorbox").colorbox({
-            rel: 'nofollow',
-            width:'640',
-            maxWidth:'640px',
-            innerWidth:'640px',
-            preloading:false
-    });
-    $('.datepicker').datepicker();
+    
+    if ($(".colorbox").attr('href') !== '#') {
+        $(".colorbox").colorbox({
+                rel: 'nofollow',
+                width:'640',
+                maxWidth:'640px',
+                innerWidth:'640px',
+                preloading:false
+        });
+    }
+    
+    $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
     $('.popover_bootbox').click(function(){
             var image = $(this).attr('rel');
             var html = '<div class="text-center"><img class="img-responsive img-center" src="'+image+'" alt="'+image+'" width="100%"/></div>';

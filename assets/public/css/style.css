@@ -367,6 +367,7 @@ div.navbar-mamypoko .navbar-default .navbar-nav> li >a:hover { background-color:
 }
 .cari-foto div{
 margin-bottom: 10px;}
+.fileUpload:hover { color: #990000; }
 .submit-color, .submit-color:active {
   background: rgba(195,220,71,1);
   background: -moz-linear-gradient(top, rgba(195,220,71,1) 0%, rgba(77,110,25,1) 100%);
@@ -489,7 +490,7 @@ ul.galeri li{margin-bottom: 15px;}
   font-weight: bold;
 }
 .date-announce{font-size: 24px;-webkit-text-stroke: 1px #fff;}
-input.datepicker { padding: 10px;}
+input.datepicker { padding: 0 0 0 10px;}
 
 
 
