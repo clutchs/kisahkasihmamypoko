@@ -10,7 +10,7 @@
         <?php
             if (!empty($gallery)) { ?>
             <div class="search-galeri row">
-                <div class="col-sm-12 col-md-12 col-lg-12 pull-left sort">
+                <div class="col-sm-6 col-md-6 col-lg-6 pull-left sort">
                     <form role="form" action="" type="GET" class="form-horizontal sort">
                       <div class="input-group">
                         <select class="form-control input-sm" id="sel1" name="sort" style="width:100%" data-url="<?=uri_string();?>">
@@ -21,7 +21,7 @@
                       </div>
                     </form>
                 </div>
-                <div class="col-sm-7 pull-right">
+                <div class="pull-right">
                 <form class="form-inline" action="" method="GET">
                     <div class="form-group">
                       <label class="sr-only" for="exampleInputAmount">Participant</label>
