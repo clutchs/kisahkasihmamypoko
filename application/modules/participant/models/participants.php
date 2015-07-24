@@ -147,28 +147,6 @@ class Participants Extends CI_Model {
 		$Q->free_result();
 		return $data;
     }	
-
-	public function getConferences($id='',$participant_id = ''){
-		
-		$this->db->select('*');
-        $this->db->from('tbl_participant_conferences');
-        $this->db->join('tbl_conferences', 'tbl_participant_conferences.conference_id = tbl_conferences.id');
-        $this->db->join('tbl_participant_conference_completed', 'tbl_participant_conferences.participant_id = tbl_participant_conference_completed.participant_id');
-        $this->db->where('tbl_participant_conferences.conference_id', $id)->where('tbl_participant_conferences.participant_id', $participant_id);
-        
-        $Q = $this->db->get();
-        
-		if ($Q->num_rows() > 0){
-			foreach ($Q->result_object() as $row){
-                $data[] = $row;
-            }
-		}
-		$Q->free_result();
-		
-		// Update User data
-		return $data;
-		
-	}
     
     // Get participant's Email from posts 
 	public function getEmail($email=null){
@@ -289,7 +267,8 @@ class Participants Extends CI_Model {
             'identifier_id' => @$object['identifier_id'],
             'identity'      => @$object['identity'],
             'profile_url'   => @$object['profile_url'],
-            'identity'  => @$object['identity'],
+            'photo_url'	=> @$object['photo_url'],
+            
             'username'	=> @$object['username'],
             'name'		=> @$object['name'],
             'gender'	=> @$object['gender'],
@@ -300,12 +279,22 @@ class Participants Extends CI_Model {
 			'id_number'	=> @$object['id_number'],
             'research_area' => @$object['research_area'],
             'occupation' => @$object['occupation'],
+            
+            'baby_name' => @$object['baby_name'],
+            'baby_birthday' => @$object['baby_birthday'],
+            
             'about' => @$object['about'],
+            
             'address'	=> @$object['address'],
             'region'	=> @$object['region'],
-            'phone_number' => @$object['phone'],
-            'photo_url'	=> @$object['photo_url'],			
-            'status' => @$object['status']
+            
+            'phone_number' => @$object['phone_number'],
+            'phone_home' => @$object['phone_home'],
+            'id_number' => @$object['id_number'],
+            
+            'file_name'	=> @$object['file_name'],
+            'verify' => @$object['verify'],
+            'status' => @$object['status'],
 		);
 
 		// Insert Participant data

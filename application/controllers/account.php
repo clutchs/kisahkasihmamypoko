@@ -29,7 +29,7 @@ class Account extends Public_Controller {
             
             // Redirect to account
             //redirect(base_url('account/register'));
-            redirect(base_url('hauth/login/Facebook'));
+            //redirect(base_url('hauth/login/Facebook'));
             
         }
 	}
@@ -60,6 +60,8 @@ class Account extends Public_Controller {
                         'baby_birthday' => '',
                         
                         'about'          => '',
+                        
+                        'agreement'      => '',
                         'captcha'        => '');
 
         $errors	= $fields;
@@ -79,6 +81,7 @@ class Account extends Public_Controller {
         $this->form_validation->set_rules('baby_birthday', 'Tanggal Lahir Baby','trim|required|max_length[55]|xss_clean');
         
         $this->form_validation->set_rules('about', 'Cerita Momy','trim|required|xss_clean|max_length[1000]');
+        $this->form_validation->set_rules('agreement', 'Persetujuan','trim|required|xss_clean|max_length[1]');
         $this->form_validation->set_rules('captcha', 'Kode Captcha','trim|required|xss_clean|callback_match_captcha');
 		
         // Check if post is requested
@@ -126,7 +129,7 @@ class Account extends Public_Controller {
                 $object['about']           = $this->input->get_post('about', true);                
 				// Status
 				$object['verify']          = $this->input->get_post('captcha', true);
-                $object['status']          = '0';
+                $object['status']          = '1';
                 $object['completed']       = '0';
 				
                 $return = $this->Participants->setParticipant($object);
