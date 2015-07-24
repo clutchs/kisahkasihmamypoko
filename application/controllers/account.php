@@ -17,21 +17,7 @@ class Account extends Public_Controller {
         
         // Load email library
         $this->load->library('email');
-                
-		// Check if user is already login
-        if ($this->participant->status == 0) {
-            
-            // Set to login via hauth
-            //$message = "popupCenter('".base_url('hauth/login/Facebook')."', 'Facebook',480,520);";
-            
-            // Set flash to message user
-            //$this->session->set_flashdata('inline_js', $message);
-            
-            // Redirect to account
-            //redirect(base_url('account/register'));
-            redirect(base_url('hauth/login/Facebook'));
-            
-        }
+        
 	}
     
 	public function index() { 
@@ -58,11 +44,17 @@ class Account extends Public_Controller {
     
     public function register() {
 		
-        // Check if user is already login
-        if ($this->participant) {
+		// Check if user is already login
+        if (empty($this->participant) == 1 && $this->participant->status == 0) {
+            
+            // Set to login via hauth
+            //$message = "popupCenter('".base_url('hauth/login/Facebook')."', 'Facebook',480,520);";
+            
+            // Set flash to message user
+            //$this->session->set_flashdata('inline_js', $message);
             
             // Redirect to account
-            redirect(base_url('account'));
+            redirect('hauth/login/Facebook');
             
         }
         
@@ -531,7 +523,7 @@ class Account extends Public_Controller {
     public function redirect_login ($account = '') {
         
         // Redirect from website
-        redirect(base_url('hauth/login/'.$account));
+        redirect('hauth/login/'.$account);
         
     }
     

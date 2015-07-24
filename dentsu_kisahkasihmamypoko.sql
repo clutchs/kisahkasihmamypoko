@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.8.1
+-- version 4.0.10.7
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 24, 2015 at 03:05 PM
--- Server version: 5.5.40
--- PHP Version: 5.4.38
+-- Generation Time: Jul 24, 2015 at 08:15 AM
+-- Server version: 5.6.23
+-- PHP Version: 5.4.31
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `dentsu_kisahkasihmamypoko`
+-- Database: `mamypoko_kisahkasihmamypoko`
 --
 
 -- --------------------------------------------------------
@@ -32,14 +32,20 @@ CREATE TABLE IF NOT EXISTS `tbl_captcha` (
   `ip_address` varchar(16) DEFAULT NULL,
   `word` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1671 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1750 ;
 
 --
 -- Dumping data for table `tbl_captcha`
 --
 
 INSERT INTO `tbl_captcha` (`id`, `time`, `ip_address`, `word`) VALUES
-(1670, 1437723137, '127.0.0.1', 'EduQG');
+(1745, 1437740005, '139.0.26.20', 'xseZv'),
+(1749, 1437740043, '139.0.26.20', 'JIeLi'),
+(1748, 1437740041, '139.0.26.20', 'nJUGw'),
+(1747, 1437740039, '139.0.26.20', 'IeBqJ'),
+(1744, 1437740004, '139.0.26.20', 'kGJub'),
+(1743, 1437739993, '139.0.26.20', 'OoMKC'),
+(1746, 1437740005, '139.0.26.20', 'JTXtx');
 
 -- --------------------------------------------------------
 
@@ -62,7 +68,19 @@ CREATE TABLE IF NOT EXISTS `tbl_ci_sessions` (
 --
 
 INSERT INTO `tbl_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('5eb687b1ef550ef99c5526cfd81c1573', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:39.0) Gecko/20100101 Firefox/39.0', 1437724268, '');
+('0d401d7e23ac6553beb2343e98844ccc', '66.220.158.118', '0', 1437739753, ''),
+('10855ffc55819e00f87a7fe4f99e2a4a', '139.0.26.20', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.132 Safari/537.36', 1437739867, 'a:1:{s:9:"user_data";s:0:"";}'),
+('118c208a59133030649abdd5fd945469', '139.0.26.20', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0', 1437739838, 'a:1:{s:9:"user_data";s:0:"";}'),
+('13875581184877e8d6db183a19b7b17d', '66.220.158.114', '0', 1437739116, ''),
+('33173561c6adc6dfb6dcee774c57988b', '66.220.158.113', '0', 1437739406, ''),
+('46aec01946f44b89b3ead09f4d70bfff', '66.220.158.116', '0', 1437739655, ''),
+('63f3bd67c33153736cc0ff6c980c4fc4', '66.220.158.114', '0', 1437738956, ''),
+('9cdc2d3f2a4d3b5ea363b6f52ae656ff', '66.220.158.112', '0', 1437739158, ''),
+('b5fed0af112933fca1069fe549b0b0e6', '66.220.158.115', '0', 1437739275, ''),
+('dd8441a487c6bf15b635de014738dbbb', '66.220.158.119', '0', 1437739521, ''),
+('e68b1cf0b5fa4f47d33a48828a9ad01b', '139.0.26.20', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:39.0) Gecko/20100101 Firefox/39.0', 1437739993, 'a:2:{s:9:"user_data";s:0:"";s:11:"participant";O:8:"stdClass":31:{s:2:"id";s:2:"19";s:13:"identifier_id";s:16:"1614594405486202";s:8:"identity";s:8:"Facebook";s:11:"profile_url";s:61:"https://www.facebook.com/app_scoped_user_id/1614594405486202/";s:9:"photo_url";s:72:"https://graph.facebook.com/1614594405486202/picture?width=150&height=150";s:5:"email";s:23:"defrian.yarfi@gmail.com";s:7:"website";s:0:"";s:8:"password";N;s:8:"username";N;s:4:"name";s:13:"Defrian Yarfi";s:6:"gender";s:4:"male";s:3:"age";N;s:14:"nationality_id";N;s:13:"research_area";N;s:10:"occupation";N;s:9:"baby_name";s:8:"Baby Zee";s:13:"baby_birthday";s:10:"24/07/2015";s:5:"about";s:4:"Test";s:7:"address";N;s:6:"region";s:0:"";s:12:"phone_number";s:12:"081807244697";s:10:"phone_home";s:0:"";s:9:"id_number";s:10:"3145212312";s:9:"file_name";s:36:"89c97f5c4efc15cbf8bf065d5db0c1e6.jpg";s:6:"verify";s:5:"LAWnw";s:9:"completed";s:1:"0";s:9:"logged_in";s:1:"0";s:10:"last_login";s:10:"1437740047";s:10:"session_id";s:0:"";s:6:"status";s:1:"1";s:9:"join_date";s:19:"2015-07-24 08:14:07";}}'),
+('f24d7ecd707061094ccbc5536e3a81ff', '66.220.158.113', '0', 1437739225, ''),
+('fd0789e5f0c42e18580124edf8832c8a', '139.0.26.20', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:39.0) Gecko/20100101 Firefox/39.0', 1437740087, '');
 
 -- --------------------------------------------------------
 
@@ -1380,15 +1398,14 @@ CREATE TABLE IF NOT EXISTS `tbl_participants` (
   `join_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `tbl_participants`
 --
 
 INSERT INTO `tbl_participants` (`id`, `identifier_id`, `identity`, `profile_url`, `photo_url`, `email`, `website`, `password`, `username`, `name`, `gender`, `age`, `nationality_id`, `research_area`, `occupation`, `baby_name`, `baby_birthday`, `about`, `address`, `region`, `phone_number`, `phone_home`, `id_number`, `file_name`, `verify`, `completed`, `logged_in`, `last_login`, `session_id`, `status`, `join_date`) VALUES
-(7, 'SoPgnCFn90', 'LinkedIn', 'https://www.linkedin.com/pub/defrian-yarfi/42/a38/26b', 'https://media.licdn.com/mpr/mprx/0_HOKl9dnn1kEW_rs0QMBa9wvz0bmeiPE0oska9wbXh3sZpcgxk48gZI1oAEaB8Nw1djt7J2vMt7Ft', 'defrian.yarfi@gmail.com', NULL, NULL, NULL, 'Defrian Yarfi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Web Developer and Frontend Web Developer.\nCurrently used CodeIgniter, CakePHP, Kohana, Yii and OpenCart for web development.\nDatabase Design, API, RESTful web service and Cloud Computing.\nAndroid Mobile Hybrid Applications.\n\nSpecialties: HTML & CSS, Javascript, jQuery, Ajax, Actionscript, MVC Concept, PHP & MySQL.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '', 0, '2015-07-13 14:27:41'),
-(6, '300187659', 'Twitter', 'http://twitter.com/dyarfi', 'http://pbs.twimg.com/profile_images/417721509696634880/tKSK06gY.jpeg', NULL, NULL, NULL, NULL, 'dyarfi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, 'Bekasi, Indonesia', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '', 0, '2015-07-13 14:27:11');
+(19, '1614594405486202', 'Facebook', 'https://www.facebook.com/app_scoped_user_id/1614594405486202/', 'https://graph.facebook.com/1614594405486202/picture?width=150&height=150', 'defrian.yarfi@gmail.com', '', NULL, NULL, 'Defrian Yarfi', 'male', NULL, NULL, NULL, NULL, 'Baby Zee', '24/07/2015', 'Test', NULL, '', '081807244697', '', '3145212312', '89c97f5c4efc15cbf8bf065d5db0c1e6.jpg', 'LAWnw', 0, 0, 1437740047, '', 1, '2015-07-24 12:14:07');
 
 -- --------------------------------------------------------
 
