@@ -42,9 +42,12 @@
                             $pathinfo	= pathinfo($image->file_name);
                             $thumb		= $pathinfo['filename'].'_thumb.'.$pathinfo['extension'];
                         ?>
-                        <a href="javascript:;" class="popover_bootbox" rel="<?=base_url();?>uploads/gallery/<?=$image->file_name?>" title="<?php echo $image->name;?>">
+                        <a href="javascript:;" class="popover_bootbox" rel="<?=base_url();?>uploads/gallery/<?=$image->file_name?>" title="<?php echo $name; echo ($baby_name) ? ' & '.$baby_name : ''?>">
                             <img style="height:190px" data-toggle="modal" data-target=".bs-example-modal-sm-<?php echo $image->id ?>" src="<?php echo base_url();?>uploads/gallery/<?php echo $thumb?>" alt="<?php echo $image->name;?>" />
                         </a>
+                        <div class="img-description hidden">
+                            <?php echo $image->about;?>
+                        </div>
                           <div class="caption">
                             <h3 class="nama-mamy"><?=character_limiter($image->name, 16);?></h3>
                             <h3 class="nama-baby"><?=character_limiter($image->baby_name, 16);?></h3>
