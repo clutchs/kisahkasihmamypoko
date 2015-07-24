@@ -29,12 +29,32 @@ class Account extends Public_Controller {
             
             // Redirect to account
             //redirect(base_url('account/register'));
-            //redirect(base_url('hauth/login/Facebook'));
+            redirect(base_url('hauth/login/Facebook'));
             
         }
 	}
     
-	public function index() { }
+	public function index() { 
+        
+        if ($this->participant) {
+                        
+            // Set main template
+            $data['main']    = 'account_profile';
+
+            // Set site title page with module menu
+            $data['page_title'] = 'Account Profile';
+
+            // Load admin template
+            $this->load->view('template/public/template', $this->load->vars($data));
+            
+        } else {
+            
+            // Redirect to register page
+            redirect(base_url('account/register'));
+            
+        }
+        
+    }
     
     public function register() {
         
