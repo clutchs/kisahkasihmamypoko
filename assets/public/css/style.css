@@ -336,7 +336,7 @@ div.navbar-mamypoko .navbar-default .navbar-nav> li >a:hover { background-color:
   font-size: 8px;
 }
 .dapatkan-hadiah{margin-top: -12px;}
-.main-menu{width: 600px;}
+.main-menu{width: 625px;}
 .stroke{
   -webkit-text-stroke: 1px #760042;
 }
@@ -372,17 +372,13 @@ div.navbar-mamypoko .navbar-default .navbar-nav> li >a:hover { background-color:
 }
 .cari-foto div{
 margin-bottom: 10px;}
-<<<<<<< HEAD
+
 .fileUpload:hover { color: #990000; }
 .submit-color, .submit-color:active {
-=======
-
 .submit-color{}
 
 .fileUpload:hover { color: #990000; }
 .submit-color, .submit-color:active {
-
->>>>>>> 3f1a8480aabd2a719359d5432c7472183098a834
   background: rgba(195,220,71,1);
   background: -moz-linear-gradient(top, rgba(195,220,71,1) 0%, rgba(77,110,25,1) 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(195,220,71,1)), color-stop(100%, rgba(77,110,25,1)));
@@ -508,79 +504,7 @@ ul.galeri li{margin-bottom: 15px;}
   font-weight: bold;
 }
 .date-announce{font-size: 24px;-webkit-text-stroke: 1px #fff;}
-<<<<<<< HEAD
-=======
-
->>>>>>> 3f1a8480aabd2a719359d5432c7472183098a834
 input.datepicker { padding: 0 0 0 10px;}
-
-
-
-
-
-
-/* ==== Google font ==== */
-
-/*@import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:700|Merriweather:400italic');*/
-
-body {
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*font-family: 'Lato',sans-serif;*/
-    /*font-weight: 300;*/
-    /*color: #666;*/
-    /*background-color: #fff;*/
-}
-
-html {
-    /*width: 100%;*/
-    /*height: 100%;*/
-}
-h1,
-h2 {
-<<<<<<< HEAD
-	/* margin-bottom: 10px; */
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    /* margin: 0 0 30px; */
-    /*text-transform: uppercase;*/
-    /* font-family: Montserrat,sans-serif; */
-    /* font-weight: 700; */
-    /* letter-spacing: 1px; */
-=======
-
-  margin-bottom: 10px;
-}
-p {
-    margin: 0 0 20px;
-    font-size: 16px;
-    line-height: 1.6em;
-}
-
-p.lead {
-
-  font-weight: 600;
->>>>>>> 3f1a8480aabd2a719359d5432c7472183098a834
-}
-
-p {
-    /* margin: 0 0 20px; */
-    /* font-size: 16px; */
-    /* line-height: 1.6em; */
-}
-
-p.lead {
-<<<<<<< HEAD
-	/* font-weight: 600; */
-=======
-  /* font-weight: 600; */
->>>>>>> 3f1a8480aabd2a719359d5432c7472183098a834
-}
 
 a {
     /*color: #28c3ab;*/
