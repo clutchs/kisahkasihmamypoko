@@ -124,7 +124,10 @@
     $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
     $('.popover_bootbox').click(function(){
         var image = $(this).attr('rel');
-        var html = '<div class="text-center"><img class="img-responsive img-center" src="'+image+'" alt="'+image+'" width="100%"/></div>';
+		var title = $(this).attr('title');
+		var descs = $(this).next('.img-description').text();
+		var story = '<h2 class="note-baby">'+title+'</h2><p class="text-left">'+descs+'</p>';
+        var html = '<div class="text-center vag-font"><img class="img-responsive img-center" src="'+image+'" alt="'+image+'" width="100%"/>'+story+'</div>';
         bootbox.alert({message:html,closeButton:false});
     });
     $(document).on('click', '.bootbox', function (event) {
@@ -199,6 +202,21 @@
         }
         console.log($(this).val());
     });
+	
+    $('select[name="sort"]').change(function() {
+    	var varb = $(this).val();
+    	$.ajax({
+		  	data: $(this).serializeArray(),
+		}).done(function(msg) {
+			var redirect = $(location).attr('href');
+			var val = jQuery.parseJSON(msg);
+			// Redirect after request language
+			if (varb != '') {
+				location.href = val.url;
+			}
+		});
+    });
+	
     $('.scroll-pane').jScrollPane();
     $('.scroll-pane-arrows').jScrollPane(
       {

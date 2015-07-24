@@ -59,7 +59,8 @@ class HAuth extends Public_Controller {
                                 
                                 $participant_id = $this->Participants->setParticipant($object);
                                 
-                                echo $participant_id; 
+                                //echo $participant_id;
+								redirect(base_url('account/register'));								
                                 
                             } else {
                                 

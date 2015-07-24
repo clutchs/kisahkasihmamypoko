@@ -53,8 +53,13 @@ class Account extends Public_Controller {
             // Set flash to message user
             //$this->session->set_flashdata('inline_js', $message);
             
-            // Redirect to account
+            // Redirect to account registration
             redirect('hauth/login/Facebook');
+            
+        } else if ($this->participant->status == 1) {
+                        
+            // Redirect to account registration
+            redirect('account');
             
         }
         
@@ -86,8 +91,8 @@ class Account extends Public_Controller {
         $this->form_validation->set_rules('id_number', 'No. KTP','trim|required|max_length[55]|xss_clean');
         $this->form_validation->set_rules('image_temp', 'Foto','trim|required|max_length[55]|xss_clean');
         
-        $this->form_validation->set_rules('phone_number', 'No. HP','trim|required|is_numeric|xss_clean|max_length[25]');
-        $this->form_validation->set_rules('phone_home', 'No. Tlp','trim|is_numeric|xss_clean|max_length[25]');
+        $this->form_validation->set_rules('phone_number', 'No. HP','trim|required|is_numeric|xss_clean|max_length[35]');
+        $this->form_validation->set_rules('phone_home', 'No. Tlp','trim|is_numeric|xss_clean|max_length[35]');
         
         $this->form_validation->set_rules('baby_name', 'Nama Baby','trim|required|max_length[55]|xss_clean');
         $this->form_validation->set_rules('baby_birthday', 'Tanggal Lahir Baby','trim|required|max_length[55]|xss_clean');
@@ -303,14 +308,16 @@ class Account extends Public_Controller {
                         'email'          => '',
                         'id_number'      => '',
                         'phone_number'   => '',
+						'phone_home'	 => '',
                         'captcha'        => '');
 
         $errors	= $fields;
         
-        $this->form_validation->set_rules('fullname', 'Nama Mamy', 'trim|required|min_length[5]|max_length[32]|xss_clean');
-		$this->form_validation->set_rules('email', 'Email','trim|valid_email|required|max_length[55]|callback_match_email|xss_clean');
-        $this->form_validation->set_rules('id_number', 'No. Ktp','trim|xss_clean||required|max_length[25]');
-        $this->form_validation->set_rules('phone_number', 'Phone Number','trim|is_numeric|xss_clean||required|max_length[25]');
+        $this->form_validation->set_rules('fullname', 'Nama Mamy', 'trim|required|min_length[5]|max_length[45]|xss_clean');
+		$this->form_validation->set_rules('email', 'Email','trim|valid_email|required|max_length[128]|callback_match_email|xss_clean');
+        $this->form_validation->set_rules('id_number', 'No. Ktp','trim|xss_clean||required|max_length[45]');
+        $this->form_validation->set_rules('phone_number', 'No. Hp','trim|is_numeric|xss_clean|required|max_length[45]');
+		$this->form_validation->set_rules('phone_home', 'No. Tlp','trim|is_numeric|xss_clean|required|max_length[45]');
         $this->form_validation->set_rules('captcha', 'Captcha Code','trim|required|xss_clean|callback_match_captcha');
 		
         // Check if post is requested
@@ -347,8 +354,9 @@ class Account extends Public_Controller {
 				
                 $object['email']           = $this->input->get_post('email', true);
 				$object['name']            = $this->input->get_post('fullname', true);
-                //$object['gender']          = $this->input->get_post('gender', true);
-				//$object['phone_number']    = $this->input->get_post('phone_number', true);
+                //$object['gender']        = $this->input->get_post('gender', true);
+				$object['phone_number']    = $this->input->get_post('phone_number', true);
+				$object['phone_home']      = $this->input->get_post('phone_home', true);
 				$object['verify']          = $this->input->get_post('captcha', true);
                 $object['status']          = '0';
                 $object['completed']       = '0';

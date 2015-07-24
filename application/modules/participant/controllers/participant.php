@@ -98,7 +98,7 @@ class Participant extends Admin_Controller {
 	
 	public function _callback_filename($value, $row) {
 		$row->file_name = strip_tags($row->file_name);
-        return $row->file_name ? '<div class="text-center"><a href="'.base_url('uploads/users/'.$row->file_name).'" class="image-thumbnail"><img height="110px" src="'.base_url('uploads/users/'.$row->file_name).'"/></a></div>' : '-';
+        return $row->file_name ? '<div class="text-center"><a href="'.base_url('uploads/gallery/'.$row->file_name).'" class="image-thumbnail"><img height="110px" src="'.base_url('uploads/gallery/'.$row->file_name).'"/></a></div>' : '-';
     }
     
 	public function _callback_filename_url($value, $row) {
