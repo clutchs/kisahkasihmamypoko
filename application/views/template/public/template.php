@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title><?php echo $page_title; ?></title>	
+	<title><?php echo $page_title; echo config_item('title_default') ? ' | '.config_item('title_default') : '';?></title>	
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url();?>assets/public/css/bootstrap.min.css" rel="stylesheet" type="text/css">	
     <!-- Site default CSS -->    

@@ -21,7 +21,8 @@ class upload extends Public_Controller {
 			exit('No direct script access allowed');		
 		}	
 		
-		//print_r($_FILES);
+		// Show the loader on user
+		usleep(1000000);
 		
 		// Define initialize result
 		$result['result'] = '';
@@ -39,8 +40,6 @@ class upload extends Public_Controller {
 			if ($this->form_validation->run() === FALSE) {
 								
 					if($_FILES) {					
-		
-						usleep(2000000);
 						
 						$file_hash	= md5(time() + rand(100, 999));
 						$file_data	= pathinfo($_FILES['fileupload']['name']);

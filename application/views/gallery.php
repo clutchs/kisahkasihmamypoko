@@ -4,32 +4,11 @@ window.onload = function() {
 	FB.Canvas.setSize({ width: 810, height: 1450 });
 }
 </script>
-
-
-
     <div class="bg-yellow row">
         <h1><img class="kisah-title" src="<?php echo base_url();?>assets/public/img/galeri.png" alt="galeri page"></h1>
         <div class="scroll-pane-arrows mekanisme-body scroll-body row">
-          <div class="search-galeri row">
-            <div class="col-xs-3">
-              <div class="input-group custom-search-form">
-                <input type="text" class="form-control">
-                <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                <span class="glyphicon glyphicon-search"></span>
-                </button>
-                </span>
-              </div><!-- /input-group -->
-            </div>
-            <div class="col-xs-3 col-xs-offset-6">
-              <select class="form-control" id="status" name="status">
-                <option>Paid</option>
-                <option>Unpaid</option>
-              </select>
-            </div>
-          </div>
+          
           <div class="galeri-thumbnail">
-            
             <?php 
             if (!empty($gallery)) { ?>
                 <div class="col-sm-12 col-md-12 col-lg-12 pull-left sort">
@@ -62,12 +41,12 @@ window.onload = function() {
                             $pathinfo	= pathinfo($image->file_name);
                             $thumb		= $pathinfo['filename'].'_thumb.'.$pathinfo['extension'];
                         ?>
-                        <a href="javascript:;" class="popover_bootbox" rel="<?=base_url();?>uploads/gallery/<?=$image->file_name?>">
+                        <a href="javascript:;" class="popover_bootbox" rel="<?=base_url();?>uploads/gallery/<?=$image->file_name?>" title="<?php echo $image->name;?>">
                             <img style="height:190px" data-toggle="modal" data-target=".bs-example-modal-sm-<?php echo $image->id ?>" src="<?=base_url();?>uploads/gallery/<?=$thumb?>" alt="<?=$image->file_name;?>" />
                         </a>
                           <div class="caption">
-                            <h3 class="nama-mamy"><?=character_limiter($image->title, 16);?></h3>
-                            <h3 class="nama-baby"><?=character_limiter($image->file_name, 16);?></h3>
+                            <h3 class="nama-mamy"><?=character_limiter($image->name, 16);?></h3>
+                            <h3 class="nama-baby"><?=character_limiter($image->baby_name, 16);?></h3>
                           </div>
                         </div>
                     </div>
@@ -76,121 +55,7 @@ window.onload = function() {
             <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 			  <h3 class="text-center font-pocky">Belum ada galeri</h3>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <?php } ?>                  
-            <div class="col-xs-3">
-              <div class="thumbnail">
-                <img src="http://placehold.it/144x86" alt="Foto Bayi">
-                <div class="caption">
-                  <h3 class="nama-mamy">Nama Mamy</h3>
-                  <h3 class="nama-baby">Nama Baby</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-3">
-              <div class="thumbnail">
-                <img src="http://placehold.it/144x86" alt="Foto Bayi">
-                <div class="caption">
-                  <h3 class="nama-mamy">Nama Mamy</h3>
-                  <h3 class="nama-baby">Nama Baby</h3>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xs-3">
-              <div class="thumbnail">
-                <img src="http://placehold.it/144x86" alt="Foto Bayi">
-                <div class="caption">
-                  <h3 class="nama-mamy">Nama Mamy</h3>
-                  <h3 class="nama-baby">Nama Baby</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-3">
-              <div class="thumbnail">
-                <img src="http://placehold.it/144x86" alt="Foto Bayi">
-                <div class="caption">
-                  <h3 class="nama-mamy">Nama Mamy</h3>
-                  <h3 class="nama-baby">Nama Baby</h3>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xs-3">
-              <div class="thumbnail">
-                <img src="http://placehold.it/144x86" alt="Foto Bayi">
-                <div class="caption">
-                  <h3 class="nama-mamy">Nama Mamy</h3>
-                  <h3 class="nama-baby">Nama Baby</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-3">
-              <div class="thumbnail">
-                <img src="http://placehold.it/144x86" alt="Foto Bayi">
-                <div class="caption">
-                  <h3 class="nama-mamy">Nama Mamy</h3>
-                  <h3 class="nama-baby">Nama Baby</h3>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xs-3">
-              <div class="thumbnail">
-                <img src="http://placehold.it/144x86" alt="Foto Bayi">
-                <div class="caption">
-                  <h3 class="nama-mamy">Nama Mamy</h3>
-                  <h3 class="nama-baby">Nama Baby</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-3">
-              <div class="thumbnail">
-                <img src="http://placehold.it/144x86" alt="Foto Bayi">
-                <div class="caption">
-                  <h3 class="nama-mamy">Nama Mamy</h3>
-                  <h3 class="nama-baby">Nama Baby</h3>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xs-3">
-              <div class="thumbnail">
-                <img src="http://placehold.it/144x86" alt="Foto Bayi">
-                <div class="caption">
-                  <h3 class="nama-mamy">Nama Mamy</h3>
-                  <h3 class="nama-baby">Nama Baby</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-3">
-              <div class="thumbnail">
-                <img src="http://placehold.it/144x86" alt="Foto Bayi">
-                <div class="caption">
-                  <h3 class="nama-mamy">Nama Mamy</h3>
-                  <h3 class="nama-baby">Nama Baby</h3>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xs-3">
-              <div class="thumbnail">
-                <img src="http://placehold.it/144x86" alt="Foto Bayi">
-                <div class="caption">
-                  <h3 class="nama-mamy">Nama Mamy</h3>
-                  <h3 class="nama-baby">Nama Baby</h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-3">
-              <div class="thumbnail">
-                <img src="http://placehold.it/144x86" alt="Foto Bayi">
-                <div class="caption">
-                  <h3 class="nama-mamy">Nama Mamy</h3>
-                  <h3 class="nama-baby">Nama Baby</h3>
-                </div>
-              </div>
-            </div>
-
+            <?php } ?>
           </div>
         </div>
       </div>

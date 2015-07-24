@@ -18,8 +18,8 @@ class Account extends Public_Controller {
         // Load email library
         $this->load->library('email');
                 
-         // Check if user is already login
-        if (!$this->participant) {
+		// Check if user is already login
+        if ($this->participant->status == 0) {
             
             // Set to login via hauth
             //$message = "popupCenter('".base_url('hauth/login/Facebook')."', 'Facebook',480,520);";
@@ -36,7 +36,7 @@ class Account extends Public_Controller {
     
 	public function index() { 
         
-        if ($this->participant) {
+		if ($this->participant->status == 1) {
                         
             // Set main template
             $data['main']    = 'account_profile';
@@ -57,7 +57,7 @@ class Account extends Public_Controller {
     }
     
     public function register() {
-        
+		
         // Check if user is already login
         if ($this->participant) {
             
@@ -152,7 +152,11 @@ class Account extends Public_Controller {
                 $object['status']          = '1';
                 $object['completed']       = '0';
 				
-                $return = $this->Participants->setParticipant($object);
+				// Set participant data
+                // $return = $this->Participants->setParticipant($object);
+				$return = $this->Participants->updateParticipant($this->participant->id,$object);
+				// Update participant session
+				$this->session->set_userdata('participant',$this->Participants->getParticipant($return));
 				
                 if (!empty($return)) {
 
@@ -160,6 +164,7 @@ class Account extends Public_Controller {
                     $message['site_name']       = config_item('developer_name');
                     $message['site_link']       = base_url();
                     $message['name']            = $object['name'];
+					$message['baby_name']       = $object['baby_name'];
                     $message['site_copyright']  = $this->Settings->getByParameter('copyright')->value;
                     //$message['activation']      = base_url('account/activation?confirm='.base64_encode($object['verify'].'-:-'.$object['email']).'');        
                     
@@ -181,7 +186,7 @@ class Account extends Public_Controller {
 				if ($this->input->is_ajax_request()) {
 					// Send json message
 					$result['result']	= 'OK';
-					$result['label']	= base_url('account/dashboard');
+					$result['label']	= base_url('account');
 				} else {					
                     // Redirect if not ajax
 					redirect(base_url());
@@ -217,7 +222,7 @@ class Account extends Public_Controller {
 		$data['main']    = 'account';
 				
 		// Set site title page with module menu
-		$data['page_title'] = 'Account';
+		$data['page_title'] = 'Account Register';
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));

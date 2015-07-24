@@ -308,6 +308,48 @@ class Participants Extends CI_Model {
 
     }	
 
+	public function updateParticipant($id=null, $object) {
+	
+		// Set Participant data
+		$data = array(			
+            'identifier_id' => @$object['identifier_id'],
+            'identity'      => @$object['identity'],
+            'profile_url'   => @$object['profile_url'],
+            'photo_url'	=> @$object['photo_url'],
+            
+            'username'	=> @$object['username'],
+            'name'		=> @$object['name'],
+            'gender'	=> @$object['gender'],
+            'email'		=> @$object['email'],
+            'website'	=> @$object['website'],
+            'age'       => @$object['age'],
+            'nationality_id' => @$object['nationality_id'],
+			'id_number'	=> @$object['id_number'],
+            'research_area' => @$object['research_area'],
+            'occupation' => @$object['occupation'],
+            
+            'baby_name' => @$object['baby_name'],
+            'baby_birthday' => @$object['baby_birthday'],
+            
+            'about' => @$object['about'],
+            
+            'address'	=> @$object['address'],
+            'region'	=> @$object['region'],
+            
+            'phone_number' => @$object['phone_number'],
+            'phone_home' => @$object['phone_home'],
+            'id_number' => @$object['id_number'],
+            
+            'file_name'	=> @$object['file_name'],
+            'verify' => @$object['verify'],
+            'status' => @$object['status'],
+		);
+	    //Get user id
+	    $this->db->where('id', $id);
+	    //Return result
+	    return $this->db->update($this->table, $object);
+	}
+	
     // Delete page
     public function deleteParticipant($id) {
 
@@ -317,5 +359,98 @@ class Participants Extends CI_Model {
 		// Delete page form database
 		return $this->db->delete($this->table);		
     }	
+	    
+    public function get_all_gallery ($part_id, $limit = 0, $start = 0) {
+        $data = array();
+
+        $this->db->where('id',$part_id);
+        //$this->db->where('status',1);        
+        $this->db->order_by('id','desc');
+
+        $Q = $this->db->get('participants');
+        
+        if ($Q->num_rows() > 0){
+            $data = $Q->result_object();
+        }
+
+        $Q->free_result();
+        return $data;   
+    }
 	
+	public function get_all_images ($limit = 0, $start = 0, $order=array(), $search='', $column=array(), $status='') {
+		$data = array();
+        
+        if ($search != '') {       
+            $this->db->like('name', $search); 
+        } 
+        if ($status != '') {
+			$this->db->where('status',$status);
+        }
+		$this->db->where('file_name !=','');
+        
+        if (is_array($order)) {
+            foreach ($order as $key => $value) {                
+                $this->db->order_by($key,$value);
+            }
+        }
+		
+		if (is_array($column)) {
+            foreach ($column as $col => $val) {      			
+                $this->db->where($col, $val);
+            }
+        }
+        $this->db->limit($limit, $start);        
+
+		$Q = $this->db->get('participants');
+		if ($Q->num_rows() > 0){
+			$data = $Q->result_object();
+		}
+		
+        $Q->free_result();
+        
+		//print_r($this->db->last_query());
+		
+		return $data;	
+	}
+
+    public function get_count_images ($search='',$column=array(),$status='') {
+        if (!empty($search)) {
+            $this->db->like('name', $search);            
+        }
+		if (is_array($column)) {
+            foreach ($column as $col => $val) {                
+                $this->db->where($col, $val);
+            }
+        }
+		if ($status != '') {
+			$this->db->where('status',$status);
+        }
+        $this->db->from('participants');
+        return $this->db->count_all_results();
+    }
+
+    public function get_count_user_images ($part_id=0) {
+        $this->db->where('id',$part_id);
+        $this->db->where('status', 1);
+        $this->db->from('participants');
+        return $this->db->count_all_results();
+    }
+	
+    public function get_image($image_id='',$part_id='') {
+        $data = array();
+        $this->db->where('id',$image_id);
+        //$this->db->where('part_id',$part_id);        
+        $Q = $this->db->get('participants');
+        if ($Q->num_rows() > 0){
+            foreach ($Q->result_object() as $row)
+            $data = $row;
+        }
+        $Q->free_result();
+        return $data;   
+    }
+
+    public function insert_image($image) {
+        $this->db->insert('participants', $image);
+        return $this->db->insert_id();
+    }
 }
