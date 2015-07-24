@@ -2,11 +2,7 @@
 
 class HAuth extends Public_Controller {
 
-    public function __construct () {
-        parent::__construct();
-        
-        
-    }
+    public function __construct () { parent::__construct(); }
     
 	public function index(){ $this->load->view('hauth/home'); }
     

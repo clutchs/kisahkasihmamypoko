@@ -2,6 +2,7 @@
 
 class Account extends Public_Controller {
 
+    // Class constructor
 	public function __construct() {
 		parent::__construct();
 		
@@ -16,19 +17,24 @@ class Account extends Public_Controller {
         
         // Load email library
         $this->load->library('email');
-        
-	}
-    
-	public function index() {
-        
-        // Check if user is already login
+                
+         // Check if user is already login
         if (!$this->participant) {
             
+            // Set to login via hauth
+            //$message = "popupCenter('".base_url('hauth/login/Facebook')."', 'Facebook',480,520);";
+            
+            // Set flash to message user
+            //$this->session->set_flashdata('inline_js', $message);
+            
             // Redirect to account
-            redirect(base_url('account'));
+            //redirect(base_url('account/register'));
+            redirect(base_url('hauth/login/Facebook'));
             
         }
-    }
+	}
+    
+	public function index() { }
     
     public function register() {
         

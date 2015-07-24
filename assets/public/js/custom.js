@@ -3,8 +3,8 @@
 	//new WOW().init();
 
 	jQuery(window).load(function() { 
-		jQuery("#preloader").delay(100).fadeOut("slow");
-		jQuery("#load").delay(100).fadeOut("slow");
+            //jQuery("#preloader").delay(100).fadeOut("slow");
+            //jQuery("#load").delay(100).fadeOut("slow");
 	});
 
 	//$('#container').imagesLoaded( function() {
@@ -14,11 +14,11 @@
 	
 	//jQuery to collapse the navbar on scroll
 	$(window).scroll(function() {
-		if ($(".navbar").offset().top > 50) {
-                    //$(".navbar-fixed-top").addClass("top-nav-collapse");
-		} else {
-                    //$(".navbar-fixed-top").removeClass("top-nav-collapse");
-		}
+            if ($(".navbar").offset().top > 50) {
+                //$(".navbar-fixed-top").addClass("top-nav-collapse");
+            } else {
+                //$(".navbar-fixed-top").removeClass("top-nav-collapse");
+            }
 	});
 	
 	//jQuery for page scrolling feature - requires jQuery Easing plugin
@@ -123,12 +123,12 @@
     
     $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
     $('.popover_bootbox').click(function(){
-            var image = $(this).attr('rel');
-            var html = '<div class="text-center"><img class="img-responsive img-center" src="'+image+'" alt="'+image+'" width="100%"/></div>';
-            bootbox.alert({message:html,closeButton:false});
+        var image = $(this).attr('rel');
+        var html = '<div class="text-center"><img class="img-responsive img-center" src="'+image+'" alt="'+image+'" width="100%"/></div>';
+        bootbox.alert({message:html,closeButton:false});
     });
     $(document).on('click', '.bootbox', function (event) {
-            bootbox.hideAll();
+        bootbox.hideAll();
     });
     $('#form-register').submit(function(e) {
         e.preventDefault();

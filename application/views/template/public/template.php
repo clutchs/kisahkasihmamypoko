@@ -47,5 +47,23 @@
 	
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url();?>assets/public/js/custom.js"></script>
+    
+<?php 
+// Use only from controller to set js messages
+if ($this->session->flashdata('inline_js')) { ?>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    <?php 
+        // Set js message
+        echo $this->session->flashdata('inline_js'); 
+        // Destroy after displaying
+        $this->session->unset_userdata('inline_js');
+    ?>
+    });
+    </script>
+<?php 
+}
+?>
+    
 </body>
 </html>
