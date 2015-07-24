@@ -9,14 +9,17 @@
     <!-- Site default CSS -->    
     <link href="<?php echo base_url();?>assets/public/font-awesome/css/font-awesome.css" rel="stylesheet">        
     <link href="<?php echo base_url();?>assets/public/css/fonts.css" rel="stylesheet">    
-    <link type="text/css" href="<?php echo base_url();?>assets/public/css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
-    <link type="text/css" href="<?php echo base_url();?>assets/public/css/jquery.jscrollpane.lozenge.css" rel="stylesheet" media="all" />
+
     <link href="<?php echo base_url();?>assets/public/css/colorbox/colorbox.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url();?>assets/static/js/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css">
+	
+	<link type="text/css" href="<?php echo base_url();?>assets/public/css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+    <link type="text/css" href="<?php echo base_url();?>assets/public/css/jquery.jscrollpane.lozenge.css" rel="stylesheet" media="all" />
+	
     <link href="<?php echo base_url();?>assets/public/css/style.css" rel="stylesheet">    
 	<script type="text/javascript">var base_URL = '<?php echo base_url();?>';</script>
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">	
+<body>	
 	<div id="wrapper">		
         <?php $this->load->view('template/public/header'); ?>
         <div id="navigation">
