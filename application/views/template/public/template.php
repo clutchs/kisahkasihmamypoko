@@ -9,6 +9,8 @@
     <!-- Site default CSS -->    
     <link href="<?php echo base_url();?>assets/public/font-awesome/css/font-awesome.css" rel="stylesheet">        
     <link href="<?php echo base_url();?>assets/public/css/fonts.css" rel="stylesheet">    
+    <link type="text/css" href="<?php echo base_url();?>assets/public/css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+    <link type="text/css" href="<?php echo base_url();?>assets/public/css/jquery.jscrollpane.lozenge.css" rel="stylesheet" media="all" />
     <link href="<?php echo base_url();?>assets/public/css/colorbox/colorbox.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url();?>assets/static/js/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url();?>assets/public/css/style.css" rel="stylesheet">    
@@ -45,6 +47,9 @@
     <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload-validate.js"></script>
     <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload-ui.js"></script>
 	
+    <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.jscrollpane.min.js"></script>
+    
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url();?>assets/public/js/custom.js"></script>
     

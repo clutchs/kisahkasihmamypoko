@@ -199,7 +199,13 @@
         }
         console.log($(this).val());
     });
-    
+    $('.scroll-pane').jScrollPane();
+    $('.scroll-pane-arrows').jScrollPane(
+      {
+        showArrows: true,
+        horizontalGutter: 10
+      }
+    );
 })(jQuery);
 
 

@@ -1,8 +1,8 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');?>
 <script type="text/javascript">
-window.onload = function() {
-	FB.Canvas.setSize({ width: 810, height: 1450 });
-}
+//window.onload = function() {
+	//FB.Canvas.setSize({ width: 810, height: 1450 });
+//}
 </script>
     <div class="bg-yellow row">
         <h1><img class="kisah-title" src="<?php echo base_url();?>assets/public/img/galeri.png" alt="galeri page"></h1>
@@ -52,9 +52,9 @@ window.onload = function() {
                     </div>
             <?php }
             } else { ?>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/>
 			  <h3 class="text-center font-pocky">Belum ada galeri</h3>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            
             <?php } ?>
           </div>
         </div>
