@@ -34,7 +34,25 @@
 				</div>
 			</div>
 			<div class="galeri-thumbnail">
-
+			<?php 
+                foreach ($gallery as $image) { ?>
+                    <div class="col-xs-3">
+                        <div class="thumbnail">
+                        <?php
+                            $pathinfo	= pathinfo($image->file_name);
+                            $thumb		= $pathinfo['filename'].'_thumb.'.$pathinfo['extension'];
+                        ?>
+                        <a href="javascript:;" class="popover_bootbox" rel="<?=base_url();?>uploads/gallery/<?=$image->file_name?>" title="<?php echo $image->name;?>">
+                            <img style="height:190px" data-toggle="modal" data-target=".bs-example-modal-sm-<?php echo $image->id ?>" src="<?php echo base_url();?>uploads/gallery/<?php echo $thumb?>" alt="<?php echo $image->name;?>" />
+                        </a>
+                          <div class="caption">
+                            <h3 class="nama-mamy"><?=character_limiter($image->name, 16);?></h3>
+                            <h3 class="nama-baby"><?=character_limiter($image->baby_name, 16);?></h3>
+                          </div>
+                        </div>
+                    </div>
+            <?php } ?>
+			
 			<div class="col-xs-3">
               <div class="thumbnail">
                 <img src="http://placehold.it/144x86" alt="Foto Bayi">
