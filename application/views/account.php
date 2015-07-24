@@ -10,7 +10,7 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label" for="fullname">Nama Lengkap</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo set_value('fullname', $fields['fullname']); ?>" placeholder="* Nama Mamy" required="required" />
+                            <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo set_value('fullname', $fields['fullname'] ? $fields['fullname'] : $this->participant->name); ?>" placeholder="* Nama Mamy" required="required" />
                         </div>
                         <small class="text-danger"><?php echo $errors['fullname'];?></small>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="form-group">
                       <label class="col-sm-4 control-label" for="email_register">Email</label>
                       <div class="col-sm-8">
-                        <input type="email" class="form-control" id="email_register" name="email_register" value="<?php echo set_value('email_register', $fields['email_register']) ?>" placeholder="* Email" required="required" />
+                        <input type="email" class="form-control" id="email_register" name="email_register" value="<?php echo set_value('email_register', $fields['email_register'] ? $fields['email_register'] : $this->participant->email) ?>" placeholder="* Email" required="required" />
                       </div>
                     </div>
 
