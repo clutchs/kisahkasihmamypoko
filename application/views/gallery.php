@@ -57,8 +57,7 @@
             <?php } ?>            
             <?php } else { ?>
             <br/><br/><br/><br/><br/><br/><br/>
-              <h3 class="text-center font-pocky">Belum ada galeri</h3>
-
+              <h3 class="text-center font-pocky">Belum ada galeri. <br/><a href="<?php echo base_url('photo_gallery');?>" title="Kembali">Kembali</a></h3>              
             <?php } ?>
           </div>
         </div>
