@@ -10,7 +10,7 @@
         <?php
             if (!empty($gallery)) { ?>
             <div class="search-galeri row">
-                <div class="col-sm-6 col-md-6 col-lg-6 pull-left sort">
+                <div class="col-xs-6 pull-left sort">
                     <form role="form" action="" type="GET" class="form-horizontal sort">
                       <div class="input-group">
                         <select class="form-control input-sm" id="sel1" name="sort" style="width:100%" data-url="<?=uri_string();?>">
@@ -42,7 +42,7 @@
                             $pathinfo	= pathinfo($image->file_name);
                             $thumb		= $pathinfo['filename'].'_thumb.'.$pathinfo['extension'];
                         ?>
-                        <a href="javascript:;" class="popover_bootbox" rel="<?=base_url();?>uploads/gallery/<?=$image->file_name?>" title="<?php echo $name; echo ($baby_name) ? ' & '.$baby_name : ''?>">
+                        <a href="javascript:;" class="popover_bootbox" rel="<?=base_url();?>uploads/gallery/<?=$image->file_name?>" title="<?php echo $image->name; echo ($image->baby_name) ? ' & '.$image->baby_name : ''?>">
                             <img style="height:190px" data-toggle="modal" data-target=".bs-example-modal-sm-<?php echo $image->id ?>" src="<?php echo base_url();?>uploads/gallery/<?php echo $thumb?>" alt="<?php echo $image->name;?>" />
                         </a>
                         <div class="img-description hidden">
