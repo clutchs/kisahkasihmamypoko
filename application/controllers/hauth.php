@@ -2,15 +2,15 @@
 
 class HAuth extends Public_Controller {
 
-    public function __construct () {
-        parent::__construct();
-        
-        
-    }
+    public function __construct () { parent::__construct(); }
     
 	public function index(){ $this->load->view('hauth/home'); }
     
-    public function done(){ $this->load->view('hauth/done'); }
+    public function done(){ 
+		
+		//$this->load->view('hauth/done'); 
+		redirect(base_url('account'));
+	}
 
 	public function login($provider)
 	{
@@ -65,7 +65,7 @@ class HAuth extends Public_Controller {
                                 
                                 $this->session->set_userdata('participant',$participant);
                                 
-                                //redirect(base_url('account'));
+                                redirect(base_url('account'));
                                 
                             }
                             

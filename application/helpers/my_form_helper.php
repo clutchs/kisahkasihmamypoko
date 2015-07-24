@@ -73,4 +73,7 @@ if ( ! function_exists('get_wywisg_admin'))
 	}
 	
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ce9357bf830d1d39ddeac28faf7972f21dfcaadf

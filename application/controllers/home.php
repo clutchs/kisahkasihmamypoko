@@ -9,7 +9,7 @@ class Home extends Public_Controller {
 		$this->load->model('admin/UserProfiles');
 		
 		// Load Career data
-		$this->load->model('career/Careers');
+		// $this->load->model('career/Careers');
 
 		// Load User related model in admin module
 		$this->load->model('page/Pagemenus');
