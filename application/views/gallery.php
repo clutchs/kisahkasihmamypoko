@@ -49,8 +49,8 @@
                             <?php echo $image->about;?>
                         </div>
                           <div class="caption">
-                            <h3 class="nama-mamy"><?=character_limiter($image->name, 16);?></h3>
-                            <h3 class="nama-baby"><?=character_limiter($image->baby_name, 16);?></h3>
+                            <h5 class="nama-mamy"><?=character_limiter($image->name, 16);?></h5>
+                            <h5 class="nama-baby"><?=character_limiter($image->baby_name, 16);?></h5>
                           </div>
                         </div>
                     </div>
