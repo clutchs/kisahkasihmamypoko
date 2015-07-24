@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 23, 2015 at 12:41 PM
+-- Generation Time: Jul 24, 2015 at 03:05 PM
 -- Server version: 5.5.40
 -- PHP Version: 5.4.38
 
@@ -32,15 +32,14 @@ CREATE TABLE IF NOT EXISTS `tbl_captcha` (
   `ip_address` varchar(16) DEFAULT NULL,
   `word` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1365 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1671 ;
 
 --
 -- Dumping data for table `tbl_captcha`
 --
 
 INSERT INTO `tbl_captcha` (`id`, `time`, `ip_address`, `word`) VALUES
-(1364, 1437629831, '127.0.0.1', 'yWufI'),
-(1363, 1437629829, '127.0.0.1', 'lGiIb');
+(1670, 1437723137, '127.0.0.1', 'EduQG');
 
 -- --------------------------------------------------------
 
@@ -63,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `tbl_ci_sessions` (
 --
 
 INSERT INTO `tbl_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('7bfa080279a0dba2cde2a4964db43f0c', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:39.0) Gecko/20100101 Firefox/39.0', 1437629828, '');
+('5eb687b1ef550ef99c5526cfd81c1573', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:39.0) Gecko/20100101 Firefox/39.0', 1437724268, '');
 
 -- --------------------------------------------------------
 
@@ -1363,6 +1362,8 @@ CREATE TABLE IF NOT EXISTS `tbl_participants` (
   `nationality_id` int(11) DEFAULT NULL,
   `research_area` varchar(255) DEFAULT NULL,
   `occupation` varchar(64) DEFAULT NULL,
+  `baby_name` varchar(42) DEFAULT NULL,
+  `baby_birthday` varchar(12) DEFAULT NULL,
   `about` text,
   `address` varchar(512) DEFAULT NULL,
   `region` varchar(64) DEFAULT NULL,
@@ -1379,15 +1380,15 @@ CREATE TABLE IF NOT EXISTS `tbl_participants` (
   `join_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `tbl_participants`
 --
 
-INSERT INTO `tbl_participants` (`id`, `identifier_id`, `identity`, `profile_url`, `photo_url`, `email`, `website`, `password`, `username`, `name`, `gender`, `age`, `nationality_id`, `research_area`, `occupation`, `about`, `address`, `region`, `phone_number`, `phone_home`, `id_number`, `file_name`, `verify`, `completed`, `logged_in`, `last_login`, `session_id`, `status`, `join_date`) VALUES
-(7, 'SoPgnCFn90', 'LinkedIn', 'https://www.linkedin.com/pub/defrian-yarfi/42/a38/26b', 'https://media.licdn.com/mpr/mprx/0_HOKl9dnn1kEW_rs0QMBa9wvz0bmeiPE0oska9wbXh3sZpcgxk48gZI1oAEaB8Nw1djt7J2vMt7Ft', 'defrian.yarfi@gmail.com', NULL, NULL, NULL, 'Defrian Yarfi', NULL, NULL, NULL, NULL, NULL, 'Web Developer and Frontend Web Developer.\nCurrently used CodeIgniter, CakePHP, Kohana, Yii and OpenCart for web development.\nDatabase Design, API, RESTful web service and Cloud Computing.\nAndroid Mobile Hybrid Applications.\n\nSpecialties: HTML & CSS, Javascript, jQuery, Ajax, Actionscript, MVC Concept, PHP & MySQL.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '', 0, '2015-07-13 14:27:41'),
-(6, '300187659', 'Twitter', 'http://twitter.com/dyarfi', 'http://pbs.twimg.com/profile_images/417721509696634880/tKSK06gY.jpeg', NULL, NULL, NULL, NULL, 'dyarfi', NULL, NULL, NULL, NULL, NULL, '', NULL, 'Bekasi, Indonesia', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '', 0, '2015-07-13 14:27:11');
+INSERT INTO `tbl_participants` (`id`, `identifier_id`, `identity`, `profile_url`, `photo_url`, `email`, `website`, `password`, `username`, `name`, `gender`, `age`, `nationality_id`, `research_area`, `occupation`, `baby_name`, `baby_birthday`, `about`, `address`, `region`, `phone_number`, `phone_home`, `id_number`, `file_name`, `verify`, `completed`, `logged_in`, `last_login`, `session_id`, `status`, `join_date`) VALUES
+(7, 'SoPgnCFn90', 'LinkedIn', 'https://www.linkedin.com/pub/defrian-yarfi/42/a38/26b', 'https://media.licdn.com/mpr/mprx/0_HOKl9dnn1kEW_rs0QMBa9wvz0bmeiPE0oska9wbXh3sZpcgxk48gZI1oAEaB8Nw1djt7J2vMt7Ft', 'defrian.yarfi@gmail.com', NULL, NULL, NULL, 'Defrian Yarfi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Web Developer and Frontend Web Developer.\nCurrently used CodeIgniter, CakePHP, Kohana, Yii and OpenCart for web development.\nDatabase Design, API, RESTful web service and Cloud Computing.\nAndroid Mobile Hybrid Applications.\n\nSpecialties: HTML & CSS, Javascript, jQuery, Ajax, Actionscript, MVC Concept, PHP & MySQL.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '', 0, '2015-07-13 14:27:41'),
+(6, '300187659', 'Twitter', 'http://twitter.com/dyarfi', 'http://pbs.twimg.com/profile_images/417721509696634880/tKSK06gY.jpeg', NULL, NULL, NULL, NULL, 'dyarfi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, 'Bekasi, Indonesia', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '', 0, '2015-07-13 14:27:11');
 
 -- --------------------------------------------------------
 
@@ -1495,7 +1496,7 @@ INSERT INTO `tbl_settings` (`id`, `parameter`, `alias`, `value`, `is_system`, `s
 (12, 'title_name', 'Company Title Name', 'PT. Default (Web Agency in Jakarta)', 1, 1, NULL, 1336118568),
 (13, 'language', 'Default Language', 'en', 1, 1, NULL, 1336118568),
 (14, 'counter', 'Site Counter', '123', 1, 1, NULL, 1336118568),
-(15, 'copyright', 'Copyright', '© 2012 Mamy Poko Indonesia. All Rights Reserved.', 1, 1, NULL, 1336118568),
+(15, 'copyright', 'Copyright', '© 2015 Mamy Poko Indonesia. All Rights Reserved.', 1, 1, NULL, 1336118568),
 (16, 'site_name', 'Site Name', ' Default <br/> PT. Default (Web Agency in Jakarta).', 1, 1, NULL, 1336118568),
 (17, 'site_quote', 'Quote', 'We provide solution for your Websites', 1, 1, NULL, 1336118568),
 (18, 'site_description', 'Website Description', 'We provide solution for your Company Website ', 1, 1, NULL, 1336118568),
@@ -1566,7 +1567,7 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
 --
 
 INSERT INTO `tbl_users` (`id`, `username`, `email`, `password`, `group_id`, `last_login`, `logged_in`, `status`, `session_id`, `added`, `modified`) VALUES
-(1, 'admin', 'admin@admin.com', 'dd94709528bb1c83d08f3088d4043f4742891f4f', 1, 1436797178, 1, 1, 'c47227303ea5070fb11633db6cc9be62', 0, 0),
+(1, 'admin', 'admin@admin.com', 'dd94709528bb1c83d08f3088d4043f4742891f4f', 1, 1436797178, 1, 1, '8bd02f5c86b7a59fdf73d3000d26a2f3', 0, 0),
 (2, 'joni', 'admin1@admin.com', '9003d1df22eb4d3820015070385194c8', 2, 1417003004, 0, 1, '', 0, 1424687676),
 (3, 'qc', 'asdf@asdf.com', 'fb00378895cf135de3b135f385c0012f3823e4fb', 3, 1417001008, 0, 1, '', 0, 1424689343),
 (29, 'dyarfi', 'dyarfi20@gmail.com', '647dc5d75f6ce3c6a859eb3b91fa6ccaab05b245', 116, 0, 0, 1, '', 1417065898, 0),

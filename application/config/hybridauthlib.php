@@ -17,47 +17,47 @@ $config =
 		"providers" => array (
 			// openid providers
 			"OpenID" => array (
-				"enabled" => true
+				"enabled" => false
 			),
 
 			"Yahoo" => array (
-				"enabled" => true,
-                "keys"    => array ( "key" => "dj0yJmk9YUhEaGhqaUhYRTltJmQ9WVdrOWF6VTVZM1pFTXpZbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1mNw--", "secret" => "9b00bd2e50ee2797d881c9b6d0f33a858328d2a6" ),
+				"enabled" => false,
+                "keys"    => array ( "key" => "", "secret" => "" ),
             ),
 
 			"AOL"  => array (
-				"enabled" => true
+				"enabled" => false
 			),
 
 			"Google" => array (
-				"enabled" => true,
-				"keys"    => array ( "id" => "135018674898-re8sd5nigbbuh30p19k8ca3nfv8qbsuk.apps.googleusercontent.com", "secret" => "iNxgUKBfzDtxYxNy0tAXg95U" ),
+				"enabled" => false,
+				"keys"    => array ( "id" => "", "secret" => "" ),
 			),
 
 			"Facebook" => array (
 				"enabled" => true,
-				"keys"    => array ( "id" => "114541098876849", "secret" => "44326818a1e5fd1013d3b4495e8fb7b3" ),
+				"keys"    => array ( "id" => "1584357841814568", "secret" => "2f2bfa55980c7f4b20f38c83106cd990" ),
 			),
 
 			"Twitter" => array (
-				"enabled" => true,
-				"keys"    => array ( "key" => "dqu99PRCefOCpNPobQEvtBJpS", "secret" => "EXOPAceSDF7GNzaLXunByOClXLu0sGVxxAgxbyesLLSfYLcDLv" )
+				"enabled" => false,
+				"keys"    => array ( "key" => "", "secret" => "" )
 			),
 
 			// windows live
 			"Live" => array (
-				"enabled" => true,
+				"enabled" => false,
 				"keys"    => array ( "id" => "", "secret" => "" )
 			),
 
 			"MySpace" => array (
-				"enabled" => true,
+				"enabled" => false,
 				"keys"    => array ( "key" => "", "secret" => "" )
 			),
 
 			"LinkedIn" => array (
-				"enabled" => true,
-				"keys"    => array ( "key" => "75blw6tuiaom3x", "secret" => "rJMdMWsbpe2ixl9d" )
+				"enabled" => false,
+				"keys"    => array ( "key" => "", "secret" => "" )
 			),
 
 			"Foursquare" => array (

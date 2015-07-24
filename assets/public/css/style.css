@@ -367,7 +367,12 @@ div.navbar-mamypoko .navbar-default .navbar-nav> li >a:hover { background-color:
 }
 .cari-foto div{
 margin-bottom: 10px;}
+<<<<<<< HEAD
 .submit-color{
+=======
+.fileUpload:hover { color: #990000; }
+.submit-color, .submit-color:active {
+>>>>>>> b9ba38c641cc36bcf39ee589fc8a859175054baa
   background: rgba(195,220,71,1);
   background: -moz-linear-gradient(top, rgba(195,220,71,1) 0%, rgba(77,110,25,1) 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(195,220,71,1)), color-stop(100%, rgba(77,110,25,1)));
@@ -489,7 +494,11 @@ ul.galeri li{margin-bottom: 15px;}
   font-weight: bold;
 }
 .date-announce{font-size: 24px;-webkit-text-stroke: 1px #fff;}
+<<<<<<< HEAD
 input.datepicker { padding: 10px;}
+=======
+input.datepicker { padding: 0 0 0 10px;}
+>>>>>>> b9ba38c641cc36bcf39ee589fc8a859175054baa
 
 
 
@@ -514,7 +523,11 @@ html {
 }
 h1,
 h2 {
+<<<<<<< HEAD
 	margin-bottom: 10px;
+=======
+	/* margin-bottom: 10px; */
+>>>>>>> b9ba38c641cc36bcf39ee589fc8a859175054baa
 }
 h1,
 h2,
@@ -522,6 +535,7 @@ h3,
 h4,
 h5,
 h6 {
+<<<<<<< HEAD
     margin: 0 0 30px;
     /*text-transform: uppercase;*/
     font-family: Montserrat,sans-serif;
@@ -537,6 +551,23 @@ p {
 
 p.lead {
 	font-weight: 600;
+=======
+    /* margin: 0 0 30px; */
+    /*text-transform: uppercase;*/
+    /* font-family: Montserrat,sans-serif; */
+    /* font-weight: 700; */
+    /* letter-spacing: 1px; */
+}
+
+p {
+    /* margin: 0 0 20px; */
+    /* font-size: 16px; */
+    /* line-height: 1.6em; */
+}
+
+p.lead {
+	/* font-weight: 600; */
+>>>>>>> b9ba38c641cc36bcf39ee589fc8a859175054baa
 }
 
 a {

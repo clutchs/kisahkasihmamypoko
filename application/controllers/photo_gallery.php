@@ -7,6 +7,7 @@ class Photo_Gallery extends Public_Controller {
         parent::__construct();
 		
         $this->load->model('participant/Gallery');
+		$this->load->model('participant/Participants');
 		
 	}
 	
@@ -44,7 +45,7 @@ class Photo_Gallery extends Public_Controller {
         $this->load->library('pagination');
 		
 		$config['base_url'] = base_url('gallery/index/?').http_build_query($params);	
-		$config['total_rows'] = $this->Gallery->get_count_images($search,$status);
+		$config['total_rows'] = $this->Participants->get_count_images($search,$status);
         $config["per_page"] = 9;
 		$config['page_query_string'] = TRUE;
 
@@ -77,9 +78,7 @@ class Photo_Gallery extends Public_Controller {
         $data['links'] 		= $links; 
 
         // Set gallery listing
-		$data['gallery'] 	= $this->Gallery->get_all_images($config["per_page"], $page, $order, $search, $status);
-
-        print_r($data['gallery']);
+		$data['gallery'] 	= $this->Participants->get_all_images($config["per_page"], $page, $order, $search, $status);
         
 		// Set main template
 		$data['main']		= 'gallery';

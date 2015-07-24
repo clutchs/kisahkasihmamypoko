@@ -45,6 +45,9 @@ class Public_Controller extends MY_Controller {
 			// $this->template->set_theme('default');
 		}
 
+        // Set language from database 
+        $this->config->set_item('language', 'indonesia');
+        
         // Set participant session objects
         $this->participant = $this->session->userdata('participant');
         

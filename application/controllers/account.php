@@ -2,6 +2,7 @@
 
 class Account extends Public_Controller {
 
+    // Class constructor
 	public function __construct() {
 		parent::__construct();
 		
@@ -13,142 +14,55 @@ class Account extends Public_Controller {
 		
 		// Load Participant related model 
 		$this->load->model('participant/Participants');
-        //$this->load->model('participant/Attachments');
-        
-		// Load Conference model 
-		//$this->load->model('conference/Conferences');
         
         // Load email library
         $this->load->library('email');
-
-        //print_r($this->participant);
-        //print_r($this->session->userdata);
-        
-	}
-    
-	public function index() {
-        
-        // Check if user is already login
-        if (!$this->participant) {
+                
+		// Check if user is already login
+        if ($this->participant->status == 0) {
+            
+            // Set to login via hauth
+            //$message = "popupCenter('".base_url('hauth/login/Facebook')."', 'Facebook',480,520);";
+            
+            // Set flash to message user
+            //$this->session->set_flashdata('inline_js', $message);
             
             // Redirect to account
-            redirect(base_url('account/login'));
+            //redirect(base_url('account/register'));
+            redirect(base_url('hauth/login/Facebook'));
             
         }
+	}
+    
+	public function index() { 
+        
+		if ($this->participant->status == 1) {
+                        
+            // Set main template
+            $data['main']    = 'account_profile';
+
+            // Set site title page with module menu
+            $data['page_title'] = 'Account Profile';
+
+            // Load admin template
+            $this->load->view('template/public/template', $this->load->vars($data));
+            
+        } else {
+            
+            // Redirect to register page
+            redirect(base_url('account/register'));
+            
+        }
+        
     }
     
-	public function login() {
-        
-        // Check if user is already login
-        if ($this->participant) {
-            
-            // Redirect to account
-            redirect(base_url('account/dashboard'));
-            
-        }
-        
-        // Default data setup
-        $fields	= array(
-                        'email'        	=> '',
-						'password'      => '',
-                        );
-
-        $errors	= $fields;        
-        $this->form_validation->set_rules('email', 'Email','trim|valid_email|required|min_length[5]|max_length[64]|xss_clean');
-        $this->form_validation->set_rules('password', 'Password','trim|required|xss_clean');
-        
-        // Check if post is requested
-	    if ($this->input->server('REQUEST_METHOD') == 'POST') {			
-
-            // Validation form checks
-		    if ($this->form_validation->run() === FALSE)
-		    {
-
-				// Set error fields
-				$error = array();
-				foreach(array_keys($fields) as $error) {
-					$errors[$error] = form_error($error);
-				}
-
-				// Set previous post merge to default
-				$fields = array_merge($fields, $this->input->post());
-				
-				if ($this->input->is_ajax_request()) {
-
-					// Send fields and errors data
-					$result['fields'] = $fields;
-					$result['errors'] = $errors;
-
-				}
-                
-		    } else {
-
-                $fields = array();
-				
-				$fields['email']		= $this->input->get_post('email', true);
-				$fields['password']		= $this->input->get_post('password', true);
-				
-                $return = $this->Participants->login($fields);
-				
-                if ($return) {
-                    
-                    // Unset variables 
-                    unset($return->password);
-                    
-                    // Set participant 
-                    $this->session->set_userdata('participant', $return);
-                    
-                }
-                
-                //$this->config->set_item('user_id', $user_id);
-                //$this->session->set_userdata('user_id', $this->user_model->encode($user_id));
-
-				if ($this->input->is_ajax_request()) {
-					// Send json message
-					$result['result']	= 'OK';
-					$result['label']	= base_url('upload');
-				} else {					
-					// Redirect if not ajax
-					redirect(base_url('account/dashboard'));
-				}
-		    }
-
-	    }
-        
-        // Get latest conference
-		//$conference         = $this->Conferences->getConferenceLatest();
-        $data['conference'] = @$conference;
-        
-        // Captcha data
-        $data['captcha']	= $this->Captcha->image();
-
-		// Set error data to view
-		$data['errors']     = $errors;
-
-		// Post Fields
-		$data['fields']     = $fields;
-		
-        // Set gender data
-        $data['genders']    = config_item('gender');
-
-		// Set main template
-		$data['main']       = 'account';
-				
-		// Set site title page with module menu
-		$data['page_title'] = 'Account';
-		
-		// Load admin template
-		$this->load->view('template/public/template', $this->load->vars($data));
-		
-	}
-    
     public function register() {
-        
+		
         // Check if user is already login
         if ($this->participant) {
             
             // Redirect to account
-            redirect(base_url('account/dashboard'));
+            redirect(base_url('account'));
             
         }
         
@@ -158,17 +72,37 @@ class Account extends Public_Controller {
                         'email_register' => '',
                         'id_number'      => '',
 						'image_temp'     => '',
+            
                         'phone_number'   => '',
+                        'phone_home'     => '',
+                        
+                        'baby_name'     => '',
+                        'baby_birthday' => '',
+                        
+                        'about'          => '',
+                        
+                        'agreement'      => '',
                         'captcha'        => '');
 
         $errors	= $fields;
-        $this->form_validation->set_rules('fullname', 'Full Name', 'trim|required|min_length[5]|max_length[32]|xss_clean');
-		$this->form_validation->set_rules('email_register', 'Email','trim|valid_email|required|max_length[55]|callback_match_email|xss_clean');
+        
+        $this->form_validation->set_error_delimiters('<p><div class="text-info"><span class="fa fa-warning text-danger"></span>&nbsp;&nbsp;<strong>', '</strong></div></p>');
+        
+        $this->form_validation->set_rules('fullname', 'Nama Lengkap Mamy', 'trim|required|min_length[5]|max_length[32]|xss_clean');
+		//$this->form_validation->set_rules('email_register', 'Email','trim|valid_email|required|max_length[55]|callback_match_email|xss_clean');
+        $this->form_validation->set_rules('email_register', 'Email','trim|valid_email|required|max_length[55]|xss_clean');
         $this->form_validation->set_rules('id_number', 'No. KTP','trim|required|max_length[55]|xss_clean');
-        $this->form_validation->set_rules('image_temp', 'Foto belum tersedia','trim|required|max_length[55]|xss_clean');
-        //$this->form_validation->set_rules('gender', 'Gender','trim|required');		
-        $this->form_validation->set_rules('phone_number', 'No. Telp','trim|is_numeric|xss_clean|max_length[25]');
-        $this->form_validation->set_rules('captcha', 'Captcha Code','trim|required|xss_clean|callback_match_captcha');
+        $this->form_validation->set_rules('image_temp', 'Foto','trim|required|max_length[55]|xss_clean');
+        
+        $this->form_validation->set_rules('phone_number', 'No. HP','trim|required|is_numeric|xss_clean|max_length[25]');
+        $this->form_validation->set_rules('phone_home', 'No. Tlp','trim|is_numeric|xss_clean|max_length[25]');
+        
+        $this->form_validation->set_rules('baby_name', 'Nama Baby','trim|required|max_length[55]|xss_clean');
+        $this->form_validation->set_rules('baby_birthday', 'Tanggal Lahir Baby','trim|required|max_length[55]|xss_clean');
+        
+        $this->form_validation->set_rules('about', 'Cerita Momy','trim|required|xss_clean|max_length[1000]');
+        $this->form_validation->set_rules('agreement', 'Persetujuan','trim|required|xss_clean|max_length[1]');
+        $this->form_validation->set_rules('captcha', 'Kode Captcha','trim|required|xss_clean|callback_match_captcha');
 		
         // Check if post is requested
         if ($this->input->server('REQUEST_METHOD') == 'POST') {			
@@ -197,17 +131,32 @@ class Account extends Public_Controller {
 		    } else {
 
                 $object = array();
-				
-                $object['identity']        = 'Email';
+                
+				// Main Hauth Identity
+                $object['identity']        = 'Facebook';
+                // Momy's data
+                $object['name']            = $this->input->get_post('fullname', true);
                 $object['email']           = $this->input->get_post('email_register', true);
-				$object['name']            = $this->input->get_post('fullname', true);
-                //$object['gender']          = $this->input->get_post('gender', true);
-				//$object['phone_number']    = $this->input->get_post('phone_number', true);
+				$object['id_number']       = $this->input->get_post('id_number', true);
+				$object['file_name']       = $this->input->get_post('image_temp', true);
+                // Phones
+				$object['phone_number']    = $this->input->get_post('phone_number', true);
+                $object['phone_home']      = $this->input->get_post('phone_home', true);
+                // Baby's data
+                $object['baby_name']       = $this->input->get_post('baby_name', true);
+                $object['baby_birthday']   = $this->input->get_post('baby_birthday', true);
+                // Momy and child stories
+                $object['about']           = $this->input->get_post('about', true);                
+				// Status
 				$object['verify']          = $this->input->get_post('captcha', true);
-                $object['status']          = '0';
+                $object['status']          = '1';
                 $object['completed']       = '0';
 				
-                $return = $this->Participants->setParticipant($object);
+				// Set participant data
+                // $return = $this->Participants->setParticipant($object);
+				$return = $this->Participants->updateParticipant($this->participant->id,$object);
+				// Update participant session
+				$this->session->set_userdata('participant',$this->Participants->getParticipant($return));
 				
                 if (!empty($return)) {
 
@@ -215,28 +164,29 @@ class Account extends Public_Controller {
                     $message['site_name']       = config_item('developer_name');
                     $message['site_link']       = base_url();
                     $message['name']            = $object['name'];
+					$message['baby_name']       = $object['baby_name'];
                     $message['site_copyright']  = $this->Settings->getByParameter('copyright')->value;
-                    $message['activation']      = base_url('account/activation?confirm='.base64_encode($object['verify'].'-:-'.$object['email']).'');        
+                    //$message['activation']      = base_url('account/activation?confirm='.base64_encode($object['verify'].'-:-'.$object['email']).'');        
                     
                     // Set email template
-                    $email_template = $this->load->view('admin/emails/account_activation',$this->load->vars($message),TRUE);
+                    $email_template = $this->load->view('admin/emails/account_participated',$this->load->vars($message),TRUE);
                     
-                    $this->email->from('noreply@simplewavenet.com');
+                    $this->email->from('no-reply-bt@mamypokoindonesia.com');
                     $this->email->to($object['email']);
-                    $this->email->reply_to('noreply@simplewavenet.com');
-                    $this->email->subject('Account Activation | FISIP UIN Jakarta');
+                    $this->email->reply_to('no-reply-bt@mamypokoindonesia.com');
+                    $this->email->subject('Kisah Kasih Mamypoko Indonesia | mamypokoindonesia.com');
                     $this->email->message($email_template);
                     $this->email->send();
 
                 } 
 
                 // Set message
-                $this->session->set_flashdata('message','Please check your Email : <b>'.$object['email'].'</b> for the Account Activation!');
+                $this->session->set_flashdata('message','Terima kasih Mamy <b>'.$object['name'].'</b>');
                     
 				if ($this->input->is_ajax_request()) {
 					// Send json message
 					$result['result']	= 'OK';
-					$result['label']	= base_url('upload');
+					$result['label']	= base_url('account');
 				} else {					
                     // Redirect if not ajax
 					redirect(base_url());
@@ -244,12 +194,7 @@ class Account extends Public_Controller {
 		    }
 
 	    }
-		
-        // Get latest conference
-		//$conference         = $this->Conferences->getConferenceLatest();
-        //$data['conference'] = $conference;
-        
-        
+		        
         // Logic Register via Ajax Request
 		if ($this->input->is_ajax_request()) {
 			
@@ -257,7 +202,6 @@ class Account extends Public_Controller {
 			$data['json'] = $result;
 			
 			// Set json main template
-			//$this->load->view('json', $this->load->vars($data));
 			echo json_encode($result);
 			exit;
 		}
@@ -278,14 +222,14 @@ class Account extends Public_Controller {
 		$data['main']    = 'account';
 				
 		// Set site title page with module menu
-		$data['page_title'] = 'Account';
+		$data['page_title'] = 'Account Register';
 		
 		// Load admin template
 		$this->load->view('template/public/template', $this->load->vars($data));
         
     }
     
-    // Participant Dashboard
+       // Participant Dashboard
     public function dashboard() {
         
         // Check if user is already login
