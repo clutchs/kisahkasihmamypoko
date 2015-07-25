@@ -4,12 +4,13 @@ class HAuth extends Public_Controller {
 
     public function __construct () { parent::__construct(); }
     
-	public function index(){ $this->load->view('hauth/home'); }
+	public function index() { $this->load->view('hauth/home'); }
     
-    public function done(){ 
+    public function done() { 
 		
 		//$this->load->view('hauth/done'); 
 		redirect(base_url('account'));
+        
 	}
 
 	public function login($provider)
@@ -38,145 +39,38 @@ class HAuth extends Public_Controller {
                     
                     if ($user_profile) {
                             
-                            $participant = $this->Participants->getParticipantByIdentity($user_profile->identifier,$provider);
-                            
-                            if (!$participant) {
-                                
-                                $object['identifier_id'] = $user_profile->identifier;
-                                $object['identity'] = $provider;
-                                $object['profile_url'] = $user_profile->profileURL;
-                                $object['name'] = $user_profile->displayName;
-                                $object['gender'] = $user_profile->gender;
-                                $object['age'] = $user_profile->age;
-                                $object['email'] = $user_profile->email;
-                                $object['address'] = $user_profile->address;
-                                $object['region'] = $user_profile->region;
-                                $object['phone_number'] = $user_profile->phone;
-                                $object['website'] = $user_profile->webSiteURL;
-                                $object['about'] = $user_profile->description;
-                                $object['photo_url'] = $user_profile->photoURL;
-                                $object['status'] = 0;                                
-                                
-                                $participant_id = $this->Participants->setParticipant($object);
-                                
-                                //echo $participant_id;
-								redirect(base_url('account/register'));								
-                                
-                            } else {
-                                
-                                $this->session->set_userdata('participant',$participant);
-                                
-                                redirect(base_url('account'));
-                                
-                            }
-                            
-                            /****
-                             * FACEBOOK
-                             */
-                            /*
-                            object(Hybrid_User_Profile)#29 (22) {
-                            ["identifier"]=>
-                            string(16) "1588544004757909"
-                            ["webSiteURL"]=>
-                            string(0) ""
-                            ["profileURL"]=>
-                            string(61) "https://www.facebook.com/app_scoped_user_id/1588544004757909/"
-                            ["photoURL"]=>
-                            string(72) "https://graph.facebook.com/1588544004757909/picture?width=150&height=150"
-                            ["displayName"]=>
-                            string(13) "Nairfed Ifray"
-                            ["description"]=>
-                            string(0) ""
-                            ["firstName"]=>
-                            string(7) "Nairfed"
-                            ["lastName"]=>
-                            string(5) "Ifray"
-                            ["gender"]=>
-                            string(4) "male"
-                            ["language"]=>
-                            NULL
-                            ["age"]=>
-                            NULL
-                            ["birthDay"]=>
-                            NULL
-                            ["birthMonth"]=>
-                            NULL
-                            ["birthYear"]=>
-                            NULL
-                            ["email"]=>
-                            string(18) "dyarfi20@gmail.com"
-                            ["emailVerified"]=>
-                            string(18) "dyarfi20@gmail.com"
-                            ["phone"]=>
-                            NULL
-                            ["address"]=>
-                            NULL
-                            ["country"]=>
-                            NULL
-                            ["region"]=>
-                            string(0) ""
-                            ["city"]=>
-                            NULL
-                            ["zip"]=>
-                            NULL
-                          }
+                        $participant = $this->Participants->getParticipantByIdentity($user_profile->identifier,$provider);
 
-                             * 
-                             */
-                            
-                            /**
-                             * TWITTER
-                             */
-                            /*
-                             object(Hybrid_User_Profile)#29 (22) {
-                            ["identifier"]=>
-                            int(300187659)
-                            ["webSiteURL"]=>
-                            NULL
-                            ["profileURL"]=>
-                            string(25) "http://twitter.com/dyarfi"
-                            ["photoURL"]=>
-                            string(75) "http://pbs.twimg.com/profile_images/417721509696634880/tKSK06gY_normal.jpeg"
-                            ["displayName"]=>
-                            string(6) "dyarfi"
-                            ["description"]=>
-                            string(0) ""
-                            ["firstName"]=>
-                            string(13) "Defrian Yarfi"
-                            ["lastName"]=>
-                            NULL
-                            ["gender"]=>
-                            NULL
-                            ["language"]=>
-                            NULL
-                            ["age"]=>
-                            NULL
-                            ["birthDay"]=>
-                            NULL
-                            ["birthMonth"]=>
-                            NULL
-                            ["birthYear"]=>
-                            NULL
-                            ["email"]=>
-                            NULL
-                            ["emailVerified"]=>
-                            NULL
-                            ["phone"]=>
-                            NULL
-                            ["address"]=>
-                            NULL
-                            ["country"]=>
-                            NULL
-                            ["region"]=>
-                            string(17) "Bekasi, Indonesia"
-                            ["city"]=>
-                            NULL
-                            ["zip"]=>
-                            NULL
-                          
-                             */
-                        
-    
+                        if (!$participant) {
+
+                            $object['identifier_id'] = $user_profile->identifier;
+                            $object['identity'] = $provider;
+                            $object['profile_url'] = $user_profile->profileURL;
+                            $object['name'] = $user_profile->displayName;
+                            $object['gender'] = $user_profile->gender;
+                            $object['age'] = $user_profile->age;
+                            $object['email'] = $user_profile->email;
+                            $object['address'] = $user_profile->address;
+                            $object['region'] = $user_profile->region;
+                            $object['phone_number'] = $user_profile->phone;
+                            $object['website'] = $user_profile->webSiteURL;
+                            $object['about'] = $user_profile->description;
+                            $object['photo_url'] = $user_profile->photoURL;
+                            $object['status'] = 0;                                
+
+                            $participant_id = $this->Participants->setParticipant($object);
+
+                            //echo $participant_id;
+                            redirect(base_url('account/register'));								
+
+                        } else {
+
+                            $this->session->set_userdata('participant',$participant);
+
+                            redirect(base_url('account'));
+
+                        }
+                                                        
                     }
                     
 					$this->load->view('hauth/done',$data);

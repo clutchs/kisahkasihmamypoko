@@ -8,9 +8,6 @@ class Gallery extends Admin_Controller {
             // Load Participant model
             $this->load->model('participant/Participants');
 
-            // Load Gallery model
-            //$this->load->model('participant/Gallery');
-
             // Load Grocery CRUD
             $this->load->library('grocery_CRUD');
       
@@ -29,29 +26,15 @@ class Gallery extends Admin_Controller {
             // Set column
 			$crud->columns('type', 'part_id','file_name','status','added','modified');
 			
-            //$crud->columns('subject','name','menu_id','synopsis','text','status','added','modified');			
-			// The fields that user will see on add and edit form
-			//$crud->fields('subject','name','menu_id','synopsis','text','publish_date','unpublish_date','status','added','modified');
-            // Set column display 
-            //$crud->display_as('menu_id','Menu');
-			// Changes the default field type
-			//$crud->field_type('added', 'hidden');
-			//$crud->field_type('modified', 'hidden');
-			// This callback escapes the default auto field output of the field name at the add form
-			//$crud->callback_add_field('added',array($this,'_callback_time_added'));
-			// This callback escapes the default auto field output of the field name at the edit form
-			//$crud->callback_edit_field('modified',array($this,'_callback_time_modified'));
-			// This callback escapes the default auto field output of the field name at the add/edit form. 
-			// $crud->callback_field('status',array($this,'_callback_dropdown'));
-			// This callback escapes the default auto column output of the field name at the add form
-			
 			$crud->field_type('status','dropdown',array('0' => 'Inactive','1' => 'Active','2' => 'Completed')); 
 			$crud->field_type('type','dropdown',array('16' => 'Stiker 16', '2' => 'Stiker 2'));
 			$crud->field_type('file_name','text');
 			$crud->edit_fields('status','modified');			
+            
 			$crud->callback_column('added',array($this,'_callback_time'));
 			$crud->callback_column('modified',array($this,'_callback_time'));
 			$crud->callback_column('file_name',array($this,'_callback_filename'));
+            
 			$state = $crud->getState();
 			
 			if ($state == 'export')
@@ -103,14 +86,8 @@ class Gallery extends Admin_Controller {
 		return ($row->file_name) ? base_url('uploads/users/'.$row->file_name) : '-';
 	}
 	
-    public function _callback_total_image($value, $row) {
-        //$total = $this->user_model->total_image_submitted($row->participant_id);
-        //return $total;
-    }
-	
 	public function _send_email() {
-			
-
+	
 		$this->load->library('email');
 
 		$subject = 'Selamat anda';

@@ -181,12 +181,16 @@ class Account extends Public_Controller {
                 $this->session->set_flashdata('message','Terima kasih Mamy <b>'.$object['name'].'</b>');
                     
 				if ($this->input->is_ajax_request()) {
+                    
 					// Send json message
 					$result['result']	= 'OK';
 					$result['label']	= base_url('account');
+                    
 				} else {					
+                    
                     // Redirect if not ajax
 					redirect(base_url());
+                    
 				}
 		    }
 

@@ -23,20 +23,20 @@
 	
 	//jQuery for page scrolling feature - requires jQuery Easing plugin
 	$(function() {
-		$('.navbar-nav li a').bind('click', function(event) {
-                    var $anchor = $(this);
-                    $('html, body').stop().animate({
-                            scrollTop: $($anchor.attr('href')).offset().top
-                    }, 1500, 'easeInOutExpo');
-                    event.preventDefault();
-		});
-		$('.page-scroll a').bind('click', function(event) {
-                    var $anchor = $(this);
-                    $('html, body').stop().animate({
-                            scrollTop: $($anchor.attr('href')).offset().top
-                    }, 1500, 'easeInOutExpo');
-                    event.preventDefault();
-		});
+            $('.navbar-nav li a').bind('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                        scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
+            });
+            $('.page-scroll a').bind('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                        scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
+            });
 	});
 				
 	$('a.back').click(function(){
@@ -55,22 +55,22 @@
         //maxFileSize:2000000, // 2000 KB
         sequentialUploads: false,
         add: function (e, data) {
-                var uploadErrors = [];
-                //var acceptFileTypes = /\/(pdf|xml)$/i;
-                var acceptFileTypes = /(\.|\/)(gif|jpe?g|png)$/i;
-                if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
-                    uploadErrors.push('Invalid file type, aborted');
-                }
-                //console.log(data.originalFiles[0]['size']) ;
-                if(data.originalFiles[0]['size'] > 5000000) {
-                    uploadErrors.push('Filesize is too big');
-                }
-                if(uploadErrors.length > 0) {
-                    alert(uploadErrors.join("\n"));
-                } else {
-                    //data.context = $('<p/>').text('Subiendo...').appendTo('.img_holder_xhr');
-                    data.submit();
-                }
+            var uploadErrors = [];
+            //var acceptFileTypes = /\/(pdf|xml)$/i;
+            var acceptFileTypes = /(\.|\/)(gif|jpe?g|png)$/i;
+            if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
+                uploadErrors.push('Invalid file type, aborted');
+            }
+            //console.log(data.originalFiles[0]['size']) ;
+            if(data.originalFiles[0]['size'] > 5000000) {
+                uploadErrors.push('Filesize is too big');
+            }
+            if(uploadErrors.length > 0) {
+                alert(uploadErrors.join("\n"));
+            } else {
+                //data.context = $('<p/>').text('Subiendo...').appendTo('.img_holder_xhr');
+                data.submit();
+            }
         },
         done: function (e, data) {
             e.preventDefault();
@@ -87,7 +87,7 @@
         progressall: function (e, data) {
             e.preventDefault();
             var progress = parseInt(data.loaded / data.total * 100, 10);
-			$('.progress').show();
+            $('.progress').show();
             $('.progress .progress-bar').css(
                 'width',
                 progress + '%'
@@ -113,20 +113,20 @@
     
     if ($(".colorbox").attr('href') !== '#') {
         $(".colorbox").colorbox({
-                rel: 'nofollow',
-                width:'640',
-                maxWidth:'640px',
-                innerWidth:'640px',
-                preloading:false
+            rel: 'nofollow',
+            width:'640',
+            maxWidth:'640px',
+            innerWidth:'640px',
+            preloading:false
         });
     }
     
     $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
     $('.popover_bootbox').click(function(){
         var image = $(this).attr('rel');
-		var title = $(this).attr('title');
-		var descs = $(this).next('.img-description').text();
-		var story = '<h2 class="note-baby">'+title+'</h2><p class="text-left">'+descs+'</p>';
+        var title = $(this).attr('title');
+        var descs = $(this).next('.img-description').text();
+        var story = '<h2 class="note-baby">'+title+'</h2><p class="text-left">'+descs+'</p>';
         var html = '<div class="text-center vag-font"><img class="img-responsive img-center" src="'+image+'" alt="'+image+'" width="100%"/>'+story+'</div>';
         bootbox.alert({message:html,closeButton:false});
     });
@@ -141,7 +141,7 @@
             type: "POST",
             url: url,
             data: $(this).serializeArray(),
-            //cache: true,
+            cache: false,
             //async: true,
             timeout: 8000,
             dataType: "JSON",
@@ -179,14 +179,14 @@
         $.ajax({
             type: "POST",
             url: url,
-            cache: false,
-            async: false,	
+            //cache: false,
+            //async: true,	
             success: function(msg){
                 $('.reload_captcha').empty().html(msg);
                 // Need random for browser recache
                 img = $('.reload_captcha').find('img');
                 src = img.attr('src');
-                ran	= img.fadeOut(50).fadeIn(50).attr('src', src + '?=' + Math.random());
+                ran = img.fadeOut(50).fadeIn(50).attr('src', src + '?=' + Math.random());
             },
             complete: function(msg) {},
             error: function(msg) {}
@@ -200,21 +200,19 @@
         } else {
             $(this).val('');
         }
-        console.log($(this).val());
+        //console.log($(this).val());
     });
 	
     $('select[name="sort"]').change(function() {
     	var varb = $(this).val();
     	$.ajax({
-		  	data: $(this).serializeArray(),
-		}).done(function(msg) {
-			var redirect = $(location).attr('href');
-			var val = jQuery.parseJSON(msg);
-			// Redirect after request language
-			if (varb != '') {
-				location.href = val.url;
-			}
-		});
+            data: $(this).serializeArray(),
+        }).done(function(msg) {
+            var redirect = $(location).attr('href');
+            var val = jQuery.parseJSON(msg);
+            // Redirect after request language
+            if (varb != '') { location.href = val.url; }
+        });
     });
 	
     $('.scroll-pane').jScrollPane();

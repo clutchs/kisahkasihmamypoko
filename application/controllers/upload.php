@@ -3,13 +3,7 @@
 class upload extends Public_Controller {
 
 	public function __construct() {
-		parent::__construct();
-		
-		// Load facebook and headers
-		//$this->load->library('facebook');
-        //$this->load->model('user_model');		
-        //$this->load->model('gallery_model');		
-		
+		parent::__construct();				
 	}
 	
 	public function index() { }
@@ -22,7 +16,7 @@ class upload extends Public_Controller {
 		}	
 		
 		// Show the loader on user
-		usleep(1000000);
+		// usleep(1000000);
 		
 		// Define initialize result
 		$result['result'] = '';
@@ -98,14 +92,14 @@ class upload extends Public_Controller {
 												//'file_id'		=> $file_id,
 												'thumbnailUrl'	=>'uploads/gallery/'. $thumb,
 												//'deleteUrl'		=>URL::site(ADMIN).'/news/filedelete/'.$file_id,
-												'deleteType'	=>'DELETE'
+												//'deleteType'	=>'DELETE'
 												);									
 					}																
 				
 			} else {
 				
 				// Unset captcha post
-				unset($_POST['captcha']); 				
+				// unset($_POST['captcha']); 				
 					
 				// Send message if account not found					
 				$result['result']['code'] = 0;

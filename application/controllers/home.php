@@ -1,25 +1,21 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
 class Home extends Public_Controller {
 
 	public function __construct() {
 		parent::__construct();
 		
 		// Load User related model in admin module
-		$this->load->model('admin/Users');
-		$this->load->model('admin/UserProfiles');
+		$this->load->model('admin/Participants');
 		
-		// Load Career data
-		// $this->load->model('career/Careers');
-
-		// Load User related model in admin module
+		// Load Page related model in admin module
 		$this->load->model('page/Pagemenus');
 		$this->load->model('page/Pages');
 		
 	}
 	
 	public function index() {
-		
-					
+							
 		// Set site title page with module menu
 		$data['page_title'] = $this->config->item('site_name') .' | '. config_item('site_title');
 				
@@ -52,7 +48,7 @@ class Home extends Public_Controller {
 		//$data['menu']   = $menu;
 		
         // Set menus data
-		$menu = $this->Pagemenus->getMenu($post);
+		$menu           = $this->Pagemenus->getMenu($post);
         
         // Set menu data
 		$data['menu']   = $this->Pagemenus->getMenu($post);
@@ -89,5 +85,5 @@ class Home extends Public_Controller {
 	}
 }
 
-/* End of file user.php */
-/* Location: ./application/controllers/user.php */
+/* End of file home.php */
+/* Location: ./application/controllers/home.php */

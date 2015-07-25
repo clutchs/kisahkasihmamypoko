@@ -6,13 +6,14 @@ class Photo_Gallery extends Public_Controller {
 		
         parent::__construct();
 		
-        $this->load->model('participant/Gallery');
-		$this->load->model('participant/Participants');
+        // Load the necessary models
+        $this->load->model('participant/Participants');
 		
 	}
 	
-	public function index($image_id='') {				
+	public function index() {
 				
+        // Check ajax requested method
 		if ($this->input->is_ajax_request()) {        	
             echo json_encode(array('url'=>'?sort='.$this->input->get('sort')));
             exit;
@@ -23,6 +24,7 @@ class Photo_Gallery extends Public_Controller {
         $sort = $this->input->get('sort', true);
 		$type = $this->input->get('type', true);
         
+        // Sorting method
         if ($sort) {
             if ($sort == 'atoz') {
                 $order = array('name' =>'ASC');
@@ -38,17 +40,21 @@ class Photo_Gallery extends Public_Controller {
         $sort 	= $this->input->get('sort');
         $search = $this->input->get('search');
         
+        // Site search params
         $url_search 	 = $search ? array('search'=>$search) : array();
         $url_sortby		 = $sort ? array('sort'=>$sort) : array(); 
 		$params			 = array_merge($url_search, $url_sortby);
         
+        // Load library pagination
         $this->load->library('pagination');
 		
+        // Pagination options
 		$config['base_url'] = base_url('gallery/index/?').http_build_query($params);	
 		$config['total_rows'] = $this->Participants->get_count_images($search,$status);
         $config["per_page"] = 9;
 		$config['page_query_string'] = TRUE;
 
+        // Pagination html tags
 		$config['full_tag_open'] = '<div><ul class="pagination pagination-small pagination-centered">';
 		$config['full_tag_close'] = '</ul></div>';
 		$config['num_tag_open'] = '<li>';
@@ -64,16 +70,11 @@ class Photo_Gallery extends Public_Controller {
 		$config['last_tag_open'] = "<li>";
 		$config['last_tagl_close'] = "</li>";
 
-		//$get_data = $this->session->userdata('user_id');
-		//$user_id  = $this->user_model->decode($get_data);
-
-		$this->pagination->initialize($config); 				
+        // Pagination initialize
+		$this->pagination->initialize($config);
 		$page = ($this->input->get('per_page')) ? $this->input->get('per_page') : 0;
 		$links = $this->pagination->create_links();
-
-		// User id
-		//$data['user_id']	= $user_id;
-
+		
 		// Set pagination links		
         $data['links'] 		= $links; 
 
@@ -91,40 +92,7 @@ class Photo_Gallery extends Public_Controller {
 		
 	}
 	
-	public function single ($type='',$image_id='',$revisit=''){
-		
-		// Get participant data
-		$get_data = $this->session->userdata('user_id');
-		$user_id  = $this->user_model->decode($get_data);
-		
-		// Completed data
-		$data['user_id']	= $user_id;
-		
-		// Completed data
-		$data['completed']	= false;
-		
-		// Completed upload
-		if ($revisit == true) {
-			$data['completed'] = true;
-		}
-		
-		// Type image
-		$data['type']		= $type;
-		
-		// Image id
-		$data['image']		= $this->Gallery->get_image($image_id);
-		
-		// Set main template
-		$data['main']		= 'gallery_single';
-				
-		// Set site title page with module menu
-		$data['page_title'] = 'Gallery';
-		
-		// Load admin template
-		$this->load->view('template/public/site_template', $this->load->vars($data));
-		
-	}
 }
 
-/* End of file user.php */
-/* Location: ./application/controllers/user.php */
+/* End of file photo_gallery.php */
+/* Location: ./application/controllers/photo_gallery.php */

@@ -7,10 +7,7 @@ class Participant extends Admin_Controller {
 
             // Load Participant model
             $this->load->model('participant/Participants');
-
-            // Load Gallery model
-            //$this->load->model('participant/Gallery');
-
+          
             // Load Grocery CRUD
             $this->load->library('grocery_CRUD');
       
@@ -18,54 +15,42 @@ class Participant extends Admin_Controller {
 	
     public function index() {
         try {
-	    // Set our Grocery CRUD
+            
+            // Set our Grocery CRUD
             $crud = new grocery_CRUD();
             // Set tables
             $crud->set_table('tbl_participants');
             // Set CRUD subject
             $crud->set_subject('Participant');                            
-            // Set table relation
-            //$crud->set_relation('province','tbl_provinces','name');
-            // Set table relation
-            //$crud->set_relation('urbandistrict','tbl_urban_districts','name');
-            // Set table relation
-            //$crud->set_relation('suburban','tbl_sub_urbans','name');
 			// Set column display 
-            //$crud->display_as('province','Propinsi');
-            //$crud->display_as('urbandistrict','Kabupaten');
-            //$crud->display_as('suburban','Kecamatan');
-			//$crud->display_as('file_name','ID Image File');
+            $crud->display_as('id_number','Id Number');
+			$crud->display_as('file_name','ID Image File');
+            $crud->display_as('baby_name','Baby Name');
+            $crud->display_as('baby_birthday','Baby Birthday');
+            
             // Set column
-            $crud->columns('identity','profile_url','name','gender','age','email','phone_number','address','province','urbandistrict','suburban','zipcode','photo_url','file_name','join_date');
-			// The fields that user will see on add and edit form
-			//$crud->fields('subject','name','menu_id','synopsis','text','publish_date','unpublish_date','status','added','modified');
-            // Set column display 
+            $crud->columns('identity','profile_url','photo_url','name','email','id_number','phone_number','phone_home','baby_name','baby_birthday','file_name','join_date');
+            
+			// Set column display 
             $crud->display_as('identity','Provider');
-			// Changes the default field type
-			//$crud->field_type('added', 'hidden');
-			//$crud->field_type('modified', 'hidden');
-			// This callback escapes the default auto field output of the field name at the add form
-			//$crud->callback_add_field('added',array($this,'_callback_time_added'));
+            
 			// This callback escapes the default auto field output of the field name at the edit form
 			$crud->callback_edit_field('modified',array($this,'_callback_time_modified'));
-			// This callback escapes the default auto field output of the field name at the add/edit form. 
-			// $crud->callback_field('status',array($this,'_callback_dropdown'));
+            
 			// This callback escapes the default auto column output of the field name at the add form
 			$crud->callback_column('file_name',array($this,'_callback_filename'));
 			$crud->callback_column('added',array($this,'_callback_time'));
 			$crud->callback_column('modified',array($this,'_callback_time'));  
 			$crud->callback_column('photo_url',array($this,'_callback_pic'));
 			$crud->unset_columns('completed');
-			// Sets the required fields of add and edit fields
-			// $crud->required_fields('subject','name','text','status'); 
-            // Set upload field
-            // $crud->set_field_upload('file_name','uploads/users');
+			
+            // Sets the required fields of add and edit fields
 			$state = $crud->getState();
 			
 			if ($state == 'export')
 			{
 				//Do your awesome coding here.
-				$crud->callback_column('file_name',array($this,'_callback_filename_url'));				
+				$crud->callback_column('file_name',array($this,'_callback_filename_url'));
 			} 
 			
 			$crud->unset_add();
@@ -90,12 +75,7 @@ class Participant extends Admin_Controller {
 		$time = time();
 		return '<input type="hidden" maxlength="50" value="'.$time.'" name="modified">';
     }
-    
-    public function _callback_total_image($value, $row) {
-        $total = $this->user_model->total_image_submitted($row->participant_id);
-        return $total;
-    }
-	
+    	
 	public function _callback_filename($value, $row) {
 		$row->file_name = strip_tags($row->file_name);
         return $row->file_name ? '<div class="text-center"><a href="'.base_url('uploads/gallery/'.$row->file_name).'" class="image-thumbnail"><img height="110px" src="'.base_url('uploads/gallery/'.$row->file_name).'"/></a></div>' : '-';
