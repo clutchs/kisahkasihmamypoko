@@ -36,29 +36,35 @@
             <div class="galeri-thumbnail">
             <?php
                 foreach ($gallery as $image) { ?>
-                    <div class="col-xs-3">
+                    <div class="col-xs-3 clear">
                         <div class="thumbnail">
                         <?php
                             $pathinfo	= pathinfo($image->file_name);
                             $thumb		= $pathinfo['filename'].'_thumb.'.$pathinfo['extension'];
                         ?>
                         <a href="javascript:;" class="popover_bootbox" rel="<?=base_url();?>uploads/gallery/<?=$image->file_name?>" title="<?php echo $image->name; echo ($image->baby_name) ? ' & '.$image->baby_name : ''?>">
-                            <img style="height:190px" data-toggle="modal" data-target=".bs-example-modal-sm-<?php echo $image->id ?>" src="<?php echo base_url();?>uploads/gallery/<?php echo $thumb?>" alt="<?php echo $image->name;?>" />
+                            <img style="width:100%;max-width:100%;height:auto;" data-toggle="modal" data-target=".bs-example-modal-sm-<?php echo $image->id ?>" src="<?php echo base_url();?>uploads/gallery/<?php echo $thumb?>" alt="<?php echo $image->name;?>" />
                         </a>
                         <div class="img-description hidden">
                             <?php echo $image->about;?>
                         </div>
-                          <div class="caption">
-                            <h5 class="nama-mamy"><?=character_limiter($image->name, 16);?></h5>
-                            <h5 class="nama-baby"><?=character_limiter($image->baby_name, 16);?></h5>
-                          </div>
+                        <div class="caption vag-font">
+                            <h5 class="nama-mamy"><?=character_limiter($image->name, 14);?></h5>
+                            <h5 class="nama-baby"><?=character_limiter($image->baby_name, 14);?></h5>
+                        </div>
                         </div>
                     </div>
             <?php } ?>            
-            <?php } else { ?>
+                
+               
+                
+        <?php } else { ?>
             <br/><br/><br/><br/><br/><br/><br/>
               <h3 class="text-center font-pocky">Belum ada galeri. <br/><a href="<?php echo base_url('photo_gallery');?>" title="Kembali">Kembali</a></h3>              
-            <?php } ?>
-          </div>
-        </div>
+    <?php } ?>                  
+          </div>            
+        </div>        
+        <div class="col-xs-12 pagination text-center">
+            <?php echo $links; ?>
+        </div>            
       </div>

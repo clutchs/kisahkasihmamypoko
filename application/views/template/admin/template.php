@@ -145,68 +145,80 @@
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <!-- BEGIN CORE PLUGINS -->
 <!--[if lt IE 9]><script src="<?php echo base_url();?>assets/admin/plugins/respond.min.js"></script><script src="<?php echo base_url();?>assets/admin/plugins/excanvas.min.js"></script><![endif]-->
-<script src="<?php echo base_url();?>assets/admin/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/admin/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
 <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-<script src="<?php echo base_url();?>assets/admin/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/admin/plugins/bootstrap/js/bootstrap.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/admin/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/admin/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<!--<script type="text/javascript" src="<?php echo base_url();?>assets/admin/plugins/flot/jquery.flot.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/admin/plugins/flot/jquery.flot.resize.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/admin/plugins/flot/jquery.flot.categories.min.js"></script>-->
-<script src="<?php echo base_url();?>assets/admin/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/admin/plugins/jquery.cokie.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/admin/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/admin/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-<!--<script src="<?php echo base_url();?>assets/admin/plugins/fancybox/source/jquery.fancybox.js" type="text/javascript"></script>-->
+<script src="<?php echo base_url()?>assets/admin/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/plugins/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/flot/jquery.flot.pie.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/flot/jquery.flot.categories.min.js"></script>
+
+<script src="<?php echo base_url()?>assets/admin/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<!--<script src="<?php echo base_url()?>assets/admin/plugins/fancybox/source/jquery.fancybox.js" type="text/javascript"></script>-->
+
+ <?php if (!empty($js_files)) { foreach ($js_files as $file): ?>
+    <script src="<?php echo $file; ?>"></script>
+ <?php endforeach; } ?>
+
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<!--<script src="<?php echo base_url();?>assets/admin/plugins/jquery.pulsate.min.js" type="text/javascript"></script>-->
-<!--<script src="<?php echo base_url();?>assets/admin/plugins/gritter/js/jquery.gritter.js" type="text/javascript"></script>-->
 <!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
-<script src="<?php echo base_url();?>assets/admin/plugins/fullcalendar/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-<!--<script src="<?php echo base_url();?>assets/admin/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js" type="text/javascript"></script>-->
-<script src="<?php echo base_url();?>assets/admin/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/admin/plugins/jquery.cookie.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/admin/plugins/select2/select2.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/admin/plugins/data-tables/jquery.dataTables.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/admin/plugins/data-tables/DT_bootstrap.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/admin/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/admin/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/admin/plugins/clockface/js/clockface.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/admin/plugins/bootstrap-daterangepicker/moment.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/admin/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/admin/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
-<script src="<?php echo base_url();?>assets/admin/plugins/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
-
+<script src="<?php echo base_url()?>assets/admin/plugins/fullcalendar/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/jquery.cookie.js"></script>
+<!--<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js">-->
+<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/data-tables/jquery.dataTables.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/data-tables/DT_bootstrap.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="<?php echo base_url()?>assets/admin/plugins/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
-<?php if (!empty($js_files)) { foreach ($js_files as $file): ?>
-<script src="<?php echo $file; ?>"></script>
-<?php endforeach; } ?>	
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="<?php echo base_url();?>assets/admin/scripts/core/app.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/admin/scripts/custom/index.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/admin/scripts/custom/tasks.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/admin/scripts/custom/table-managed.js"></script>
-<script src="<?php echo base_url();?>assets/admin/scripts/custom/components-pickers.js"></script>
+<script src="<?php echo base_url()?>assets/admin/scripts/core/app.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/scripts/custom/index.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/scripts/custom/tasks.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/scripts/custom/table-managed.js"></script>
+<script src="<?php echo base_url()?>assets/admin/scripts/custom/components-pickers.js"></script>
+<script src="<?php echo base_url()?>assets/admin/scripts/custom/charts.js"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 
-<!-- BEGIN USER CUSTOM JAVASCRIPTS -->
-<script src="<?php echo base_url();?>assets/admin/scripts/custom/form-status.js" type="text/javascript"></script>
-<!-- END USER CUSTOM JAVASCRIPTS -->
+<!-- BEGIN USER AJAX JAVASCRIPTS -->
+<script src="<?php echo base_url()?>assets/admin/scripts/custom/form-user.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/scripts/custom/form-module.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/scripts/custom/form-status.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets/admin/scripts/custom/form-setting.js" type="text/javascript"></script>
+<!-- END USER AJAX JAVASCRIPTS -->
     
 <script>
 jQuery(document).ready(function() {    
-    App.init(); // initlayout and core plugins
-    TableManaged.init();
-    ComponentsPickers.init();      
-   
-    Index.init(); // init index page's custom scripts
     
-    // Custom JS in admin pages
-	FormStatus.init();
+    App.init(); // initlayout and core plugins   
+    Index.init();
+    Index.initCharts(); // init index page's custom scripts        
+    TableManaged.init();
+    ComponentsPickers.init();    
+    Charts.initPieCharts();    
+    // Custom in admin pages
+    FormStatus.init();
+    FormUser.init();
+    FormModule.init();
+    FormSetting.init();
+    
 <?php echo ($js_inline) ? "\t".$js_inline."\n" : "";?>
 <?php if ($this->session->flashdata('message')) { ?>
 	bootbox.alert('<h3><?php echo $this->session->flashdata('message');?></h3>');

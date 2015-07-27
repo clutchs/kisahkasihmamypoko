@@ -49,13 +49,13 @@ class Photo_Gallery extends Public_Controller {
         $this->load->library('pagination');
 		
         // Pagination options
-		$config['base_url'] = base_url('gallery/index/?').http_build_query($params);	
+		$config['base_url'] = base_url('photo_gallery/index/?').http_build_query($params);	
 		$config['total_rows'] = $this->Participants->get_count_images($search,$status);
-        $config["per_page"] = 9;
+        $config["per_page"] = 12;
 		$config['page_query_string'] = TRUE;
 
         // Pagination html tags
-		$config['full_tag_open'] = '<div><ul class="pagination pagination-small pagination-centered">';
+		$config['full_tag_open'] = '<div><ul class="pagination pagination-small pagination-centered vag-font">';
 		$config['full_tag_close'] = '</ul></div>';
 		$config['num_tag_open'] = '<li>';
 		$config['num_tag_close'] = '</li>';

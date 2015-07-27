@@ -76,12 +76,12 @@ class upload extends Public_Controller {
 						$config['source_image']	= $data['full_path'];
 						$config['create_thumb'] = TRUE;
 						$config['maintain_ratio'] = TRUE;
-						$config['width']	= 264;
-						$config['height']	= 220;
-
+						$config['width']	= 193;
+						$config['height']	= 193;
+                        
 						$this->load->library('image_lib', $config); 
 
-						$this->image_lib->resize();
+						$this->image_lib->resize();                        
 		
 						$thumb = $data['raw_name'].'_thumb'.$data['file_ext'];
 						$result['files'][] = array(

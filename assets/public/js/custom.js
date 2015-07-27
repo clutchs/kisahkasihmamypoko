@@ -47,7 +47,32 @@
 	
        
     $('[data-toggle="tooltip"]').tooltip();
-    
+    $('.btn-hit').click(function() {
+            var ahf = $(this);
+            var img = $(this).attr('rel');
+            var uri = $(this).attr('data-url');
+            var ref = $(this).attr('data-ref');		
+            var span = $(this).find('span.hit');
+            var srel = span.attr('rel');
+            $.ajax({
+                url  : uri,
+                dataType: 'json',
+                type : 'POST',
+                data : {'image':img},
+            }).done(function(msg) {
+                //var val = jQuery.parseJSON(msg);
+                console.log(msg);
+                if (msg == true) {
+                    // Redirect after request language
+                    $('.modal-message').modal('show');
+                    var hit = span.text();
+                    console.log(hit++);
+                    $('span.hit[rel="'+srel+'"]').text(hit++);
+                    ahf.attr('style','pointer-events: none;');
+                    //location.href = ref;
+                }
+            });
+    });
     $('#fileupload').fileupload({
         url: $(this).attr('data-url'),
         dataType: 'json',
@@ -122,7 +147,7 @@
     }
     
     $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
-    $('.popover_bootbox').click(function(){
+    $('.popover_bootbox, .popover_bootbox_auto').click(function(){
         var image = $(this).attr('rel');
         var title = $(this).attr('title');
         var descs = $(this).next('.img-description').text();

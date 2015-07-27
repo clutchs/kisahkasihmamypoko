@@ -5,16 +5,18 @@ class Dashboard extends Admin_Controller {
 	public function __construct() {
 		parent::__construct();
 		
-		//Load user
+		// Load user
 		$this->load->model('Users');
-		
-		//Load session
+        // Load Participant model
+        $this->load->model('participant/Participants');
+          		
+		// Load session
 		$this->load->model('Sessions');
 		
-		//Load user permission
+		// Load user permission
 		$this->load->model('UserGroupPermissions');
 		
-		//Put session check in constructor
+		// Put session check in constructor
 		$data['user'] = $this->session->userdata('user_session');
 
 	}
@@ -41,8 +43,17 @@ class Dashboard extends Admin_Controller {
 		// Load Text Editor execution
 		$data['js_inline'] = "Index.initCharts(); // Initialize graph";
 		
-	    // Total users count
+        // Total users count
 	    $data['tusers']			= $this->Users->getCount(1);
+	    
+	    // Total participant count
+	    $data['tparticipant']   = $this->Participants->getCount();
+	    
+	    // Total gallery count
+	    //$data['timages']	    = $this->Gallery->getCount();
+		
+		// Total active gallery count
+	    //$data['ta_images']	    = $this->Gallery->getCount(1);	    
 		
 		// Set class name to view
 	    $data['class_name']		= $this->_class_name;
