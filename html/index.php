@@ -16,6 +16,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+    <link href="css/fonts.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -49,7 +50,7 @@
         <div class="col-xs-5">
           <img class="mobil-brio" src="img/mobil-brio.png" alt="hadiah mobil">
         </div>
-        
+
         <div class="col-xs-7 bg-pink">
           <div class="col-xs-9 vag-font stroke">
             Dan raih Hadiah Hiburan setiap 2 minggu sekali
@@ -67,10 +68,10 @@
       <div class="row">
         <div class="col-md-12">
           <div id="Carousel" class="carousel slide">
-             
+
             <!-- Carousel items -->
             <div class="carousel-inner">
-                
+
             <div class="item active">
               <div class="row"> <!-- tiap thumnail item ukuran nya 106x106px -->
                 <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
@@ -90,12 +91,12 @@
                 <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
               </div><!--.row-->
             </div><!--.item-->
-             
+
             </div><!--.carousel-inner-->
               <a data-slide="prev" href="#Carousel" class="left carousel-control"><img class="nav-carousel" src="img/right-arrow-right-hi.png" alt="next"></a>
               <a data-slide="next" href="#Carousel" class="right carousel-control"><img class="nav-carousel" src="img/left-arrow-right-hi.png" alt="next"></a>
           </div><!--.Carousel-->
-                     
+
         </div>
       </div>
 
