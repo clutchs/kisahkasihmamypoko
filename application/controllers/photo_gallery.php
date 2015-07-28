@@ -82,7 +82,7 @@ class Photo_Gallery extends Public_Controller {
 		$data['gallery'] 	= $this->Participants->get_all_images($config["per_page"], $page, $order, $search, $status);
         
 		// Set main template
-		$data['main']		= 'gallery';
+		$data['main']		= $this->mobile.'gallery';
 				
 		// Set site title page with module menu
 		$data['page_title'] = 'Gallery';

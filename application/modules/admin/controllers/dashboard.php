@@ -75,7 +75,7 @@ class Dashboard extends Admin_Controller {
 		
 	}
         
-	public function stat_dashboard() {
+public function stat_dashboard() {
             
             // Check if the request via AJAX
             if (!$this->input->is_ajax_request()) {
@@ -98,6 +98,10 @@ class Dashboard extends Admin_Controller {
 			 * 
 			 */
 			
+			// Check range post
+			$range_post = $this->input->post('reportrange');
+			$range		= explode(" to ", $range_post);
+			
 			// User login stats
 			$login_stats = $this->Users->getLoginStats();
             if(!empty($login_stats)) {
@@ -107,22 +111,52 @@ class Dashboard extends Admin_Controller {
                     $temp_login[] = array($login->last_login,$login->total_login);
                 }
                 $result['result']['stats_login'] = $temp_login;
-				unset($temp_login);
+
             }
 			
-			// Session stats
-			$session_stats = $this->Sessions->getSessionStats();
-            if(!empty($session_stats)) {
+			// Participant Join stats
+			$join_stats = $this->Participants->getJoinStats($range);
+			
+            if(!empty($join_stats)) {
                     
-                $temp_session = array();
-                foreach ($session_stats as $session) {
-                    $temp_session[] = array($session->last_activity,$session->total_session);
+                $temp_join = array();
+                foreach ($join_stats as $join) {
+                    $temp_join[] = array($join->join_date,$join->total_join);
                 }
-                $result['result']['stats_session'] = $temp_session;
-				unset($temp_session);
+                $result['result']['stats_join'] = $temp_join;
+
+            }
+			/*
+			// Sender statistics Join stats
+			$gender_stats = $this->Participants->getGenderStats();
+			
+            if(!empty($gender_stats)) {
+				
+				$temp_gender = '';
+				foreach ( $gender_stats as $gender) {
+					$temp_gender['Pria'] = $gender->pria;
+					$temp_gender['Wanita'] = $gender->wanita;
+					//$temp_gender['Total'] = array($gender->total);
+				}
+				$result['result']['gender_stats'] = $temp_gender;
+
             }
 			
-            // Return data result
+			// Sender statistics Oshis Favorite stats
+			$oshis_stats = $this->Participants->getOshiStats();
+			
+            if(!empty($oshis_stats)) {
+				  	 
+				$temp_oshis  = array();
+				foreach ($oshis_stats as $oshi) {
+					$temp_oshis[$oshi->oshi_favorite] = $oshi->sum;
+				}
+				$result['result']['oshis_stats'] = $temp_oshis;
+
+            }
+			*/
+            
+            // Return data esult
             $data['json'] = $result;
 
             // Load data into view		

@@ -25,7 +25,7 @@ class Account extends Public_Controller {
 		if ($this->participant->status == 1) {
                         
             // Set main template
-            $data['main']    = 'account_profile';
+            $data['main']    = $this->mobile.'account_profile';
 
             // Set site title page with module menu
             $data['page_title'] = 'Account Profile';
@@ -220,7 +220,7 @@ class Account extends Public_Controller {
         $data['genders'] = config_item('gender');
 
 		// Set main template
-		$data['main']    = 'account';
+		$data['main']    = $this->mobile.'account';
 				
 		// Set site title page with module menu
 		$data['page_title'] = 'Account Register';

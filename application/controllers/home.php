@@ -38,7 +38,7 @@ class Home extends Public_Controller {
 		$data['participants']	= $this->Participants->getAllParticipantFiles();        
 		
 		// Set main template
-		$data['main'] = 'home';
+		$data['main'] = $this->mobile.'home';
 		
 		// Load site template
 		$this->load->view('template/public/template', $this->load->vars($data));		
