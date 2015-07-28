@@ -964,6 +964,15 @@ hr {
   margin-bottom: 50px;
   width: 111px;
 }
+
+.brio-page-hadiah{
+  display: block;
+  margin: auto;
+}
+.img-ctr{
+  display: block;
+  margin: auto;
+}
 /* Media queries */
 
 @media(max-width:640px) {
@@ -1010,6 +1019,15 @@ hr {
   }
   .sub-mekanisme ul a{font-size: 12px;}
   .sub-mekanisme .col-xs-6{padding-left: 0px;}
+  .scroll-body{
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    width: 600px !important;
+  }
+  .jspContainer{width: auto !important;}
+  .search-galeri{width: 500px; margin-top: 10px; margin-bottom: 10px;}
+  .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"], .radio input[type="radio"], .radio-inline input[type="radio"]
+  {margin-left: 0px;}
 }
 
 @media (max-width:360px) {
@@ -1056,4 +1074,13 @@ hr {
   }
   .sub-mekanisme ul a{font-size: 12px;}
   .sub-mekanisme .col-xs-6{padding-left: 0px;}
+  .scroll-body{
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    width: 320px !important;
+  }
+  .jspContainer{width: auto !important;}
+  .search-galeri{width: 300px; margin-top: 10px; margin-bottom: 10px;}
+  .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"], .radio input[type="radio"], .radio-inline input[type="radio"]
+  {margin-left: 0px;}
 }

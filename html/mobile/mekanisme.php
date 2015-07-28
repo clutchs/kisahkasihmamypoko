@@ -43,15 +43,15 @@
           </div>
           <div class="row">
             <div>
-              <img class="cara-satu" src="../img/cara-satu.png" alt="cara satu">
+              <img class="cara-satu img-ctr" src="../img/cara-satu.png" alt="cara satu">
               <ul><li>Tunjukkan ekspresi bahagia dan penuh kasih antara Mamy dan si Kecil lewat foto</li></ul>
             </div>
             <div>
-              <img class="cara-dua" src="../img/cara-dua.png" alt="cara dua">
+              <img class="cara-dua img-ctr" src="../img/cara-dua.png" alt="cara dua">
               <ul><li>Pastikan si Kecil menggunakan popok MamyPoko Pants / Tipe Celana (Standar/Extra Dry/Extra Soft)</li></ul>
             </div>
             <div>
-              <img class="cara-tiga" src="../img/cara-tiga.png" alt="cara tiga">
+              <img class="cara-tiga img-ctr" src="../img/cara-tiga.png" alt="cara tiga">
               <ul><li>Ceritakan secara singkat dan menarik mengenai momen indah Mamy dan si Kecil bersama MamyPoko</li></ul>
             </div>
           </div>
