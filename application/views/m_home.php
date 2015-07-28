@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-
+adasdasdadasdas
 <div class="bg-yellow row">
     <div class="col-xs-7">
       <h1><img class="kisah-title" src="<?php echo base_url('assets/public/img');?>/kisah-kasih.png" alt="kisah kasih mamypoko"></h1>
@@ -42,10 +42,10 @@
 
 
 
-        <?php                  
+        <?php
             $b = 1;
             $n = count($participants);
-            foreach ($participants as $image) { 
+            foreach ($participants as $image) {
 
               $pathinfo	= pathinfo($image->file_name);
               $thumb		= $pathinfo['filename'].'_thumb.'.$pathinfo['extension'];
@@ -81,10 +81,10 @@
                     <?php } if ($b == $n) { ?>
                 </div><!--.row1-->
               </div><!--.item1-->
-            <?php } 
+            <?php }
             $b++;
             }
-            ?>         
+            ?>
 
       </div><!--.carousel-inner-->
         <a data-slide="prev" href="#Carousel" class="left carousel-control"><img class="nav-carousel" src="<?php echo base_url('assets/public/img');?>/right-arrow-right-hi.png" alt="next"></a>

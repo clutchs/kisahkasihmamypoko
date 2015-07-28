@@ -23,7 +23,7 @@
     <div id="wrapper">
         <?php $this->load->view('template/public/header'); ?>
         <div id="navigation">
-            <?php $this->load->view('template/public/navigation'); ?>
+            <?php $this->load->view('template/public/'.$this->mobile.'navigation'); ?>
         </div>
         <div id="main">
             <div class="messageFlash">

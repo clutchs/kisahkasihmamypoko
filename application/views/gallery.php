@@ -54,27 +54,17 @@
                         </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-            <?php } ?>            
-                
-               
-                
+            <?php } ?>
+
+
+
         <?php } else { ?>
             <br/><br/><br/><br/><br/><br/><br/>
-              <h3 class="text-center font-pocky">Belum ada galeri. <br/><a href="<?php echo base_url('photo_gallery');?>" title="Kembali">Kembali</a></h3>              
-    <?php } ?>                  
-          </div>            
-        </div>        
-        <div class="col-xs-12 pagination text-center">
-            <?php echo $links; ?>
-        </div>            
-=======
-            <?php } ?>
-            <?php } else { ?>
-            <br/><br/><br/><br/><br/><br/><br/>
               <h3 class="text-center font-pocky">Belum ada galeri. <br/><a href="<?php echo base_url('photo_gallery');?>" title="Kembali">Kembali</a></h3>
-            <?php } ?>
+    <?php } ?>
           </div>
         </div>
->>>>>>> 684363661b34783bf24cf28816c5bf8a97553f1d
+        <div class="col-xs-12 pagination text-center">
+            <?php echo $links; ?>
+        </div>
       </div>
