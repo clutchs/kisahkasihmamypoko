@@ -37,7 +37,7 @@
             <?php
                 foreach ($gallery as $image) { ?>
                     <div class="col-xs-3 clear">
-                        <div class="thumbnail">
+                    <div class="thumbnail">
                         <?php
                             $pathinfo	= pathinfo($image->file_name);
                             $thumb		= $pathinfo['filename'].'_thumb.'.$pathinfo['extension'];
@@ -52,8 +52,8 @@
                             <h5 class="nama-mamy"><?=character_limiter($image->name, 14);?></h5>
                             <h5 class="nama-baby"><?=character_limiter($image->baby_name, 14);?></h5>
                         </div>
-                        </div>
                     </div>
+<<<<<<< HEAD
             <?php } ?>
 
 
@@ -67,4 +67,17 @@
         <div class="col-xs-12 pagination text-center">
             <?php echo $links; ?>
         </div>
+=======
+                </div>    
+            <?php } ?>                         
+        <?php } else { ?>
+            <br/><br/><br/><br/><br/><br/><br/>
+              <h3 class="text-center font-pocky">Belum ada galeri. <br/><a href="<?php echo base_url('photo_gallery');?>" title="Kembali">Kembali</a></h3>              
+    <?php } ?>                  
+          </div>            
+        </div>        
+        <div class="col-xs-12 pagination text-center">
+            <?php echo $links; ?>
+        </div>            
+>>>>>>> b79642aaaf5f01ae29d1b56c2d0ff331c4a475dd
       </div>
