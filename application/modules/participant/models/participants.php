@@ -148,6 +148,22 @@ class Participants Extends CI_Model {
 		return $data;
     }	
     
+    public function getAllParticipantFiles($cond=null){
+		$data = array();
+        // Get conditions
+        $this->db->where('file_name !=', '');
+        $this->db->order_by('join_date');
+		$Q = $this->db->get($this->table);
+			if ($Q->num_rows() > 0){
+				//foreach ($Q->result_object() as $row){
+					//$data[] = $row;
+				//}
+				$data = $Q->result_object();
+			}
+		$Q->free_result();
+		return $data;
+    }	
+    
     // Get participant's Email from posts 
 	public function getEmail($email=null){
 	    if(!empty($email)){
