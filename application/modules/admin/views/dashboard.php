@@ -74,12 +74,12 @@
 		    </div>
 			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			<div class="dashboard-stat red">
-			    <div class="visual"><i class="fa fa-camera-retro"></i></div>
+			    <div class="visual"><i class="fa fa-user"></i></div>
 			    <div class="details">
-				<div class="number"><?=$ta_images;?></div>
-				<div class="desc">Total Unpublished Image</div>
+				<div class="number"><?=$ta_users;?></div>
+				<div class="desc">User Unregistered</div>
 			    </div>
-			    <a class="more" href="<?=base_url(ADMIN.'gallery/index');?>">
+			    <a class="more" href="<?=base_url(ADMIN.'participant/index');?>">
 				View more <i class="m-icon-swapright m-icon-white"></i>
 			    </a>
 			</div>
@@ -145,7 +145,7 @@
 			</div>	
 		
 			
-			<div class="row-fluid">
+			<div class="row-fluid hidden">
 				<div class="col-md-6">
 					<div class="portlet box yellow">
 						<div class="portlet-title">
