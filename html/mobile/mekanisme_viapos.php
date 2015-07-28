@@ -13,10 +13,11 @@
     <title>Kisah Kasih Mamypoko</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/fonts.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -32,52 +33,49 @@
 
     <div class="container">
       <div class="bg-yellow row">
-        <h1><img class="kisah-title" src="img/mekanisme.png" alt="mekanisme page"></h1>
+        <h1><img class="kisah-title" src="../img/mekanisme.png" alt="mekanisme page"></h1>
         <div class="mekanisme-body row">
           <div class="row">
-            <div class="col-xs-7 font-12">Kirimkan foto dan cerita tersebut melalui salah satu cara berikut :</div>
-            <div class="col-xs-5 sub-mekanisme submit-color">
+            <div>Kirimkan foto dan cerita tersebut melalui salah satu cara berikut :</div>
+            <div class="sub-mekanisme submit-color">
               <?php include 'submekan.php';?>
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-7 pembatas">
-              <div class="via-pos-img"><img src="img/icon-kirim-post.png" alt="cara kirim foto via Pos"></div>
+            <div>
+              <img class="img-ctr" src="../img/icon-kirim-post.png" alt="cara kirim foto via Pos">
               <ul>
-                <li>Dapatkan formulir pendaftaran 
-  di toko-toko terdekat <img class="item-via-pos-img" src="img/sample-kirim-post.png" alt="sample cara kirim foto via Pos"></li>
-                <li>Isi formulir dengan lengkap 
-  sesuai petunjuk sertakan 
-  juga cerita singkat yang menarik 
-  tentang Mamy, si Kecil dan 
+                <li>Dapatkan formulir pendaftaran
+                  di toko-toko terdekat </li>
+                <li><img class="item-via-pos-img" src="../img/sample-kirim-post.png" alt="sample cara kirim foto via Pos"></li>
+                <li>Isi formulir dengan lengkap
+  sesuai petunjuk sertakan
+  juga cerita singkat yang menarik
+  tentang Mamy, si Kecil dan
   MamyPoko</li>
+                <li>Bila ingin mengikutsertakan
+                  lebih dari 1 anak, dapat ambil formulir
+                  sesuai dengan jumlah anak, isi data diri
+                  dengan lengkap lalu kirimkan
+                  dalam 1 amplop</li>
+                <li>Kirimkan foto berukuran 2R (6x9 cm)</li>
+                <li>Pengiriman via pos disertai
+                  dengan formulir, apabila Mamy
+                  tidak memiliki formulir Mamy
+                  dapat mengisi data lengkap dibelakang foto
+                  yang Mamy kirim. </li>
+                <li>Data lengkap yang harus diisi berupa
+                  (Nama Mamy, No. KTP, Nama bayi,
+                  Tanggal lahir bayi,  Alamat [RT,RW, Kode Pos],
+                  No Hp dan No telepon rumah)</li>
               </ul>
-              <div class="bot-left-info vag-font">
+              <!--<div class="bot-left-info vag-font">
                 Kirimkan via Pos ke<br>
                 PO BOX MamyPoko JKT 10000
-              </div>
-            </div>
-            <div class="col-xs-5">
-              <ul>
-                <li>Bila ingin mengikutsertakan 
-  lebih dari 1 anak, dapat ambil formulir 
-  sesuai dengan jumlah anak, isi data diri 
-  dengan lengkap lalu kirimkan 
-  dalam 1 amplop</li>
-                <li>Kirimkan foto berukuran 2R (6x9 cm)</li>
-                <li>Pengiriman via pos disertai 
-  dengan formulir, apabila Mamy 
-  tidak memiliki formulir Mamy 
-  dapat mengisi data lengkap dibelakang foto 
-  yang Mamy kirim. </li>
-                <li>Data lengkap yang harus diisi berupa 
-  (Nama Mamy, No. KTP, Nama bayi, 
-  Tanggal lahir bayi,  Alamat [RT,RW, Kode Pos], 
-  No Hp dan No telepon rumah)</li>
-              </ul>
+              </div>-->
             </div>
           </div>
-          
+
         </div>
       </div>
     </div> <!-- /container -->
@@ -87,6 +85,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>

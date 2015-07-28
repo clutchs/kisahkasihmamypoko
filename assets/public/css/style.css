@@ -368,6 +368,11 @@ div.navbar-mamypoko .navbar-default .navbar-nav> li >a:hover { background-color:
 }
 .cari-foto div{
 margin-bottom: 10px;}
+<<<<<<< HEAD
+=======
+
+.fileUpload:hover { color: #990000; }
+>>>>>>> 684363661b34783bf24cf28816c5bf8a97553f1d
 .fileUpload:hover { color: #990000; }
 .submit-color, .submit-color:active {
   background: rgba(195,220,71,1);

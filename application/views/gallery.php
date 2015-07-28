@@ -10,7 +10,7 @@
         <?php
             if (!empty($gallery)) { ?>
             <div class="search-galeri row">
-                <div class="col-xs-6 pull-left sort">
+                <div class="col-xs-7">
                     <form role="form" action="" type="GET" class="form-horizontal sort">
                       <div class="input-group">
                         <select class="form-control input-sm" id="sel1" name="sort" style="width:100%" data-url="<?=uri_string();?>">
@@ -21,7 +21,7 @@
                       </div>
                     </form>
                 </div>
-                <div class="pull-right">
+                <div class="col-xs-5">
                 <form class="form-inline" action="" method="GET">
                     <div class="form-group">
                       <label class="sr-only" for="exampleInputAmount">Participant</label>
@@ -54,6 +54,7 @@
                         </div>
                         </div>
                     </div>
+<<<<<<< HEAD
             <?php } ?>            
                 
                
@@ -67,4 +68,13 @@
         <div class="col-xs-12 pagination text-center">
             <?php echo $links; ?>
         </div>            
+=======
+            <?php } ?>
+            <?php } else { ?>
+            <br/><br/><br/><br/><br/><br/><br/>
+              <h3 class="text-center font-pocky">Belum ada galeri. <br/><a href="<?php echo base_url('photo_gallery');?>" title="Kembali">Kembali</a></h3>
+            <?php } ?>
+          </div>
+        </div>
+>>>>>>> 684363661b34783bf24cf28816c5bf8a97553f1d
       </div>

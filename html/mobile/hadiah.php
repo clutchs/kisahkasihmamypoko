@@ -13,10 +13,11 @@
     <title>Kisah Kasih Mamypoko</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/fonts.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -32,13 +33,11 @@
 
     <div class="container">
       <div class="bg-yellow row">
-        <h1><img class="kisah-title" src="img/hadiah.png" alt="hadiah page"></h1>
+        <h1><img class="kisah-title" src="../img/hadiah.png" alt="hadiah page"></h1>
         <div class="mekanisme-body row">
-          <img class="brio-page-hadiah" src="img/brio-phadiah.png" alt="brio hadiah page">
-          <img class="brio-page-hadiah" src="img/page-hadiah.png" alt="hadiah page">
-          <div class="note-hadiah1 vag-font">
-            <p>Hadiah grand prize (untuk pemenang utama, kedua, ketiga dan hiburan) akan diumumkan tanggal <span class="date-announce">19 October 2015</span> di Tabloid Nova dan Facebook fan page MamyPoko Indonesia</p>
-          </div>
+          <img class="brio-page-hadiah img-responsive" src="../img/mbrio-phadiah.png" alt="brio hadiah page">
+          <img class="brio-page-hadiah img-responsive" src="../img/pemenang-2-3.png" alt="hadiah page">
+          <img class="brio-page-hadiah img-responsive" src="../img/mhadiah-hiburan.png" alt="hadiah page">
           <div class="note-hadiah2 vag-font">
             <p>Pemenang beruntung akan diumumkan tiap 2 minggu dengan rincian:</p>
             <p>Pemenang beruntung gelombang 1: Tanggal <span class="date-event">18 Agustus 2015</span>  diumumkan di Tabloid Nova dan Facebook fan page MamyPoko</p>
@@ -55,6 +54,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>

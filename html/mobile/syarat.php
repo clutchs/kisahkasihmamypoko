@@ -13,14 +13,15 @@
     <title>Kisah Kasih Mamypoko</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link type="text/css" href="css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="../css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
     <!-- the styles for the lozenge theme -->
-    <link type="text/css" href="css/jquery.jscrollpane.lozenge.css" rel="stylesheet" media="all" />
+    <link type="text/css" href="../css/jquery.jscrollpane.lozenge.css" rel="stylesheet" media="all" />
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/fonts.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 
-    
+
   </head>
 
   <body>
@@ -30,7 +31,7 @@
 
     <div class="container">
       <div class="bg-yellow row">
-        <h1><img class="kisah-title" src="img/syarat.png" alt="syarat page"></h1>
+        <h1><img class="kisah-title" src="../img/syarat.png" alt="syarat page"></h1>
         <div class="mekanisme-body row">
           <ul>
             <li>Saat foto, si Kecil harus memakai popok MamyPoko Tipe Celana / Pants (Standar/Extra Dry/Extra Soft)</li>
@@ -40,11 +41,11 @@
             <li>Jika memiliki lebih dari 1 orang anak, semuanya dapat diikutsertakan dengan mengirimkan foto yang berbeda
    dan mengisi data diri masing-masing anak dengan lengkap</li>
             <li>Kompetisi berlangsung mulai 1 Agustus sampai 1 Oktober 2015</li>
-            <li>Kompetisi ini tidak berlaku untuk staff dan karyawan MamyPoko / PT. Unicharm Indonesia serta agensi 
-   penyelenggara (biro iklan) beserta anggota keluarga maupun segala pihak yang berkaitan dengan kompetisi foto 
+            <li>Kompetisi ini tidak berlaku untuk staff dan karyawan MamyPoko / PT. Unicharm Indonesia serta agensi
+   penyelenggara (biro iklan) beserta anggota keluarga maupun segala pihak yang berkaitan dengan kompetisi foto
    Kisah Kasih MamyPoko</li>
-            <li>Setiap foto yang masuk ke Tim MamyPoko akan menjadi hak milik MamyPoko dan dapat digunakan 
-  sewaktu-waktu untuk kepentingan MamyPoko tanpa pemberitahuan sebelumnya dengan menyebutkan 
+            <li>Setiap foto yang masuk ke Tim MamyPoko akan menjadi hak milik MamyPoko dan dapat digunakan
+  sewaktu-waktu untuk kepentingan MamyPoko tanpa pemberitahuan sebelumnya dengan menyebutkan
   sumbernya</li>
             <li>Pemenang akan dipilih oleh Tim MamyPoko sebagai dewan juri. Keputusan tidak dapat diganggu gugat.</li>
           </ul>
@@ -65,12 +66,12 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.mousewheel.js"></script>
     <!-- the jScrollPane script -->
-    <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.jscrollpane.min.js"></script>
     <!-- scripts specific to this demo site -->
-    <script type="text/javascript" src="js/demo.js"></script>
+    <script type="text/javascript" src="../js/demo.js"></script>
     <script type="text/javascript" id="sourcecode">
       $(function()
       {
