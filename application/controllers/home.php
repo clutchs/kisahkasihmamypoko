@@ -33,6 +33,9 @@ class Home extends Public_Controller {
 		
 		// Set contactus address info data
 		$data['contactus_address']	= $this->Settings->getByParameter('contactus_address');		
+        
+        // Set contactus address info data
+		$data['participants']	= $this->Participants->getAllParticipantFiles();        
 		
 		// Set main template
 		$data['main'] = 'home';

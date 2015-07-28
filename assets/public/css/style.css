@@ -5,6 +5,7 @@
 }
 html { text-rendering: optimizeLegibility; font-smoothing: antialiased; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
 .vag-font{font-family: 'VAG_Bold';}
+.vag-round-font{font-family: 'VAG_Round'; letter-spacing: 0.04em; }
 
 /* Template-specific stuff
  *
@@ -332,8 +333,9 @@ div.navbar-mamypoko .navbar-default .navbar-nav> li >a:hover { background-color:
 .note{
   font-size: 8px;
 }
-.dapatkan-hadiah{margin-top: -12px;}
-.main-menu{width:594px;//width: 600px;}
+.dapatkan-hadiah{margin-top: -14px;}
+.main-menu{width:604px;//width: 600px;}
+.main-menu .navbar-nav { margin-left: 6px} 
 .stroke{
   -webkit-text-stroke: 1px #760042;
 }
@@ -483,6 +485,7 @@ ul.galeri li{margin-bottom: 15px;}
 .galeri-thumbnail .thumbnail .caption { padding: 0px}
 .galeri-thumbnail .thumbnail .caption h5 { padding: 0px 0 0 0; font-weight: normal}
 .popover_bootbox { display: block; height: 84px; overflow: hidden; }
+.popover_bootbox.high img { max-width: 148px; margin: -5px 0 0 -15px !important }
 .popover_bootbox img { text-align: center }
 .note-baby { color: #ec008c; padding: 8px 0 8px 0px; }
 .note-hadiah1, .note-hadiah2{

@@ -48,7 +48,7 @@
                         <div class="img-description hidden">
                             <?php echo $image->about;?>
                         </div>
-                        <div class="caption vag-font">
+                        <div class="caption vag-round-font">
                             <h5 class="nama-mamy"><?=character_limiter($image->name, 14);?></h5>
                             <h5 class="nama-baby"><?=character_limiter($image->baby_name, 14);?></h5>
                         </div>
