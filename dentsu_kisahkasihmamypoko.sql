@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 24, 2015 at 08:15 AM
+-- Generation Time: Jul 28, 2015 at 01:25 AM
 -- Server version: 5.6.23
 -- PHP Version: 5.4.31
 
@@ -32,20 +32,14 @@ CREATE TABLE IF NOT EXISTS `tbl_captcha` (
   `ip_address` varchar(16) DEFAULT NULL,
   `word` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1750 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1822 ;
 
 --
 -- Dumping data for table `tbl_captcha`
 --
 
 INSERT INTO `tbl_captcha` (`id`, `time`, `ip_address`, `word`) VALUES
-(1745, 1437740005, '139.0.26.20', 'xseZv'),
-(1749, 1437740043, '139.0.26.20', 'JIeLi'),
-(1748, 1437740041, '139.0.26.20', 'nJUGw'),
-(1747, 1437740039, '139.0.26.20', 'IeBqJ'),
-(1744, 1437740004, '139.0.26.20', 'kGJub'),
-(1743, 1437739993, '139.0.26.20', 'OoMKC'),
-(1746, 1437740005, '139.0.26.20', 'JTXtx');
+(1821, 1438052876, '139.0.26.20', 'UpbZr');
 
 -- --------------------------------------------------------
 
@@ -68,19 +62,11 @@ CREATE TABLE IF NOT EXISTS `tbl_ci_sessions` (
 --
 
 INSERT INTO `tbl_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('0d401d7e23ac6553beb2343e98844ccc', '66.220.158.118', '0', 1437739753, ''),
-('10855ffc55819e00f87a7fe4f99e2a4a', '139.0.26.20', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.132 Safari/537.36', 1437739867, 'a:1:{s:9:"user_data";s:0:"";}'),
-('118c208a59133030649abdd5fd945469', '139.0.26.20', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0', 1437739838, 'a:1:{s:9:"user_data";s:0:"";}'),
-('13875581184877e8d6db183a19b7b17d', '66.220.158.114', '0', 1437739116, ''),
-('33173561c6adc6dfb6dcee774c57988b', '66.220.158.113', '0', 1437739406, ''),
-('46aec01946f44b89b3ead09f4d70bfff', '66.220.158.116', '0', 1437739655, ''),
-('63f3bd67c33153736cc0ff6c980c4fc4', '66.220.158.114', '0', 1437738956, ''),
-('9cdc2d3f2a4d3b5ea363b6f52ae656ff', '66.220.158.112', '0', 1437739158, ''),
-('b5fed0af112933fca1069fe549b0b0e6', '66.220.158.115', '0', 1437739275, ''),
-('dd8441a487c6bf15b635de014738dbbb', '66.220.158.119', '0', 1437739521, ''),
-('e68b1cf0b5fa4f47d33a48828a9ad01b', '139.0.26.20', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:39.0) Gecko/20100101 Firefox/39.0', 1437739993, 'a:2:{s:9:"user_data";s:0:"";s:11:"participant";O:8:"stdClass":31:{s:2:"id";s:2:"19";s:13:"identifier_id";s:16:"1614594405486202";s:8:"identity";s:8:"Facebook";s:11:"profile_url";s:61:"https://www.facebook.com/app_scoped_user_id/1614594405486202/";s:9:"photo_url";s:72:"https://graph.facebook.com/1614594405486202/picture?width=150&height=150";s:5:"email";s:23:"defrian.yarfi@gmail.com";s:7:"website";s:0:"";s:8:"password";N;s:8:"username";N;s:4:"name";s:13:"Defrian Yarfi";s:6:"gender";s:4:"male";s:3:"age";N;s:14:"nationality_id";N;s:13:"research_area";N;s:10:"occupation";N;s:9:"baby_name";s:8:"Baby Zee";s:13:"baby_birthday";s:10:"24/07/2015";s:5:"about";s:4:"Test";s:7:"address";N;s:6:"region";s:0:"";s:12:"phone_number";s:12:"081807244697";s:10:"phone_home";s:0:"";s:9:"id_number";s:10:"3145212312";s:9:"file_name";s:36:"89c97f5c4efc15cbf8bf065d5db0c1e6.jpg";s:6:"verify";s:5:"LAWnw";s:9:"completed";s:1:"0";s:9:"logged_in";s:1:"0";s:10:"last_login";s:10:"1437740047";s:10:"session_id";s:0:"";s:6:"status";s:1:"1";s:9:"join_date";s:19:"2015-07-24 08:14:07";}}'),
-('f24d7ecd707061094ccbc5536e3a81ff', '66.220.158.113', '0', 1437739225, ''),
-('fd0789e5f0c42e18580124edf8832c8a', '139.0.26.20', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:39.0) Gecko/20100101 Firefox/39.0', 1437740087, '');
+('00ed0a46e010b4c121060143165ebd7a', '139.0.26.20', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.132 Safari/537.36', 1438054633, ''),
+('cd97a3b9584e7ccd59350791535e01e5', '66.102.6.156', 'Google favicon', 1438056821, ''),
+('ee96844c3f14eada9533ac7fcad738c0', '139.0.26.20', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0', 1438060840, ''),
+('f5a5a32dec7df89df59372cfa3d1f8fa', '139.0.26.20', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0', 1438056053, 'a:2:{s:9:"user_data";s:0:"";s:11:"participant";O:8:"stdClass":31:{s:2:"id";s:2:"28";s:13:"identifier_id";s:16:"1594395950826798";s:8:"identity";s:8:"Facebook";s:11:"profile_url";s:61:"https://www.facebook.com/app_scoped_user_id/1594395950826798/";s:9:"photo_url";s:72:"https://graph.facebook.com/1594395950826798/picture?width=150&height=150";s:5:"email";s:28:"pricilianapitupulu@yahoo.com";s:7:"website";s:0:"";s:8:"password";N;s:8:"username";N;s:4:"name";s:16:"Pricilia Nikitta";s:6:"gender";s:6:"female";s:3:"age";N;s:14:"nationality_id";N;s:13:"research_area";N;s:10:"occupation";N;s:9:"baby_name";N;s:13:"baby_birthday";N;s:5:"about";s:0:"";s:7:"address";N;s:6:"region";s:0:"";s:12:"phone_number";N;s:10:"phone_home";N;s:9:"id_number";N;s:9:"file_name";N;s:6:"verify";N;s:9:"completed";N;s:9:"logged_in";s:1:"0";s:10:"last_login";N;s:10:"session_id";s:0:"";s:6:"status";s:1:"0";s:9:"join_date";s:19:"2015-07-27 23:00:40";}}'),
+('fc82fe70765ec95f447a4a745c51ee2f', '139.0.26.20', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:39.0) Gecko/20100101 Firefox/39.0', 1438060939, '');
 
 -- --------------------------------------------------------
 
@@ -1398,14 +1384,19 @@ CREATE TABLE IF NOT EXISTS `tbl_participants` (
   `join_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
 
 --
 -- Dumping data for table `tbl_participants`
 --
 
 INSERT INTO `tbl_participants` (`id`, `identifier_id`, `identity`, `profile_url`, `photo_url`, `email`, `website`, `password`, `username`, `name`, `gender`, `age`, `nationality_id`, `research_area`, `occupation`, `baby_name`, `baby_birthday`, `about`, `address`, `region`, `phone_number`, `phone_home`, `id_number`, `file_name`, `verify`, `completed`, `logged_in`, `last_login`, `session_id`, `status`, `join_date`) VALUES
-(19, '1614594405486202', 'Facebook', 'https://www.facebook.com/app_scoped_user_id/1614594405486202/', 'https://graph.facebook.com/1614594405486202/picture?width=150&height=150', 'defrian.yarfi@gmail.com', '', NULL, NULL, 'Defrian Yarfi', 'male', NULL, NULL, NULL, NULL, 'Baby Zee', '24/07/2015', 'Test', NULL, '', '081807244697', '', '3145212312', '89c97f5c4efc15cbf8bf065d5db0c1e6.jpg', 'LAWnw', 0, 0, 1437740047, '', 1, '2015-07-24 12:14:07');
+(23, '10204826679575324', 'Facebook', 'https://www.facebook.com/app_scoped_user_id/10204826679575324/', 'https://graph.facebook.com/10204826679575324/picture?width=150&height=150', 'permenmanishollyheads@rocketmail.com', '', NULL, NULL, 'Elma Effina Effendy', 'female', NULL, NULL, NULL, NULL, 'Haikal Rayyan Al Yarfi', '11/07/2014', 'Hai semua, ini baby haikal yang sudah masuk usia 1 tahun dan lagi senang2 nya belajar jalan', NULL, '', '081287323725', '0210868689', '03928393728900', 'e13435e975c03c08cf79fe762720d65d.jpg', 'AQqBi', 0, 0, 1437750532, '', 1, '2015-07-24 15:08:52'),
+(22, '10207545992435105', 'Facebook', 'https://www.facebook.com/app_scoped_user_id/10207545992435105/', 'https://graph.facebook.com/10207545992435105/picture?width=150&height=150', 'qwik_chyp@yahoo.com', 'http://bebekbecek.deviantart.com\nhttp://www.plurk.com/bebekbecek\nhttp://', NULL, NULL, 'Indita Suwika Sari', 'female', NULL, NULL, NULL, NULL, 'Moi', '01/06/2015', 'Pipis sembarangan', NULL, 'Jakarta, Indonesia', '0811156307', '0217222525', '3174054511890001', '8936063f5d8cf599f49fd0ef19a0f53e.jpg', 'cxfwp', 0, 0, NULL, '', 1, '2015-07-24 12:48:33'),
+(27, '1614594405486202', 'Facebook', 'https://www.facebook.com/app_scoped_user_id/1614594405486202/', 'https://graph.facebook.com/1614594405486202/picture?width=150&height=150', 'dyarfi20@gmail.com', '', NULL, NULL, 'Nairfed Ifray', 'male', NULL, NULL, NULL, NULL, 'Baby Zee', '28/07/2015', 'TEst Keterangan Deskripsi', NULL, '', '081807244697', '1231231', '123123123', 'bda92b08c0e040734448170bbb342eda.jpg', 'BrZDG', 0, 0, NULL, '', 1, '2015-07-27 19:34:06'),
+(21, '152520338412513', 'Facebook', 'https://www.facebook.com/app_scoped_user_id/152520338412513/', 'https://graph.facebook.com/152520338412513/picture?width=150&height=150', 'muhammad.hilman@d3.dentsu.co.id', '', NULL, NULL, 'Iniakun Buattesting', 'male', NULL, NULL, NULL, NULL, 'anak kuda', '08/06/2015', 'ceritanya anka monkey king', NULL, '', '021355841565', '21355431215135', '12536987935', 'a48ca1018701b3e5bd09c44e6451c673.jpg', 'xlllN', 0, 0, NULL, '', 1, '2015-07-24 12:39:48'),
+(24, '10153534732384322', 'Facebook', 'https://www.facebook.com/app_scoped_user_id/10153534732384322/', 'https://graph.facebook.com/10153534732384322/picture?width=150&height=150', 'arinda.ruby@gmail.com', '', NULL, NULL, 'Arinda Ruby', 'female', NULL, NULL, NULL, NULL, 'Arhata Malik', '27/07/2015', 'deqwfjdifh JWDNFKAN KCKDNFKSL BGBRDB', NULL, '', '0872463839', '77638281', '123456789', '47edcb453c495cdcbfd119bd618eeba7.JPG', 'sbFTi', 0, 0, NULL, '', 1, '2015-07-27 05:18:17'),
+(28, '1594395950826798', 'Facebook', 'https://www.facebook.com/app_scoped_user_id/1594395950826798/', 'https://graph.facebook.com/1594395950826798/picture?width=150&height=150', 'pricilianapitupulu@yahoo.com', '', NULL, NULL, 'Pricilia Nikitta', 'female', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '', 0, '2015-07-28 03:00:40');
 
 -- --------------------------------------------------------
 
@@ -1584,7 +1575,7 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
 --
 
 INSERT INTO `tbl_users` (`id`, `username`, `email`, `password`, `group_id`, `last_login`, `logged_in`, `status`, `session_id`, `added`, `modified`) VALUES
-(1, 'admin', 'admin@admin.com', 'dd94709528bb1c83d08f3088d4043f4742891f4f', 1, 1436797178, 1, 1, '8bd02f5c86b7a59fdf73d3000d26a2f3', 0, 0),
+(1, 'admin', 'admin@admin.com', 'dd94709528bb1c83d08f3088d4043f4742891f4f', 1, 1437980614, 1, 1, '3e9956ea76401fb75f5751a96da66a86', 0, 0),
 (2, 'joni', 'admin1@admin.com', '9003d1df22eb4d3820015070385194c8', 2, 1417003004, 0, 1, '', 0, 1424687676),
 (3, 'qc', 'asdf@asdf.com', 'fb00378895cf135de3b135f385c0012f3823e4fb', 3, 1417001008, 0, 1, '', 0, 1424689343),
 (29, 'dyarfi', 'dyarfi20@gmail.com', '647dc5d75f6ce3c6a859eb3b91fa6ccaab05b245', 116, 0, 0, 1, '', 1417065898, 0),
