@@ -49,12 +49,12 @@ class Dashboard extends Admin_Controller {
 	    // Total participant count
 	    $data['tparticipant']   = $this->Participants->getCount();
 	    
-	    // Total gallery count
-	    //$data['timages']	    = $this->Gallery->getCount();
+	    // Total image count
+	    $data['timages']	    = $this->Participants->getCountImages(1);
 		
 		// Total active gallery count
-	    //$data['ta_images']	    = $this->Gallery->getCount(1);	    
-		
+	    $data['ta_users']	    = $this->Participants->getNotRegistered(1);
+        
 		// Set class name to view
 	    $data['class_name']		= $this->_class_name;
 	    

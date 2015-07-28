@@ -82,6 +82,28 @@ class Participants Extends CI_Model {
 		return $data;
     }
     
+    public function getCountImages($status = null){
+		$options = array();
+		if ($status) {
+			$options = array('file_name !=' => '');
+		}
+		$this->db->where($options,1);
+		$this->db->from($this->table);
+		$data = $this->db->count_all_results();
+		return $data;
+    }
+    
+    public function getNotRegistered($status = null){
+		$options = array();
+		if ($status) {
+			$options = array('status !=' => '1');
+		}
+		$this->db->where($options,1);
+		$this->db->from($this->table);
+		$data = $this->db->count_all_results();
+		return $data;
+    }
+    
     public function getParticipantByIdentity($identifier_id='',$identity='') {
         
         if(!empty($identifier_id)){
