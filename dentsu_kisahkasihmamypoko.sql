@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10.7
+-- version 4.3.11
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jul 28, 2015 at 01:25 AM
--- Server version: 5.6.23
--- PHP Version: 5.4.31
+-- Host: 127.0.0.1
+-- Generation Time: Jul 28, 2015 at 12:26 PM
+-- Server version: 5.6.24
+-- PHP Version: 5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `mamypoko_kisahkasihmamypoko`
+-- Database: `dentsu_kisahkasihmamypoko`
 --
 
 -- --------------------------------------------------------
@@ -27,19 +27,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_captcha` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `time` int(11) DEFAULT NULL,
   `ip_address` varchar(16) DEFAULT NULL,
-  `word` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1822 ;
+  `word` varchar(10) DEFAULT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=1837 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_captcha`
 --
 
 INSERT INTO `tbl_captcha` (`id`, `time`, `ip_address`, `word`) VALUES
-(1821, 1438052876, '139.0.26.20', 'UpbZr');
+(1836, 1438079096, '::1', 'LTXBh'),
+(1835, 1438079049, '::1', 'zSqMW');
 
 -- --------------------------------------------------------
 
@@ -52,9 +52,7 @@ CREATE TABLE IF NOT EXISTS `tbl_ci_sessions` (
   `ip_address` varchar(45) NOT NULL DEFAULT '0',
   `user_agent` varchar(120) NOT NULL,
   `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
-  `user_data` text NOT NULL,
-  PRIMARY KEY (`session_id`),
-  KEY `last_activity_idx` (`last_activity`)
+  `user_data` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -62,11 +60,12 @@ CREATE TABLE IF NOT EXISTS `tbl_ci_sessions` (
 --
 
 INSERT INTO `tbl_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('00ed0a46e010b4c121060143165ebd7a', '139.0.26.20', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.132 Safari/537.36', 1438054633, ''),
-('cd97a3b9584e7ccd59350791535e01e5', '66.102.6.156', 'Google favicon', 1438056821, ''),
-('ee96844c3f14eada9533ac7fcad738c0', '139.0.26.20', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0', 1438060840, ''),
-('f5a5a32dec7df89df59372cfa3d1f8fa', '139.0.26.20', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0', 1438056053, 'a:2:{s:9:"user_data";s:0:"";s:11:"participant";O:8:"stdClass":31:{s:2:"id";s:2:"28";s:13:"identifier_id";s:16:"1594395950826798";s:8:"identity";s:8:"Facebook";s:11:"profile_url";s:61:"https://www.facebook.com/app_scoped_user_id/1594395950826798/";s:9:"photo_url";s:72:"https://graph.facebook.com/1594395950826798/picture?width=150&height=150";s:5:"email";s:28:"pricilianapitupulu@yahoo.com";s:7:"website";s:0:"";s:8:"password";N;s:8:"username";N;s:4:"name";s:16:"Pricilia Nikitta";s:6:"gender";s:6:"female";s:3:"age";N;s:14:"nationality_id";N;s:13:"research_area";N;s:10:"occupation";N;s:9:"baby_name";N;s:13:"baby_birthday";N;s:5:"about";s:0:"";s:7:"address";N;s:6:"region";s:0:"";s:12:"phone_number";N;s:10:"phone_home";N;s:9:"id_number";N;s:9:"file_name";N;s:6:"verify";N;s:9:"completed";N;s:9:"logged_in";s:1:"0";s:10:"last_login";N;s:10:"session_id";s:0:"";s:6:"status";s:1:"0";s:9:"join_date";s:19:"2015-07-27 23:00:40";}}'),
-('fc82fe70765ec95f447a4a745c51ee2f', '139.0.26.20', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:39.0) Gecko/20100101 Firefox/39.0', 1438060939, '');
+('0bb5fdcc1c216d660f9cbe30ce4fa706', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0', 1438074182, ''),
+('1b1f6d5f8fcd461753719f760fdc3390', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0', 1438077115, 'a:6:{s:9:"user_data";s:0:"";s:11:"module_list";s:639:"{"Admin":{"dashboard{{slash}}/index":"Dashboard Panel","user{{slash}}/index":"Users","usergroup{{slash}}/index":"User Groups","language{{slash}}/index":"Languages","setting{{slash}}/index":"Settings","serverlog{{slash}}/index":"Server Logs"},"Module":{"modulelist{{slash}}/index":"Module Lists"},"Page":{"page{{slash}}/index":"Pages","pagemenu{{slash}}/index":"Page Menus"},"Participant":{"participant{{slash}}/index":"Participant","gallery{{slash}}/index":"Gallery"},"Region":{"province{{slash}}/index":"Province","urbandistrict{{slash}}/index":"Urban District","suburban{{slash}}/index":"Sub Urban","district{{slash}}/index":"District"}}";s:20:"module_function_list";s:5377:"{"Admin":{"dashboard{{slash}}/index":"Dashboard Panel","user{{slash}}/index":"Users","usergroup{{slash}}/index":"User Groups","language{{slash}}/index":"Languages","setting{{slash}}/index":"Settings","serverlog{{slash}}/index":"Server Logs","dashboard{{slash}}/add":"Add New Dashboard","dashboard{{slash}}/view":"View Dashboard","dashboard{{slash}}/edit":"Edit Dashboard","dashboard{{slash}}/delete":"Delete Dashboard","dashboard{{slash}}/change":"Change Dashboard Status","user{{slash}}/add":"Add User","user{{slash}}/view":"View User","user{{slash}}/edit":"Edit User","user{{slash}}/delete":"Delete User","user{{slash}}/change":"Change User Status","user{{slash}}/image":"Change User Image","user{{slash}}/upload":"Upload User Image","usergroup{{slash}}/add":"Add User Group","usergroup{{slash}}/view":"View User Group","usergroup{{slash}}/edit":"Edit User Group","usergroup{{slash}}/delete":"Delete User Group","usergroup{{slash}}/change":"Change User Group Status","language{{slash}}/add":"Add Language","language{{slash}}/view":"View Language","language{{slash}}/edit":"Edit Language","language{{slash}}/delete":"Delete Language","language{{slash}}/change":"Change Language Status","setting{{slash}}/add":"Add Setting","setting{{slash}}/view":"View Setting","setting{{slash}}/edit":"Edit Setting","setting{{slash}}/delete":"Delete Setting","setting{{slash}}/change":"Change Setting Status","serverlog{{slash}}/view":"View Server Log","serverlog{{slash}}/edit":"Edit Server Log","serverlog{{slash}}/delete":"Delete Server Log","serverlog{{slash}}/trash":"Trash Server Log"},"Module":{"modulelist{{slash}}/edit":"Edit Module","modulelist{{slash}}/trash":"Delete User Permission"},"Page":{"page{{slash}}/index":"Pages","pagemenu{{slash}}/index":"Page Menus","page{{slash}}/index{{slash}}/add":"Add Page","page{{slash}}/index{{slash}}/view":"View Page","page{{slash}}/index{{slash}}/edit":"Edit Page","page{{slash}}/index{{slash}}/delete":"Delete Page","page{{slash}}/index{{slash}}/change":"Change Page Status","page{{slash}}/index{{slash}}/export":"Export Page","page{{slash}}/index{{slash}}/print":"Print Page","pagemenu{{slash}}/index{{slash}}/add":"Add Page Menu","pagemenu{{slash}}/index{{slash}}/view":"View Page Menu","pagemenu{{slash}}/index{{slash}}/edit":"Edit Page Menu","pagemenu{{slash}}/index{{slash}}/delete":"Delete Page Menu","pagemenu{{slash}}/index{{slash}}/change":"Change Page Menu Status","pagemenu{{slash}}/index{{slash}}/export":"Export Page Menu","pagemenu{{slash}}/index{{slash}}/print":"Print Page Menu"},"Participant":{"participant{{slash}}/index":"Participant","gallery{{slash}}/index":"Gallery","participant{{slash}}/index{{slash}}/add":"Add Participant","participant{{slash}}/index{{slash}}/view":"View Participant","participant{{slash}}/index{{slash}}/edit":"Edit Participant","participant{{slash}}/index{{slash}}/delete":"Delete Participant","participant{{slash}}/index{{slash}}/change":"Change Participant Status","participant{{slash}}/index{{slash}}/export":"Export Participant","participant{{slash}}/index{{slash}}/print":"Print Participant","gallery{{slash}}/index{{slash}}/add":"Add Gallery","gallery{{slash}}/index{{slash}}/view":"View Gallery","gallery{{slash}}/index{{slash}}/edit":"Edit Gallery","gallery{{slash}}/index{{slash}}/delete":"Delete Gallery","gallery{{slash}}/index{{slash}}/change":"Change Gallery Status","gallery{{slash}}/index{{slash}}/export":"Export Gallery","gallery{{slash}}/index{{slash}}/print":"Print Gallery"},"Region":{"province{{slash}}/index":"Province","urbandistrict{{slash}}/index":"Urban District","suburban{{slash}}/index":"Sub Urban","district{{slash}}/index":"District","province{{slash}}/index{{slash}}/add":"Add Province","province{{slash}}/index{{slash}}/view":"View Province","province{{slash}}/index{{slash}}/edit":"Edit Province","province{{slash}}/index{{slash}}/delete":"Delete Province","province{{slash}}/index{{slash}}/change":"Change Province Status","province{{slash}}/index{{slash}}/export":"Export Province","province{{slash}}/index{{slash}}/print":"Print Province","urbandistrict{{slash}}/index{{slash}}/add":"Add Urban District","urbandistrict{{slash}}/index{{slash}}/view":"View Urban District","urbandistrict{{slash}}/index{{slash}}/edit":"Edit Urban District","urbandistrict{{slash}}/index{{slash}}/delete":"Delete Urban District","urbandistrict{{slash}}/index{{slash}}/change":"Change Urban District Status","urbandistrict{{slash}}/index{{slash}}/export":"Export Urban District","urbandistrict{{slash}}/index{{slash}}/print":"Print Urban District","suburban{{slash}}/index{{slash}}/add":"Add Sub Urban","suburban{{slash}}/index{{slash}}/view":"View Sub Urban","suburban{{slash}}/index{{slash}}/edit":"Edit Sub Urban","suburban{{slash}}/index{{slash}}/delete":"Delete Sub Urban","suburban{{slash}}/index{{slash}}/change":"Change Sub Urban Status","suburban{{slash}}/index{{slash}}/export":"Export Sub Urban","suburban{{slash}}/index{{slash}}/print":"Print Sub Urban","district{{slash}}/index{{slash}}/add":"Add District","district{{slash}}/index{{slash}}/view":"View District","district{{slash}}/index{{slash}}/edit":"Edit District","district{{slash}}/index{{slash}}/delete":"Delete District","district{{slash}}/index{{slash}}/change":"Change District Status","district{{slash}}/index{{slash}}/export":"Export District","district{{slash}}/index{{slash}}/print":"Print District"}}";s:12:"user_session";O:8:"stdClass":8:{s:2:"id";s:1:"1";s:8:"username";s:5:"admin";s:5:"email";s:15:"admin@admin.com";s:8:"group_id";s:1:"1";s:6:"status";s:1:"1";s:10:"last_login";s:10:"1437980614";s:9:"logged_in";b:1;s:4:"name";s:21:"Administrator Website";}s:8:"curr_url";s:32:"admin-panel/page/index/ajax_list";s:8:"prev_url";s:31:"admin-panel/page/index/update/1";}'),
+('3c6501ba8e347005d1519711bf668c77', '::1', 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobil', 1438076821, 'a:5:{s:11:"module_list";s:639:"{"Admin":{"dashboard{{slash}}/index":"Dashboard Panel","user{{slash}}/index":"Users","usergroup{{slash}}/index":"User Groups","language{{slash}}/index":"Languages","setting{{slash}}/index":"Settings","serverlog{{slash}}/index":"Server Logs"},"Module":{"modulelist{{slash}}/index":"Module Lists"},"Page":{"page{{slash}}/index":"Pages","pagemenu{{slash}}/index":"Page Menus"},"Participant":{"participant{{slash}}/index":"Participant","gallery{{slash}}/index":"Gallery"},"Region":{"province{{slash}}/index":"Province","urbandistrict{{slash}}/index":"Urban District","suburban{{slash}}/index":"Sub Urban","district{{slash}}/index":"District"}}";s:20:"module_function_list";s:5377:"{"Admin":{"dashboard{{slash}}/index":"Dashboard Panel","user{{slash}}/index":"Users","usergroup{{slash}}/index":"User Groups","language{{slash}}/index":"Languages","setting{{slash}}/index":"Settings","serverlog{{slash}}/index":"Server Logs","dashboard{{slash}}/add":"Add New Dashboard","dashboard{{slash}}/view":"View Dashboard","dashboard{{slash}}/edit":"Edit Dashboard","dashboard{{slash}}/delete":"Delete Dashboard","dashboard{{slash}}/change":"Change Dashboard Status","user{{slash}}/add":"Add User","user{{slash}}/view":"View User","user{{slash}}/edit":"Edit User","user{{slash}}/delete":"Delete User","user{{slash}}/change":"Change User Status","user{{slash}}/image":"Change User Image","user{{slash}}/upload":"Upload User Image","usergroup{{slash}}/add":"Add User Group","usergroup{{slash}}/view":"View User Group","usergroup{{slash}}/edit":"Edit User Group","usergroup{{slash}}/delete":"Delete User Group","usergroup{{slash}}/change":"Change User Group Status","language{{slash}}/add":"Add Language","language{{slash}}/view":"View Language","language{{slash}}/edit":"Edit Language","language{{slash}}/delete":"Delete Language","language{{slash}}/change":"Change Language Status","setting{{slash}}/add":"Add Setting","setting{{slash}}/view":"View Setting","setting{{slash}}/edit":"Edit Setting","setting{{slash}}/delete":"Delete Setting","setting{{slash}}/change":"Change Setting Status","serverlog{{slash}}/view":"View Server Log","serverlog{{slash}}/edit":"Edit Server Log","serverlog{{slash}}/delete":"Delete Server Log","serverlog{{slash}}/trash":"Trash Server Log"},"Module":{"modulelist{{slash}}/edit":"Edit Module","modulelist{{slash}}/trash":"Delete User Permission"},"Page":{"page{{slash}}/index":"Pages","pagemenu{{slash}}/index":"Page Menus","page{{slash}}/index{{slash}}/add":"Add Page","page{{slash}}/index{{slash}}/view":"View Page","page{{slash}}/index{{slash}}/edit":"Edit Page","page{{slash}}/index{{slash}}/delete":"Delete Page","page{{slash}}/index{{slash}}/change":"Change Page Status","page{{slash}}/index{{slash}}/export":"Export Page","page{{slash}}/index{{slash}}/print":"Print Page","pagemenu{{slash}}/index{{slash}}/add":"Add Page Menu","pagemenu{{slash}}/index{{slash}}/view":"View Page Menu","pagemenu{{slash}}/index{{slash}}/edit":"Edit Page Menu","pagemenu{{slash}}/index{{slash}}/delete":"Delete Page Menu","pagemenu{{slash}}/index{{slash}}/change":"Change Page Menu Status","pagemenu{{slash}}/index{{slash}}/export":"Export Page Menu","pagemenu{{slash}}/index{{slash}}/print":"Print Page Menu"},"Participant":{"participant{{slash}}/index":"Participant","gallery{{slash}}/index":"Gallery","participant{{slash}}/index{{slash}}/add":"Add Participant","participant{{slash}}/index{{slash}}/view":"View Participant","participant{{slash}}/index{{slash}}/edit":"Edit Participant","participant{{slash}}/index{{slash}}/delete":"Delete Participant","participant{{slash}}/index{{slash}}/change":"Change Participant Status","participant{{slash}}/index{{slash}}/export":"Export Participant","participant{{slash}}/index{{slash}}/print":"Print Participant","gallery{{slash}}/index{{slash}}/add":"Add Gallery","gallery{{slash}}/index{{slash}}/view":"View Gallery","gallery{{slash}}/index{{slash}}/edit":"Edit Gallery","gallery{{slash}}/index{{slash}}/delete":"Delete Gallery","gallery{{slash}}/index{{slash}}/change":"Change Gallery Status","gallery{{slash}}/index{{slash}}/export":"Export Gallery","gallery{{slash}}/index{{slash}}/print":"Print Gallery"},"Region":{"province{{slash}}/index":"Province","urbandistrict{{slash}}/index":"Urban District","suburban{{slash}}/index":"Sub Urban","district{{slash}}/index":"District","province{{slash}}/index{{slash}}/add":"Add Province","province{{slash}}/index{{slash}}/view":"View Province","province{{slash}}/index{{slash}}/edit":"Edit Province","province{{slash}}/index{{slash}}/delete":"Delete Province","province{{slash}}/index{{slash}}/change":"Change Province Status","province{{slash}}/index{{slash}}/export":"Export Province","province{{slash}}/index{{slash}}/print":"Print Province","urbandistrict{{slash}}/index{{slash}}/add":"Add Urban District","urbandistrict{{slash}}/index{{slash}}/view":"View Urban District","urbandistrict{{slash}}/index{{slash}}/edit":"Edit Urban District","urbandistrict{{slash}}/index{{slash}}/delete":"Delete Urban District","urbandistrict{{slash}}/index{{slash}}/change":"Change Urban District Status","urbandistrict{{slash}}/index{{slash}}/export":"Export Urban District","urbandistrict{{slash}}/index{{slash}}/print":"Print Urban District","suburban{{slash}}/index{{slash}}/add":"Add Sub Urban","suburban{{slash}}/index{{slash}}/view":"View Sub Urban","suburban{{slash}}/index{{slash}}/edit":"Edit Sub Urban","suburban{{slash}}/index{{slash}}/delete":"Delete Sub Urban","suburban{{slash}}/index{{slash}}/change":"Change Sub Urban Status","suburban{{slash}}/index{{slash}}/export":"Export Sub Urban","suburban{{slash}}/index{{slash}}/print":"Print Sub Urban","district{{slash}}/index{{slash}}/add":"Add District","district{{slash}}/index{{slash}}/view":"View District","district{{slash}}/index{{slash}}/edit":"Edit District","district{{slash}}/index{{slash}}/delete":"Delete District","district{{slash}}/index{{slash}}/change":"Change District Status","district{{slash}}/index{{slash}}/export":"Export District","district{{slash}}/index{{slash}}/print":"Print District"}}";s:12:"user_session";O:8:"stdClass":8:{s:2:"id";s:1:"1";s:8:"username";s:5:"admin";s:5:"email";s:15:"admin@admin.com";s:8:"group_id";s:1:"1";s:6:"status";s:1:"1";s:10:"last_login";s:10:"1437980614";s:9:"logged_in";b:1;s:4:"name";s:21:"Administrator Website";}s:8:"curr_url";s:32:"admin-panel/page/index/ajax_list";s:8:"prev_url";s:31:"admin-panel/page/index/update/1";}'),
+('4cb76df32d2403fa082e7675bc680149', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.107 Safari/537.36', 1438074825, ''),
+('d98d54892829e801a85627f83d9290ce', '::1', 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobil', 1438073757, ''),
+('f9ea39c28759f8e181d22e8d533d225c', '::1', 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobil', 1438078856, 'a:6:{s:9:"user_data";s:0:"";s:11:"module_list";s:639:"{"Admin":{"dashboard{{slash}}/index":"Dashboard Panel","user{{slash}}/index":"Users","usergroup{{slash}}/index":"User Groups","language{{slash}}/index":"Languages","setting{{slash}}/index":"Settings","serverlog{{slash}}/index":"Server Logs"},"Module":{"modulelist{{slash}}/index":"Module Lists"},"Page":{"page{{slash}}/index":"Pages","pagemenu{{slash}}/index":"Page Menus"},"Participant":{"participant{{slash}}/index":"Participant","gallery{{slash}}/index":"Gallery"},"Region":{"province{{slash}}/index":"Province","urbandistrict{{slash}}/index":"Urban District","suburban{{slash}}/index":"Sub Urban","district{{slash}}/index":"District"}}";s:20:"module_function_list";s:5377:"{"Admin":{"dashboard{{slash}}/index":"Dashboard Panel","user{{slash}}/index":"Users","usergroup{{slash}}/index":"User Groups","language{{slash}}/index":"Languages","setting{{slash}}/index":"Settings","serverlog{{slash}}/index":"Server Logs","dashboard{{slash}}/add":"Add New Dashboard","dashboard{{slash}}/view":"View Dashboard","dashboard{{slash}}/edit":"Edit Dashboard","dashboard{{slash}}/delete":"Delete Dashboard","dashboard{{slash}}/change":"Change Dashboard Status","user{{slash}}/add":"Add User","user{{slash}}/view":"View User","user{{slash}}/edit":"Edit User","user{{slash}}/delete":"Delete User","user{{slash}}/change":"Change User Status","user{{slash}}/image":"Change User Image","user{{slash}}/upload":"Upload User Image","usergroup{{slash}}/add":"Add User Group","usergroup{{slash}}/view":"View User Group","usergroup{{slash}}/edit":"Edit User Group","usergroup{{slash}}/delete":"Delete User Group","usergroup{{slash}}/change":"Change User Group Status","language{{slash}}/add":"Add Language","language{{slash}}/view":"View Language","language{{slash}}/edit":"Edit Language","language{{slash}}/delete":"Delete Language","language{{slash}}/change":"Change Language Status","setting{{slash}}/add":"Add Setting","setting{{slash}}/view":"View Setting","setting{{slash}}/edit":"Edit Setting","setting{{slash}}/delete":"Delete Setting","setting{{slash}}/change":"Change Setting Status","serverlog{{slash}}/view":"View Server Log","serverlog{{slash}}/edit":"Edit Server Log","serverlog{{slash}}/delete":"Delete Server Log","serverlog{{slash}}/trash":"Trash Server Log"},"Module":{"modulelist{{slash}}/edit":"Edit Module","modulelist{{slash}}/trash":"Delete User Permission"},"Page":{"page{{slash}}/index":"Pages","pagemenu{{slash}}/index":"Page Menus","page{{slash}}/index{{slash}}/add":"Add Page","page{{slash}}/index{{slash}}/view":"View Page","page{{slash}}/index{{slash}}/edit":"Edit Page","page{{slash}}/index{{slash}}/delete":"Delete Page","page{{slash}}/index{{slash}}/change":"Change Page Status","page{{slash}}/index{{slash}}/export":"Export Page","page{{slash}}/index{{slash}}/print":"Print Page","pagemenu{{slash}}/index{{slash}}/add":"Add Page Menu","pagemenu{{slash}}/index{{slash}}/view":"View Page Menu","pagemenu{{slash}}/index{{slash}}/edit":"Edit Page Menu","pagemenu{{slash}}/index{{slash}}/delete":"Delete Page Menu","pagemenu{{slash}}/index{{slash}}/change":"Change Page Menu Status","pagemenu{{slash}}/index{{slash}}/export":"Export Page Menu","pagemenu{{slash}}/index{{slash}}/print":"Print Page Menu"},"Participant":{"participant{{slash}}/index":"Participant","gallery{{slash}}/index":"Gallery","participant{{slash}}/index{{slash}}/add":"Add Participant","participant{{slash}}/index{{slash}}/view":"View Participant","participant{{slash}}/index{{slash}}/edit":"Edit Participant","participant{{slash}}/index{{slash}}/delete":"Delete Participant","participant{{slash}}/index{{slash}}/change":"Change Participant Status","participant{{slash}}/index{{slash}}/export":"Export Participant","participant{{slash}}/index{{slash}}/print":"Print Participant","gallery{{slash}}/index{{slash}}/add":"Add Gallery","gallery{{slash}}/index{{slash}}/view":"View Gallery","gallery{{slash}}/index{{slash}}/edit":"Edit Gallery","gallery{{slash}}/index{{slash}}/delete":"Delete Gallery","gallery{{slash}}/index{{slash}}/change":"Change Gallery Status","gallery{{slash}}/index{{slash}}/export":"Export Gallery","gallery{{slash}}/index{{slash}}/print":"Print Gallery"},"Region":{"province{{slash}}/index":"Province","urbandistrict{{slash}}/index":"Urban District","suburban{{slash}}/index":"Sub Urban","district{{slash}}/index":"District","province{{slash}}/index{{slash}}/add":"Add Province","province{{slash}}/index{{slash}}/view":"View Province","province{{slash}}/index{{slash}}/edit":"Edit Province","province{{slash}}/index{{slash}}/delete":"Delete Province","province{{slash}}/index{{slash}}/change":"Change Province Status","province{{slash}}/index{{slash}}/export":"Export Province","province{{slash}}/index{{slash}}/print":"Print Province","urbandistrict{{slash}}/index{{slash}}/add":"Add Urban District","urbandistrict{{slash}}/index{{slash}}/view":"View Urban District","urbandistrict{{slash}}/index{{slash}}/edit":"Edit Urban District","urbandistrict{{slash}}/index{{slash}}/delete":"Delete Urban District","urbandistrict{{slash}}/index{{slash}}/change":"Change Urban District Status","urbandistrict{{slash}}/index{{slash}}/export":"Export Urban District","urbandistrict{{slash}}/index{{slash}}/print":"Print Urban District","suburban{{slash}}/index{{slash}}/add":"Add Sub Urban","suburban{{slash}}/index{{slash}}/view":"View Sub Urban","suburban{{slash}}/index{{slash}}/edit":"Edit Sub Urban","suburban{{slash}}/index{{slash}}/delete":"Delete Sub Urban","suburban{{slash}}/index{{slash}}/change":"Change Sub Urban Status","suburban{{slash}}/index{{slash}}/export":"Export Sub Urban","suburban{{slash}}/index{{slash}}/print":"Print Sub Urban","district{{slash}}/index{{slash}}/add":"Add District","district{{slash}}/index{{slash}}/view":"View District","district{{slash}}/index{{slash}}/edit":"Edit District","district{{slash}}/index{{slash}}/delete":"Delete District","district{{slash}}/index{{slash}}/change":"Change District Status","district{{slash}}/index{{slash}}/export":"Export District","district{{slash}}/index{{slash}}/print":"Print District"}}";s:12:"user_session";O:8:"stdClass":8:{s:2:"id";s:1:"1";s:8:"username";s:5:"admin";s:5:"email";s:15:"admin@admin.com";s:8:"group_id";s:1:"1";s:6:"status";s:1:"1";s:10:"last_login";s:10:"1437980614";s:9:"logged_in";b:1;s:4:"name";s:21:"Administrator Website";}s:8:"curr_url";s:41:"admin-panel/pagemenu/index/ajax_list_info";s:8:"prev_url";s:41:"admin-panel/pagemenu/index/ajax_list_info";}');
 
 -- --------------------------------------------------------
 
@@ -76,8 +75,7 @@ INSERT INTO `tbl_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_a
 
 CREATE TABLE IF NOT EXISTS `tbl_configurations` (
   `parameter` varchar(150) NOT NULL DEFAULT '',
-  `value` varchar(150) NOT NULL DEFAULT '',
-  PRIMARY KEY (`parameter`,`value`)
+  `value` varchar(150) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -97,14 +95,12 @@ INSERT INTO `tbl_configurations` (`parameter`, `value`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_districts` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `sub_urban_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `added` int(11) DEFAULT NULL,
-  `modified` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `modified` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -113,15 +109,13 @@ CREATE TABLE IF NOT EXISTS `tbl_districts` (
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_group_permissions` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `permission_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   `value` smallint(1) NOT NULL,
   `added` int(11) NOT NULL,
-  `modified` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id` (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=910 ;
+  `modified` int(11) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=910 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_group_permissions`
@@ -1045,7 +1039,7 @@ INSERT INTO `tbl_group_permissions` (`id`, `permission_id`, `group_id`, `value`,
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_languages` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `name` varchar(128) DEFAULT NULL,
   `url` varchar(82) NOT NULL,
   `prefix` varchar(10) DEFAULT NULL,
@@ -1054,10 +1048,8 @@ CREATE TABLE IF NOT EXISTS `tbl_languages` (
   `is_system` int(1) NOT NULL DEFAULT '0',
   `status` tinyint(1) DEFAULT '0',
   `added` int(11) unsigned DEFAULT NULL,
-  `modified` int(11) unsigned DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `name` (`name`,`status`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `modified` int(11) unsigned DEFAULT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_languages`
@@ -1076,12 +1068,10 @@ INSERT INTO `tbl_languages` (`id`, `name`, `url`, `prefix`, `file_name`, `defaul
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_model_lists` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `module_id` int(11) NOT NULL,
-  `model` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id` (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+  `model` varchar(255) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_model_lists`
@@ -1113,14 +1103,12 @@ INSERT INTO `tbl_model_lists` (`id`, `module_id`, `model`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_module_lists` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `parent_id` int(11) NOT NULL,
   `module_name` varchar(255) NOT NULL,
   `module_link` varchar(255) DEFAULT NULL,
-  `order` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id` (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+  `order` int(11) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_module_lists`
@@ -1153,14 +1141,12 @@ INSERT INTO `tbl_module_lists` (`id`, `parent_id`, `module_name`, `module_link`,
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_module_permissions` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `module_id` int(11) NOT NULL,
   `module_name` varchar(255) NOT NULL,
   `module_link` varchar(255) DEFAULT NULL,
-  `order` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id` (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=102 ;
+  `order` int(11) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_module_permissions`
@@ -1276,7 +1262,7 @@ INSERT INTO `tbl_module_permissions` (`id`, `module_id`, `module_name`, `module_
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_pages` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `menu_id` int(11) unsigned DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `subject` varchar(255) DEFAULT NULL,
@@ -1293,18 +1279,16 @@ CREATE TABLE IF NOT EXISTS `tbl_pages` (
   `count` int(11) DEFAULT NULL,
   `status` enum('publish','unpublish','deleted') DEFAULT 'publish',
   `added` int(11) DEFAULT NULL,
-  `modified` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `menu_id` (`menu_id`,`name`,`publish_date`,`unpublish_date`,`allow_comment`,`order`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `modified` int(11) DEFAULT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_pages`
 --
 
 INSERT INTO `tbl_pages` (`id`, `menu_id`, `name`, `subject`, `synopsis`, `text`, `url`, `attribute`, `publish_date`, `unpublish_date`, `allow_comment`, `tags`, `order`, `user_id`, `count`, `status`, `added`, `modified`) VALUES
-(1, 2, 'mechanism', 'Via Facebook', '<p>\n	Kirimkan foto dan cerita tersebut melalui salah satu cara berikut :</p>\n', '<div class="row">\n	<div class="col-xs-6 pembatas">\n		<img alt="cara kirim pakai FB" class="via-fb" src="../../assets/public/img/icon-up-fb.png" /></div>\n	<div class="col-xs-6">\n		<ul>\n			<li>\n				Foto boleh menggunakan ponsel atau kamera namun pastikan kualitas foto baik (Foto terang, tidak buram dan terlihat jelas)</li>\n			<li>\n				Kunjungi Facebook Mamypoko Indonesia (Tab Kisah Kasih Mamypoko)</li>\n			<li>\n				Login via Facebook</li>\n			<li>\n				Isi data diri secara lengkap</li>\n			<li>\n				Upload foto dan tulis cerita singkat yang menarik tentang Mamy, si Kecil dan MamyPoko</li>\n			<li>\n				Jika ingin mengikutsertakan lebih dari 1 orang anak, silakan ulangi proses mengisi data diri si Kecil dengan lengkap kemudian upload foto beserta cerita.</li>\n		</ul>\n	</div>\n</div>\n', 'via-facebook', NULL, '2015-07-14', '2015-07-14', NULL, NULL, NULL, NULL, NULL, 'publish', 1436858857, 1436865252),
-(2, 2, NULL, 'Via Pos', '<p>\n	Kirimkan foto dan cerita tersebut melalui salah satu cara berikut :</p>\n', '<div class="row">\n	<div class="col-xs-7 pembatas">\n		<div class="via-pos-img">\n			<img alt="cara kirim foto via Pos" src="../../assets/public/img/icon-kirim-post.png" /></div>\n		<ul>\n			<li>\n				Dapatkan formulir pendaftaran di toko-toko terdekat <img alt="sample cara kirim foto via Pos" class="item-via-pos-img" src="../../assets/public/img/sample-kirim-post.png" /></li>\n			<li>\n				Isi formulir dengan lengkap sesuai petunjuk sertakan juga cerita singkat yang menarik tentang Mamy, si Kecil dan MamyPoko</li>\n		</ul>\n		<div class="bot-left-info vag-font">\n			Kirimkan via Pos ke<br />\n			PO BOX MamyPoko JKT 10000</div>\n	</div>\n	<div class="col-xs-5">\n		<ul>\n			<li>\n				Bila ingin mengikutsertakan lebih dari 1 anak, dapat ambil formulir sesuai dengan jumlah anak, isi data diri dengan lengkap lalu kirimkan dalam 1 amplop</li>\n			<li>\n				Kirimkan foto berukuran 2R (6x9 cm)</li>\n			<li>\n				Pengiriman via pos disertai dengan formulir, apabila Mamy tidak memiliki formulir Mamy dapat mengisi data lengkap dibelakang foto yang Mamy kirim.</li>\n			<li>\n				Data lengkap yang harus diisi berupa (Nama Mamy, No. KTP, Nama bayi, Tanggal lahir bayi, Alamat [RT,RW, Kode Pos], No Hp dan No telepon rumah)</li>\n		</ul>\n	</div>\n</div>\n', 'via-pos', NULL, '2015-07-14', '2015-07-14', NULL, NULL, NULL, NULL, NULL, 'publish', 1436862068, 1436864797);
+(1, 2, 'mechanism', 'Via Facebook', '<p>\r\n	Kirimkan foto dan cerita tersebut melalui salah satu cara berikut :</p>\r\n', '<div class="row hidden-xs">\r\n	<div class="col-xs-6 pembatas">\r\n		<img alt="cara kirim pakai FB" class="via-fb" src="../../assets/public/img/icon-up-fb.png" /></div>\r\n	<div class="col-xs-6">\r\n		<ul>\r\n			<li>\r\n				Foto boleh menggunakan ponsel atau kamera namun pastikan kualitas foto baik (Foto terang, tidak buram dan terlihat jelas)</li>\r\n			<li>\r\n				Kunjungi Facebook Mamypoko Indonesia (Tab Kisah Kasih Mamypoko)</li>\r\n			<li>\r\n				Login via Facebook</li>\r\n			<li>\r\n				Isi data diri secara lengkap</li>\r\n			<li>\r\n				Upload foto dan tulis cerita singkat yang menarik tentang Mamy, si Kecil dan MamyPoko</li>\r\n			<li>\r\n				Jika ingin mengikutsertakan lebih dari 1 orang anak, silakan ulangi proses mengisi data diri si Kecil dengan lengkap kemudian upload foto beserta cerita.</li>\r\n		</ul>\r\n	</div>\r\n</div>\r\n<div class="hidden-lg">\r\n<img alt="cara kirim pakai FB" class="via-fb img-ctr" src="../../assets/public/img/icon-up-fb.png" />\r\n            <ul>\r\n              <li>Foto boleh menggunakan ponsel atau kamera\r\n                namun pastikan kualitas foto baik (Foto terang,\r\n                tidak buram dan terlihat jelas)</li>\r\n              <li>Kunjungi Facebook Mamypoko Indonesia\r\n                (Tab Kisah Kasih Mamypoko)</li>\r\n              <li>Login via Facebook</li>\r\n              <li>Isi data diri secara lengkap</li>\r\n              <li>Upload foto dan tulis cerita singkat yang menarik\r\n                tentang Mamy, si Kecil dan MamyPoko</li>\r\n              <li>Jika ingin mengikutsertakan lebih dari 1 orang anak,\r\n                silakan ulangi proses mengisi data diri si Kecil\r\n                dengan lengkap kemudian upload foto beserta cerita.</li>\r\n            </ul>\r\n</div>\r\n', 'via-facebook', NULL, '2015-07-14', '2015-07-14', NULL, NULL, NULL, NULL, NULL, 'publish', 1436858857, 1438077127),
+(2, 2, NULL, 'Via Pos', '<p>\r\n	Kirimkan foto dan cerita tersebut melalui salah satu cara berikut :</p>\r\n', '<div class="row visible-lg">\r\n	<div class="col-xs-7 pembatas">\r\n		<div class="via-pos-img">\r\n			<img alt="cara kirim foto via Pos" src="../../assets/public/img/icon-kirim-post.png" /></div>\r\n		<ul>\r\n			<li>\r\n				Dapatkan formulir pendaftaran di toko-toko terdekat <img alt="sample cara kirim foto via Pos" class="item-via-pos-img" src="../../assets/public/img/sample-kirim-post.png" /></li>\r\n			<li>\r\n				Isi formulir dengan lengkap sesuai petunjuk sertakan juga cerita singkat yang menarik tentang Mamy, si Kecil dan MamyPoko</li>\r\n		</ul>\r\n		<div class="bot-left-info vag-font">\r\n			Kirimkan via Pos ke<br />\r\n			PO BOX MamyPoko JKT 10000</div>\r\n	</div>\r\n	<div class="col-xs-5">\r\n		<ul>\r\n			<li>\r\n				Bila ingin mengikutsertakan lebih dari 1 anak, dapat ambil formulir sesuai dengan jumlah anak, isi data diri dengan lengkap lalu kirimkan dalam 1 amplop</li>\r\n			<li>\r\n				Kirimkan foto berukuran 2R (6x9 cm)</li>\r\n			<li>\r\n				Pengiriman via pos disertai dengan formulir, apabila Mamy tidak memiliki formulir Mamy dapat mengisi data lengkap dibelakang foto yang Mamy kirim.</li>\r\n			<li>\r\n				Data lengkap yang harus diisi berupa (Nama Mamy, No. KTP, Nama bayi, Tanggal lahir bayi, Alamat [RT,RW, Kode Pos], No Hp dan No telepon rumah)</li>\r\n		</ul>\r\n	</div>\r\n</div>\r\n\r\n<div class="row visible-xs">\r\n            <div>\r\n              <img class="img-ctr" src="../../assets/public/img/icon-kirim-post.png" alt="cara kirim foto via Pos">\r\n              <ul>\r\n                <li>Dapatkan formulir pendaftaran\r\n                  di toko-toko terdekat </li>\r\n                <li><img class="item-via-pos-img" src="../../assets/public/img/sample-kirim-post.png" alt="sample cara kirim foto via Pos"></li>\r\n                <li>Isi formulir dengan lengkap\r\n                    sesuai petunjuk sertakan\r\n                    juga cerita singkat yang menarik\r\n                    tentang Mamy, si Kecil dan\r\n                    MamyPoko</li>\r\n                <li>Bila ingin mengikutsertakan\r\n                  lebih dari 1 anak, dapat ambil formulir\r\n                  sesuai dengan jumlah anak, isi data diri\r\n                  dengan lengkap lalu kirimkan\r\n                  dalam 1 amplop</li>\r\n                <li>Kirimkan foto berukuran 2R (6x9 cm)</li>\r\n                <li>Pengiriman via pos disertai\r\n                  dengan formulir, apabila Mamy\r\n                  tidak memiliki formulir Mamy\r\n                  dapat mengisi data lengkap dibelakang foto\r\n                  yang Mamy kirim. </li>\r\n                <li>Data lengkap yang harus diisi berupa\r\n                  (Nama Mamy, No. KTP, Nama bayi,\r\n                  Tanggal lahir bayi,  Alamat [RT,RW, Kode Pos],\r\n                  No Hp dan No telepon rumah)</li>\r\n              </ul>\r\n              <!--<div class="bot-left-info vag-font">\r\n                Kirimkan via Pos ke<br>\r\n                PO BOX MamyPoko JKT 10000\r\n              </div>-->\r\n            </div>\r\n          </div>', 'via-pos', NULL, '2015-07-14', '2015-07-14', NULL, NULL, NULL, NULL, NULL, 'publish', 1436862068, 1438077397);
 
 -- --------------------------------------------------------
 
@@ -1313,7 +1297,7 @@ INSERT INTO `tbl_pages` (`id`, `menu_id`, `name`, `subject`, `synopsis`, `text`,
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_page_menus` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `parent_id` int(11) unsigned DEFAULT NULL,
   `name` varchar(128) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -1330,10 +1314,8 @@ CREATE TABLE IF NOT EXISTS `tbl_page_menus` (
   `count` int(11) DEFAULT NULL,
   `status` enum('publish','unpublish','deleted') DEFAULT 'publish',
   `added` int(11) DEFAULT NULL,
-  `modified` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `parent_id` (`parent_id`,`name`,`sub_level`,`order`,`status`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+  `modified` int(11) DEFAULT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_page_menus`
@@ -1341,8 +1323,8 @@ CREATE TABLE IF NOT EXISTS `tbl_page_menus` (
 
 INSERT INTO `tbl_page_menus` (`id`, `parent_id`, `name`, `title`, `synopsis`, `description`, `url`, `media`, `position`, `sub_level`, `order`, `is_system`, `has_child`, `user_id`, `count`, `status`, `added`, `modified`) VALUES
 (1, NULL, 'Terms', 'Syarat dan ketentuan', NULL, '<ul>\n	<li>\n		Saat foto, si Kecil harus memakai popok MamyPoko Tipe Celana / Pants (Standar/Extra Dry/Extra Soft)</li>\n	<li>\n		Kemasan produk tidak wajib ada di foto</li>\n	<li>\n		Si Kecil maksimal berusia 3 tahun sampai dengan akhir Desember 2015</li>\n	<li>\n		Satu anak hanya dapat diikutsertakan dalam 1 foto, jika mengirimkan lebih dari 1 foto maka akan didiskualifikasi</li>\n	<li>\n		Jika memiliki lebih dari 1 orang anak, semuanya dapat diikutsertakan dengan mengirimkan foto yang berbeda dan mengisi data diri masing-masing anak dengan lengkap</li>\n	<li>\n		Kompetisi berlangsung mulai 1 Agustus sampai 1 Oktober 2015</li>\n	<li>\n		Kompetisi ini tidak berlaku untuk staff dan karyawan MamyPoko / PT. Unicharm Indonesia serta agensi penyelenggara (biro iklan) beserta anggota keluarga maupun segala pihak yang berkaitan dengan kompetisi foto Kisah Kasih MamyPoko</li>\n	<li>\n		Setiap foto yang masuk ke Tim MamyPoko akan menjadi hak milik MamyPoko dan dapat digunakan sewaktu-waktu untuk kepentingan MamyPoko tanpa pemberitahuan sebelumnya dengan menyebutkan sumbernya</li>\n	<li>\n		Pemenang akan dipilih oleh Tim MamyPoko sebagai dewan juri. Keputusan tidak dapat diganggu gugat.</li>\n</ul>\n<h2 class="kriteria vag-font">\n	KRITERIA PENILAIAN</h2>\n<ul>\n	<li>\n		Keaslian cerita (bukan hasil mengutip dari mana pun)</li>\n	<li>\n		Cara penulisan cerita yang menarik dan kreatif</li>\n	<li>\n		Kesesuaian foto dengan tema serta cerita yang ditulis</li>\n	<li>\n		Ekspresi wajah baik si Kecil atau pun Mamy</li>\n	<li>\n		Produk MamyPoko yang digunakan nampak jelas</li>\n</ul>\n', 'terms', 'e9c8f-syarat.png', 'top', NULL, NULL, NULL, NULL, NULL, NULL, 'publish', NULL, NULL),
-(2, NULL, 'Mechanism', 'Mekanisme', '<p>\n	Kirimkan foto dan cerita tersebut melalui salah satu cara berikut :</p>\n', '<div class="row">\n	<div class="col-xs-4 pembatas">\n		<img alt="cara satu" class="cara-satu" src="../assets/public/img/cara-satu.png" />\n		<ul>\n			<li>\n				Tunjukkan ekspresi bahagia dan penuh kasih antara Mamy dan si Kecil lewat foto</li>\n		</ul>\n	</div>\n	<div class="col-xs-4 pembatas">\n		<img alt="cara dua" class="cara-dua" src="../assets/public/img/cara-dua.png" />\n		<ul>\n			<li>\n				Pastikan si Kecil menggunakan popok MamyPoko Pants / Tipe Celana (Standar/Extra Dry/Extra Soft)</li>\n		</ul>\n	</div>\n	<div class="col-xs-4">\n		<img alt="cara tiga" class="cara-tiga" src="../assets/public/img/cara-tiga.png" />\n		<ul>\n			<li>\n				Ceritakan secara singkat dan menarik mengenai momen indah Mamy dan si Kecil bersama MamyPoko</li>\n		</ul>\n	</div>\n</div>\n', 'mechanism', '50fed-mekanisme.png', 'top', NULL, NULL, NULL, NULL, NULL, NULL, 'publish', NULL, NULL),
-(3, NULL, 'Hadiah', 'Hadiah', NULL, '\n	<img alt="brio hadiah page" class="brio-page-hadiah" src="../assets/public/img/brio-phadiah.png" /> <img alt="hadiah page" class="brio-page-hadiah" src="../assets/public/img/page-hadiah.png" />\n	<div class="note-hadiah1 vag-font">\n		<p>\n			Hadiah grand prize (untuk pemenang utama, kedua, ketiga dan hiburan) akan diumumkan tanggal <span class="date-announce">19 October 2015</span> di Tabloid Nova dan Facebook fan page MamyPoko Indonesia</p>\n	</div>\n	<div class="note-hadiah2 vag-font">\n		<p>\n			Pemenang beruntung akan diumumkan tiap 2 minggu dengan rincian:</p>\n		<p>\n			Pemenang beruntung gelombang 1: Tanggal <span class="date-event">18 Agustus 2015</span> diumumkan di Tabloid Nova dan Facebook fan page MamyPoko</p>\n		<p>\n			Pemenang beruntung gelombang 2: Tanggal <span class="date-event">31 Agustus 2015</span> diumumkan di Facebook fan page MamyPoko Indonesia</p>\n		<p>\n			Pemenang beruntung gelombang 3: Tanggal <span class="date-event">14 September 2015</span> diumumkan di Facebook fan page MamyPoko Indonesia</p>\n		<p>\n			Pemenang beruntung gelombang 4: Tanggal <span class="date-event">28 September 2015</span> diumumkan di Facebook fan page MamyPoko Indonesia</p>\n</div>\n', 'prize', '66ef1-hadiah.png', 'top', NULL, NULL, NULL, NULL, NULL, NULL, 'publish', NULL, NULL);
+(2, NULL, 'Mechanism', 'Mekanisme', '<p>\r\n	Kirimkan foto dan cerita tersebut melalui salah satu cara berikut :</p>\r\n', '<div class="row visible-lg">\r\n	<div class="col-xs-4 pembatas">\r\n		<img alt="cara satu" class="cara-satu" src="../assets/public/img/cara-satu.png" />\r\n		<ul>\r\n			<li>\r\n				Tunjukkan ekspresi bahagia dan penuh kasih antara Mamy dan si Kecil lewat foto</li>\r\n		</ul>\r\n	</div>\r\n	<div class="col-xs-4 pembatas">\r\n		<img alt="cara dua" class="cara-dua" src="../assets/public/img/cara-dua.png" />\r\n		<ul>\r\n			<li>\r\n				Pastikan si Kecil menggunakan popok MamyPoko Pants / Tipe Celana (Standar/Extra Dry/Extra Soft)</li>\r\n		</ul>\r\n	</div>\r\n	<div class="col-xs-4">\r\n		<img alt="cara tiga" class="cara-tiga" src="../assets/public/img/cara-tiga.png" />\r\n		<ul>\r\n			<li>\r\n				Ceritakan secara singkat dan menarik mengenai momen indah Mamy dan si Kecil bersama MamyPoko</li>\r\n		</ul>\r\n	</div>\r\n</div>\r\n\r\n<div class="row visible-xs">\r\n            <div>\r\n              <img class="cara-satu img-ctr" src="../assets/public/img/cara-satu.png" alt="cara satu">\r\n              <ul><li>Tunjukkan ekspresi bahagia dan penuh kasih antara Mamy dan si Kecil lewat foto</li></ul>\r\n            </div>\r\n            <div>\r\n              <img class="cara-dua img-ctr" src="../assets/public/img/cara-dua.png" alt="cara dua">\r\n              <ul><li>Pastikan si Kecil menggunakan popok MamyPoko Pants / Tipe Celana (Standar/Extra Dry/Extra Soft)</li></ul>\r\n            </div>\r\n            <div>\r\n              <img class="cara-tiga img-ctr" src="../assets/public/img/cara-tiga.png" alt="cara tiga">\r\n              <ul><li>Ceritakan secara singkat dan menarik mengenai momen indah Mamy dan si Kecil bersama MamyPoko</li></ul>\r\n            </div>\r\n          </div>\r\n', 'mechanism', '50fed-mekanisme.png', 'top', NULL, NULL, NULL, NULL, NULL, NULL, 'publish', NULL, NULL),
+(3, NULL, 'Hadiah', 'Hadiah', NULL, '<div class="visible-lg">\r\n  <img alt="brio hadiah page" class="brio-page-hadiah" src="../assets/public/img/brio-phadiah.png" /> \r\n  <img alt="hadiah page" class="brio-page-hadiah" src="../assets/public/img/page-hadiah.png" />\r\n</div>\r\n<div class="visible-xs">\r\n  <img class="brio-page-hadiah img-responsive" src="../assets/public/img/mbrio-phadiah.png" alt="brio hadiah page">\r\n  <img class="brio-page-hadiah img-responsive" src="../assets/public/img/pemenang-2-3.png" alt="hadiah page">\r\n  <img class="brio-page-hadiah img-responsive" src="../assets/public/img/mhadiah-hiburan.png" alt="hadiah page">\r\n</div>\r\n	<div class="note-hadiah1 vag-font">\r\n		<p>\r\n			Hadiah grand prize (untuk pemenang utama, kedua, ketiga dan hiburan) akan diumumkan tanggal <span class="date-announce">19 October 2015</span> di Tabloid Nova dan Facebook fan page MamyPoko Indonesia</p>\r\n	</div>\r\n	<div class="note-hadiah2 vag-font">\r\n		<p>\r\n			Pemenang beruntung akan diumumkan tiap 2 minggu dengan rincian:</p>\r\n		<p>\r\n			Pemenang beruntung gelombang 1: Tanggal <span class="date-event">18 Agustus 2015</span> diumumkan di Tabloid Nova dan Facebook fan page MamyPoko</p>\r\n		<p>\r\n			Pemenang beruntung gelombang 2: Tanggal <span class="date-event">31 Agustus 2015</span> diumumkan di Facebook fan page MamyPoko Indonesia</p>\r\n		<p>\r\n			Pemenang beruntung gelombang 3: Tanggal <span class="date-event">14 September 2015</span> diumumkan di Facebook fan page MamyPoko Indonesia</p>\r\n		<p>\r\n			Pemenang beruntung gelombang 4: Tanggal <span class="date-event">28 September 2015</span> diumumkan di Facebook fan page MamyPoko Indonesia</p>\r\n</div>\r\n', 'prize', '66ef1-hadiah.png', 'top', NULL, NULL, NULL, NULL, NULL, NULL, 'publish', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1351,7 +1333,7 @@ INSERT INTO `tbl_page_menus` (`id`, `parent_id`, `name`, `title`, `synopsis`, `d
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_participants` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `identifier_id` varchar(64) DEFAULT NULL,
   `identity` varchar(32) DEFAULT NULL,
   `profile_url` varchar(255) DEFAULT NULL,
@@ -1381,10 +1363,8 @@ CREATE TABLE IF NOT EXISTS `tbl_participants` (
   `last_login` int(11) DEFAULT NULL,
   `session_id` varchar(40) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0',
-  `join_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
+  `join_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_participants`
@@ -1405,7 +1385,7 @@ INSERT INTO `tbl_participants` (`id`, `identifier_id`, `identity`, `profile_url`
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_participant_images` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `part_id` int(11) unsigned DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -1413,10 +1393,8 @@ CREATE TABLE IF NOT EXISTS `tbl_participant_images` (
   `count` int(11) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
   `added` int(11) DEFAULT NULL,
-  `modified` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `part_id` (`part_id`,`url`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `modified` int(11) DEFAULT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_participant_images`
@@ -1432,13 +1410,11 @@ INSERT INTO `tbl_participant_images` (`id`, `part_id`, `url`, `title`, `file_nam
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_provinces` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `added` int(11) DEFAULT NULL,
-  `modified` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `modified` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1447,7 +1423,7 @@ CREATE TABLE IF NOT EXISTS `tbl_provinces` (
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_server_logs` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `session_id` varchar(64) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
   `user_id` int(11) unsigned DEFAULT NULL,
@@ -1461,10 +1437,8 @@ CREATE TABLE IF NOT EXISTS `tbl_server_logs` (
   `is_mobile` int(1) DEFAULT NULL,
   `status` int(1) unsigned NOT NULL,
   `added` int(11) unsigned NOT NULL,
-  `modified` int(11) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `url` (`url`,`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `modified` int(11) unsigned NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1473,17 +1447,15 @@ CREATE TABLE IF NOT EXISTS `tbl_server_logs` (
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_settings` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `parameter` varchar(255) DEFAULT NULL,
   `alias` varchar(255) DEFAULT NULL,
   `value` varchar(255) DEFAULT NULL,
   `is_system` tinyint(1) DEFAULT '1',
   `status` tinyint(1) DEFAULT '1',
   `added` int(11) DEFAULT NULL,
-  `modified` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `name` (`parameter`,`status`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+  `modified` int(11) DEFAULT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_settings`
@@ -1524,14 +1496,12 @@ INSERT INTO `tbl_settings` (`id`, `parameter`, `alias`, `value`, `is_system`, `s
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_sub_urbans` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `urban_district_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `added` int(11) DEFAULT NULL,
-  `modified` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `modified` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1540,14 +1510,12 @@ CREATE TABLE IF NOT EXISTS `tbl_sub_urbans` (
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_urban_districts` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `province_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `added` int(11) DEFAULT NULL,
-  `modified` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `modified` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1556,7 +1524,7 @@ CREATE TABLE IF NOT EXISTS `tbl_urban_districts` (
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_users` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
+  `id` int(6) NOT NULL,
   `username` char(64) CHARACTER SET latin1 NOT NULL,
   `email` varchar(64) CHARACTER SET latin1 NOT NULL,
   `password` char(124) CHARACTER SET latin1 NOT NULL,
@@ -1566,16 +1534,15 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `session_id` varchar(160) NOT NULL,
   `added` int(11) NOT NULL,
-  `modified` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+  `modified` int(11) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_users`
 --
 
 INSERT INTO `tbl_users` (`id`, `username`, `email`, `password`, `group_id`, `last_login`, `logged_in`, `status`, `session_id`, `added`, `modified`) VALUES
-(1, 'admin', 'admin@admin.com', 'dd94709528bb1c83d08f3088d4043f4742891f4f', 1, 1437980614, 1, 1, '3e9956ea76401fb75f5751a96da66a86', 0, 0),
+(1, 'admin', 'admin@admin.com', 'dd94709528bb1c83d08f3088d4043f4742891f4f', 1, 1437980614, 1, 1, 'ef6604130dded7eac4aab804914682de', 0, 0),
 (2, 'joni', 'admin1@admin.com', '9003d1df22eb4d3820015070385194c8', 2, 1417003004, 0, 1, '', 0, 1424687676),
 (3, 'qc', 'asdf@asdf.com', 'fb00378895cf135de3b135f385c0012f3823e4fb', 3, 1417001008, 0, 1, '', 0, 1424689343),
 (29, 'dyarfi', 'dyarfi20@gmail.com', '647dc5d75f6ce3c6a859eb3b91fa6ccaab05b245', 116, 0, 0, 1, '', 1417065898, 0),
@@ -1592,17 +1559,15 @@ INSERT INTO `tbl_users` (`id`, `username`, `email`, `password`, `group_id`, `las
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_user_groups` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `name` varchar(32) NOT NULL,
   `backend_access` tinyint(1) DEFAULT NULL,
   `full_backend_access` tinyint(1) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `is_system` tinyint(1) NOT NULL DEFAULT '0',
   `added` int(11) unsigned NOT NULL,
-  `modified` int(11) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `parent_id` (`status`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=118 ;
+  `modified` int(11) unsigned NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=118 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_user_groups`
@@ -1626,15 +1591,13 @@ INSERT INTO `tbl_user_groups` (`id`, `name`, `backend_access`, `full_backend_acc
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_user_histories` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL,
   `module` varchar(24) NOT NULL,
   `user_id` int(11) unsigned NOT NULL,
   `controller` varchar(160) NOT NULL,
   `action` char(20) DEFAULT NULL,
-  `time` int(11) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id` (`id`,`module`,`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `time` int(11) unsigned NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1663,8 +1626,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user_profiles` (
   `file_name` varchar(48) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `added` int(11) unsigned NOT NULL,
-  `modified` int(11) unsigned NOT NULL,
-  KEY `user_id` (`user_id`,`phone`)
+  `modified` int(11) unsigned NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -1682,6 +1644,241 @@ INSERT INTO `tbl_user_profiles` (`user_id`, `gender`, `about`, `first_name`, `la
 (31, 'male', 'Test', 'Defrian', 'Yarfi', 'Web Programmer', NULL, NULL, NULL, NULL, NULL, '2012-02-25', '081807244697', '909090090', NULL, NULL, NULL, NULL, 1, 1424854664, 0),
 (32, 'male', NULL, 'Test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '5cae9-_7___felix_boyeaux_studios_by_fixxxxx.png', 1, 1425380399, 0);
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tbl_captcha`
+--
+ALTER TABLE `tbl_captcha`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_ci_sessions`
+--
+ALTER TABLE `tbl_ci_sessions`
+  ADD PRIMARY KEY (`session_id`), ADD KEY `last_activity_idx` (`last_activity`);
+
+--
+-- Indexes for table `tbl_configurations`
+--
+ALTER TABLE `tbl_configurations`
+  ADD PRIMARY KEY (`parameter`,`value`);
+
+--
+-- Indexes for table `tbl_districts`
+--
+ALTER TABLE `tbl_districts`
+  ADD PRIMARY KEY (`id`), ADD KEY `name` (`name`);
+
+--
+-- Indexes for table `tbl_group_permissions`
+--
+ALTER TABLE `tbl_group_permissions`
+  ADD PRIMARY KEY (`id`), ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `tbl_languages`
+--
+ALTER TABLE `tbl_languages`
+  ADD PRIMARY KEY (`id`), ADD KEY `name` (`name`,`status`);
+
+--
+-- Indexes for table `tbl_model_lists`
+--
+ALTER TABLE `tbl_model_lists`
+  ADD PRIMARY KEY (`id`), ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `tbl_module_lists`
+--
+ALTER TABLE `tbl_module_lists`
+  ADD PRIMARY KEY (`id`), ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `tbl_module_permissions`
+--
+ALTER TABLE `tbl_module_permissions`
+  ADD PRIMARY KEY (`id`), ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `tbl_pages`
+--
+ALTER TABLE `tbl_pages`
+  ADD PRIMARY KEY (`id`), ADD KEY `menu_id` (`menu_id`,`name`,`publish_date`,`unpublish_date`,`allow_comment`,`order`);
+
+--
+-- Indexes for table `tbl_page_menus`
+--
+ALTER TABLE `tbl_page_menus`
+  ADD PRIMARY KEY (`id`), ADD KEY `parent_id` (`parent_id`,`name`,`sub_level`,`order`,`status`);
+
+--
+-- Indexes for table `tbl_participants`
+--
+ALTER TABLE `tbl_participants`
+  ADD PRIMARY KEY (`id`), ADD KEY `name` (`name`);
+
+--
+-- Indexes for table `tbl_participant_images`
+--
+ALTER TABLE `tbl_participant_images`
+  ADD PRIMARY KEY (`id`), ADD KEY `part_id` (`part_id`,`url`);
+
+--
+-- Indexes for table `tbl_provinces`
+--
+ALTER TABLE `tbl_provinces`
+  ADD PRIMARY KEY (`id`), ADD KEY `name` (`name`);
+
+--
+-- Indexes for table `tbl_server_logs`
+--
+ALTER TABLE `tbl_server_logs`
+  ADD PRIMARY KEY (`id`), ADD KEY `url` (`url`,`user_id`);
+
+--
+-- Indexes for table `tbl_settings`
+--
+ALTER TABLE `tbl_settings`
+  ADD PRIMARY KEY (`id`), ADD KEY `name` (`parameter`,`status`);
+
+--
+-- Indexes for table `tbl_sub_urbans`
+--
+ALTER TABLE `tbl_sub_urbans`
+  ADD PRIMARY KEY (`id`), ADD KEY `name` (`name`);
+
+--
+-- Indexes for table `tbl_urban_districts`
+--
+ALTER TABLE `tbl_urban_districts`
+  ADD PRIMARY KEY (`id`), ADD KEY `name` (`name`);
+
+--
+-- Indexes for table `tbl_users`
+--
+ALTER TABLE `tbl_users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_user_groups`
+--
+ALTER TABLE `tbl_user_groups`
+  ADD PRIMARY KEY (`id`), ADD KEY `parent_id` (`status`);
+
+--
+-- Indexes for table `tbl_user_histories`
+--
+ALTER TABLE `tbl_user_histories`
+  ADD PRIMARY KEY (`id`), ADD KEY `id` (`id`,`module`,`user_id`);
+
+--
+-- Indexes for table `tbl_user_profiles`
+--
+ALTER TABLE `tbl_user_profiles`
+  ADD KEY `user_id` (`user_id`,`phone`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_captcha`
+--
+ALTER TABLE `tbl_captcha`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1837;
+--
+-- AUTO_INCREMENT for table `tbl_districts`
+--
+ALTER TABLE `tbl_districts`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_group_permissions`
+--
+ALTER TABLE `tbl_group_permissions`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=910;
+--
+-- AUTO_INCREMENT for table `tbl_languages`
+--
+ALTER TABLE `tbl_languages`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tbl_model_lists`
+--
+ALTER TABLE `tbl_model_lists`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `tbl_module_lists`
+--
+ALTER TABLE `tbl_module_lists`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT for table `tbl_module_permissions`
+--
+ALTER TABLE `tbl_module_permissions`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=102;
+--
+-- AUTO_INCREMENT for table `tbl_pages`
+--
+ALTER TABLE `tbl_pages`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_page_menus`
+--
+ALTER TABLE `tbl_page_menus`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `tbl_participants`
+--
+ALTER TABLE `tbl_participants`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
+--
+-- AUTO_INCREMENT for table `tbl_participant_images`
+--
+ALTER TABLE `tbl_participant_images`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_provinces`
+--
+ALTER TABLE `tbl_provinces`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_server_logs`
+--
+ALTER TABLE `tbl_server_logs`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_settings`
+--
+ALTER TABLE `tbl_settings`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
+--
+-- AUTO_INCREMENT for table `tbl_sub_urbans`
+--
+ALTER TABLE `tbl_sub_urbans`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_urban_districts`
+--
+ALTER TABLE `tbl_urban_districts`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_users`
+--
+ALTER TABLE `tbl_users`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
+--
+-- AUTO_INCREMENT for table `tbl_user_groups`
+--
+ALTER TABLE `tbl_user_groups`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=118;
+--
+-- AUTO_INCREMENT for table `tbl_user_histories`
+--
+ALTER TABLE `tbl_user_histories`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -49,10 +49,10 @@
                   di toko-toko terdekat </li>
                 <li><img class="item-via-pos-img" src="../img/sample-kirim-post.png" alt="sample cara kirim foto via Pos"></li>
                 <li>Isi formulir dengan lengkap
-  sesuai petunjuk sertakan
-  juga cerita singkat yang menarik
-  tentang Mamy, si Kecil dan
-  MamyPoko</li>
+                    sesuai petunjuk sertakan
+                    juga cerita singkat yang menarik
+                    tentang Mamy, si Kecil dan
+                    MamyPoko</li>
                 <li>Bila ingin mengikutsertakan
                   lebih dari 1 anak, dapat ambil formulir
                   sesuai dengan jumlah anak, isi data diri

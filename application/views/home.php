@@ -42,14 +42,14 @@
 
 
 
-                  <?php                  
+                  <?php
                       $b = 1;
                       $n = count($participants);
-                      foreach ($participants as $image) { 
-                        
+                      foreach ($participants as $image) {
+
                         $pathinfo	= pathinfo($image->file_name);
                         $thumb		= $pathinfo['filename'].'_thumb.'.$pathinfo['extension'];
-                        
+
                         if ($b == 1) { ?>
                         <div class="item active">
                             <div class="row">
@@ -81,10 +81,10 @@
                               <?php } if ($b == $n) { ?>
                           </div><!--.row1-->
                         </div><!--.item1-->
-                      <?php } 
+                      <?php }
                       $b++;
                       }
-                      ?>         
+                      ?>
 
       </div><!--.carousel-inner-->
         <a data-slide="prev" href="#Carousel" class="left carousel-control"><img class="nav-carousel" src="<?php echo base_url('assets/public/img');?>/right-arrow-right-hi.png" alt="next"></a>

@@ -1,28 +1,33 @@
 (function ($) {
 
-	//new WOW().init();
+    // Carousel item
+    $('#Carousel').carousel({
+        interval: 5000
+    })
 
-	jQuery(window).load(function() { 
+    //new WOW().init();
+
+    jQuery(window).load(function() {
             jQuery("#preloader").delay(100).fadeOut("slow");
             jQuery("#load").delay(100).fadeOut("slow");
-	});
+    });
 
-	//$('#container').imagesLoaded( function() {
+    //$('#container').imagesLoaded( function() {
             // images have loaded
             //alert("foobar");
-	//});	
-	
-	//jQuery to collapse the navbar on scroll
-	$(window).scroll(function() {
+    //});
+
+    //jQuery to collapse the navbar on scroll
+    $(window).scroll(function() {
             if ($(".navbar").offset().top > 50) {
                 //$(".navbar-fixed-top").addClass("top-nav-collapse");
             } else {
                 //$(".navbar-fixed-top").removeClass("top-nav-collapse");
             }
-	});
-	
-	//jQuery for page scrolling feature - requires jQuery Easing plugin
-	$(function() {
+    });
+
+    //jQuery for page scrolling feature - requires jQuery Easing plugin
+    $(function() {
             $('.navbar-nav li a').bind('click', function(event) {
                 var $anchor = $(this);
                 $('html, body').stop().animate({
@@ -37,21 +42,21 @@
                 }, 1500, 'easeInOutExpo');
                 event.preventDefault();
             });
-	});
-				
-	$('a.back').click(function(){
+    });
+
+    $('a.back').click(function(){
             $(".vacancy-form-holder").hide({duration:'220',easing:'easeOutExpo'});
-            $('.vacancy-list-holder').show({duration:'220',easing:'easeOutExpo'});				
+            $('.vacancy-list-holder').show({duration:'220',easing:'easeOutExpo'});
             return false;
-	});
-	
-       
+    });
+
+
     $('[data-toggle="tooltip"]').tooltip();
     $('.btn-hit').click(function() {
             var ahf = $(this);
             var img = $(this).attr('rel');
             var uri = $(this).attr('data-url');
-            var ref = $(this).attr('data-ref');		
+            var ref = $(this).attr('data-ref');
             var span = $(this).find('span.hit');
             var srel = span.attr('rel');
             $.ajax({
@@ -99,14 +104,14 @@
         },
         done: function (e, data) {
             e.preventDefault();
-            $.each(data.result.files, function (index, file) {	
+            $.each(data.result.files, function (index, file) {
                 //alert(file.error);
                 $('.img-thumbnail a.colorbox')
                 .prop('href',base_URL + file.url).empty()
                 .html('<img src="'+base_URL + file.thumbnailUrl+'"//>');
                 $('input[name="image_temp"]').attr('value',file.name);
-            });			
-            $('.progress').hide();			
+            });
+            $('.progress').hide();
             $('.button-submit').show({duration:'260',easing:'easeInOutBack'});
         },
         progressall: function (e, data) {
@@ -135,7 +140,7 @@
         // Log the current bitrate for this upload:
         //console.log(data.bitrate);
     });
-    
+
     if ($(".colorbox").attr('href') !== '#') {
         $(".colorbox").colorbox({
             rel: 'nofollow',
@@ -145,7 +150,7 @@
             preloading:false
         });
     }
-    
+
     $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
     $('.popover_bootbox, .popover_bootbox_auto').click(function(){
         var image = $(this).attr('rel');
@@ -160,7 +165,7 @@
     });
     $('#form-register').submit(function(e) {
         e.preventDefault();
-        var url = base_URL + 'account/register/';	
+        var url = base_URL + 'account/register/';
         $.colorbox({html:'<div class="text-center"><br/><img width="40" height="40" src="'+base_URL+'assets/public/img/spinner.gif"/><br/><br/><h4>Sedang Mengirim</h4></div>',width:200,height:200,preloading:false,scrolling:false,transition:'fade',overlayClose:false,escKey:false,closeButton:false});
         $.ajax({
             type: "POST",
@@ -176,36 +181,36 @@
                     location.href = json.label;
                 } else if (json.errors !== undefined) {
                     var html = '';
-                    $.each(json.errors, function (index, error) {	
+                    $.each(json.errors, function (index, error) {
                         html += error;
                     });
                     bootbox.alert({message:html,closeButton:false});
-                }			
+                }
                 // Empty loader
                 //$('#result_callback').empty();
                 // Empty loader image
                 //$('#loader').html('');
             },
-            complete: function(message) { 
+            complete: function(message) {
                 $.colorbox.close();
             },
-            error: function(x,message,t) { 
+            error: function(x,message,t) {
                 if(message==="timeout") {
                     console.log("got timeout");
                 } else {
                     //alert(message);
-                }	
+                }
             }
-        });    
-    });  
-    
+        });
+    });
+
     $('.reload_captcha').click(function() {
-        var url	= $(this).attr('rel');		
+        var url	= $(this).attr('rel');
         $.ajax({
             type: "POST",
             url: url,
             //cache: false,
-            //async: true,	
+            //async: true,
             success: function(msg){
                 $('.reload_captcha').empty().html(msg);
                 // Need random for browser recache
@@ -216,9 +221,9 @@
             complete: function(msg) {},
             error: function(msg) {}
         });
-        return false;	
+        return false;
     });
-       
+
     $('#agreement').change(function() {
         if ($(this).val() === '') {
             $(this).val(1);
@@ -227,10 +232,10 @@
         }
         //console.log($(this).val());
     });
-	
+
     $('select[name="sort"]').change(function() {
-    	var varb = $(this).val();
-    	$.ajax({
+        var varb = $(this).val();
+        $.ajax({
             data: $(this).serializeArray(),
         }).done(function(msg) {
             var redirect = $(location).attr('href');
@@ -239,7 +244,7 @@
             if (varb != '') { location.href = val.url; }
         });
     });
-	
+
     $('.scroll-pane').jScrollPane();
     $('.scroll-pane-arrows').jScrollPane(
       {
@@ -255,4 +260,4 @@ function popupCenter(url, title, w, h) {
     var left = (screen.width/2)-(w/2);
     var top = (screen.height/2)-(h/2);
     return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
-} 
+}
