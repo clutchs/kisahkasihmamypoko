@@ -74,6 +74,11 @@ background: #428bca;
     width: 20%;
   }
 }
+@media(min-width:768px) and (max-width:810px){
+  .col-sm-3 {
+    width: 20%;
+  }
+}
 /* SCROLLPANE */
 .scroll-pane,
 .scroll-pane-arrows

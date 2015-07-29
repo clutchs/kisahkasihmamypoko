@@ -57,7 +57,7 @@
                                   <div class="item">
                                       <div class="row">
                                         <?php } ?>
-                                        <div class="col-md-3">
+                                        <div class="col-sm-3 col-md-3">
                                             <div class="thumbnail">
                                                 <?php
                                                     $pathinfo	= pathinfo($image->file_name);
