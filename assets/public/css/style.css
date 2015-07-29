@@ -69,16 +69,6 @@ body {
 background: #428bca;
 }
 .nav-carousel{margin-top: 12px;}
-@media(min-width: 992px){
-  .col-md-3 {
-    width: 20%;
-  }
-}
-@media(min-width:768px) and (max-width:810px){
-  .col-sm-3 {
-    width: 20%;
-  }
-}
 /* SCROLLPANE */
 .scroll-pane,
 .scroll-pane-arrows
@@ -153,7 +143,7 @@ div.navbar-mamypoko .navbar-default .navbar-nav> li >a:hover { background-color:
   font-size: 8px;
 }
 .dapatkan-hadiah{margin-top: -14px;}
-.main-menu{width:604px;//width: 600px;}
+.main-menu{width:604px;}
 .main-menu .navbar-nav { margin-left: 6px}
 .stroke{
   -webkit-text-stroke: 1px #760042;
@@ -677,7 +667,19 @@ hr {
   margin: auto;
 }
 /* Media queries */
-
+@media(min-width: 992px){
+  .col-md-3 {
+    width: 20%;
+  }
+}
+@media(min-width:768px) and (max-width:810px){
+  .col-sm-3 {
+    width: 20%;
+  }
+  .bot-left-info{
+    margin: 0 0 -45px -15px;
+  }
+}
 @media(max-width:640px) {
   body {
     padding-top: 55px;
