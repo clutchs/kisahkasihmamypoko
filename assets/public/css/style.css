@@ -1,5 +1,5 @@
 html { text-rendering: optimizeLegibility; font-smoothing: antialiased; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
-.vag-font{font-family: 'VAG_Bold';}
+.vag-font{font-family: 'VAG_Bold'; }
 .vag-round-font{font-family: 'VAG_Round'; letter-spacing: 0.04em; }
 
 /* Account for fixed navbar */
@@ -140,7 +140,9 @@ div.navbar-mamypoko .navbar-default .navbar-nav> li >a:hover { background-color:
   margin-top: -60px;
 }
 .note{
-  font-size: 8px;
+  width: 58%;
+  font-size: 9px;
+  margin: 5px 0 8px 0;
 }
 .dapatkan-hadiah{margin-top: -14px;}
 .main-menu{width:604px;}
@@ -283,8 +285,8 @@ ul.galeri li{margin-bottom: 15px;}
   -webkit-border-radius: 10px 10px 10px 10px;
   border: 5px solid #820f46;
 }
-.nama-mamy{color: #ec008c; font-size: 16px; margin: 6px 0 4px 0;}
-.nama-baby{color: #AAE1F7; font-size: 15px; margin: 0;}
+.nama-mamy{color: #ec008c; font-size: 1.0em; margin: 6px 0 4px 0;}
+.nama-baby{color: #AAE1F7; font-size: 0.98em; font-weight: bold; margin: 0;}
 .galeri-thumbnail{margin-left: -14px;margin-right: 40px;}
 .galeri-thumbnail .thumbnail .caption { padding: 0px}
 .galeri-thumbnail .thumbnail .caption h5 { padding: 0px 0 0 0; font-weight: normal}
@@ -712,7 +714,7 @@ hr {
     margin-top: 20px;
   }
   .bg-yellow{margin-bottom: 0;}
-  .carousel{margin-top: 0;}
+  /*.carousel{margin-top: 0;}*/
   .carousel-control{margin-top: 60px;}
   .sub-mekanisme{
     border-radius: 10px;
@@ -791,4 +793,18 @@ hr {
   {margin-left: 0px;}
   .popover_bootbox { display: block; height: 140px; overflow: hidden; }
   .gallery-list-360 {height: 60px;}
+}
+/*----------------------------------------------
+        WEBKIT CSS 
+------------------------------------------------*/
+/**** SAFARI & CHROME ****/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .main-menu {
+		/* width:628px; */
+		font-size:0.96em;
+      /* min-width: 643px; */
+    }
+	.carousel {
+		margin-bottom: 30px
+    }
 }

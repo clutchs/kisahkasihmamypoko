@@ -178,13 +178,15 @@
             success: function(json) {
                 // Check returned data from Parse JSON result
                 if (json.result === 'OK' && json.label !== '') {
+                    setInterval(function(){ $.colorbox.close(); }, 5000);
                     location.href = json.label;
-                } else if (json.errors !== undefined) {
+                } else if (json.errors !== undefined) {                                   
                     var html = '';
                     $.each(json.errors, function (index, error) {
                         html += error;
                     });
                     bootbox.alert({message:html,closeButton:false});
+                    setInterval(function(){ $.colorbox.close(); }, 1000);
                 }
                 // Empty loader
                 //$('#result_callback').empty();
@@ -192,7 +194,8 @@
                 //$('#loader').html('');
             },
             complete: function(message) {
-                $.colorbox.close();
+                // $.colorbox.close();
+                console.log("complete");
             },
             error: function(x,message,t) {
                 if(message==="timeout") {

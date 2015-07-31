@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand vag-font" href="#">Kisah Kasih Mamypoko</a>
+                <a class="navbar-brand vag-font" href="<?php echo base_url();?>">Kisah Kasih Mamypoko</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse bg-mm">
                 <ul class="nav navbar-nav vag-font">

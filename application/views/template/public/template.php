@@ -3,7 +3,6 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -14,13 +13,10 @@
     <!-- Site default CSS -->
     <link href="<?php echo base_url();?>assets/public/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/public/css/fonts.css" rel="stylesheet">
-
     <link href="<?php echo base_url();?>assets/public/css/colorbox/colorbox.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url();?>assets/static/js/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css">
-
     <link type="text/css" href="<?php echo base_url();?>assets/public/css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
     <link type="text/css" href="<?php echo base_url();?>assets/public/css/jquery.jscrollpane.lozenge.css" rel="stylesheet" media="all" />
-
     <link href="<?php echo base_url();?>assets/public/css/style.css" rel="stylesheet">
     <script type="text/javascript">var base_URL = '<?php echo base_url();?>';</script>
 </head>
@@ -47,20 +43,16 @@
     <script src="<?php echo base_url();?>assets/public/js/jquery.colorbox-min.js"></script>
     <script src="<?php echo base_url();?>assets/public/js/bootbox/bootbox.min.js"></script>
     <script src="<?php echo base_url();?>assets/static/js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-
     <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.ui.widget.min.js"></script>
     <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.iframe-transport.js"></script>
     <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload.js"></script>
     <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload-process.js"></script>
     <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload-validate.js"></script>
     <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload-ui.js"></script>
-
     <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.mousewheel.js"></script>
     <script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.jscrollpane.min.js"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url();?>assets/public/js/custom.js"></script>
-
 <?php
 // Use only from controller to set js messages
 if ($this->session->flashdata('inline_js')) { ?>
@@ -77,6 +69,5 @@ if ($this->session->flashdata('inline_js')) { ?>
 <?php
 }
 ?>
-
 </body>
 </html>
