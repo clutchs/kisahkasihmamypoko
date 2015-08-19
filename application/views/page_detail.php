@@ -1,4 +1,9 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<script type="text/javascript">
+window.onload = function() {
+    FB.Canvas.setSize({ width: 810, height: 780 });
+}
+</script>
 <div class="bg-yellow row">
     <?php 
     if ($menu->title) { echo '<img class="kisah-title" src="'.base_url('uploads/pages/'.$menu->media).'" alt="'.$menu->title.'">'; }  

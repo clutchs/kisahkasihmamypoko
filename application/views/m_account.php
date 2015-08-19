@@ -1,5 +1,54 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<script type="text/javascript">
+window.onload = function() {
+    FB.Canvas.setSize({ width: 810, height: 920 });
 
+    // Place following code after FB.init call.
+    function onLogin(response) {
+      if (response.status == 'connected') {
+        FB.api('/me?fields=first_name', function(data) {
+          //var welcomeBlock = document.getElementById('fb-welcome');
+          //welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+		  <?php /*if ( $this->participant == '') { ?>
+		  var url = '<?php echo base_url("hauth/login/Facebook") ?>';
+                var form = $('<form action="' + url + '" method="post">' +
+                        '<input type="hidden" name="signed_request" value="' + response.authResponse.signedRequest + '" />' +
+                        '</form>');
+                $('body').append(form);
+                $(form).submit();
+		  <?php }*/ ?>	
+        });
+      }
+    }
+    FB.getLoginStatus(function(response) {
+      // Check login status on load, and if the user is
+      // already logged in, go directly to the welcome message.
+      if (response.status == 'connected') {
+        onLogin(response);
+      } else {
+        // Otherwise, show Login dialog first.
+        FB.login(function(response) {
+            // handle the response
+            if (response.status == 'connected') {
+                var url = '<?php echo base_url("hauth/login/Facebook") ?>';
+                var form = $('<form action="' + url + '" method="post">' +
+                        '<input type="hidden" name="signed_request" value="' + response.authResponse.signedRequest + '" />' +
+                        '</form>');
+                $('body').append(form);
+                $(form).submit();
+            } else {
+                top.location.reload();
+            }
+            console.log(response);
+        }, {scope: 'read_stream,email'});
+        // Additional initialization code here
+      }
+    });
+    //FB.AppEvents.activateApp();
+    //FB.AppEvents.logEvent('account');    
+    //console.log( FB.getLoginStatus());
+}
+</script>
 <div class="bg-yellow row">
     <img class="kisah-title" src="<?php echo base_url('assets/public/img/daftar.png')?>" alt="mekanisme page">
     <div class="mekanisme-body row">
@@ -28,7 +77,7 @@
         <input type="hidden" name="image_temp" value="">
         <div class="text-left">
           <small class="text-muted clearfix">( * ) Harus di isi. </small>
-          <small class="text-danger">( ! ) Mohon diperhatikan data beserta foto nya Momy sebelum di Kirim</small>
+          <small class="text-danger">( ! ) Mohon diperhatikan data beserta foto nya Mamy dan si Kecil sebelum di Kirim</small>
         </div>
       </div>
 
@@ -37,7 +86,7 @@
             <div class="register-form">
                 <fieldset>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label" for="fullname">Nama Lengkap</label>
+                        <label class="col-sm-4 control-label" for="fullname">Nama Mamy</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo set_value('fullname', $fields['fullname'] ? $fields['fullname'] : $this->participant->name); ?>" placeholder="* Nama Mamy" required="required" />
                         </div>
@@ -53,15 +102,59 @@
                     </div>
 
                     <div class="form-group">
-                      <label class="col-sm-4 control-label" for="baby_name">Nama Baby</label>
+                      <label class="col-sm-4 control-label" for="address">Alamat Lengkap</label>
+                        <div class="col-sm-8">
+                            <textarea type="text" class="form-control" placeholder="* Alamat Lengkap" id="address" name="address" required><?php echo set_value('address', @$user_fb->address) ?></textarea>
+                            <small><?php echo $errors['address'];?></small>
+                        </div>
+                    </div>
+                    
+                  <div class="form-group">
+                    <div class="col-sm-4" for="textinput"></div>
+                    <div class="col-sm-4">
+                          <input type="hidden" value="<?php echo $fields['province'];?>">
+                          <select name="province" class="form-control" id="province" onChange="getRegion($(this),'province');" required>
+                              <option value="">PROPINSI</option>
+                              <?php foreach ($provinces as $province){ ?>
+                                <option value="<?php echo $province->id;?>" name="province"><?php echo $province->name;?></option>
+                              <?php } ?>
+                          </select>
+                          <small><?php echo $errors['province'];?></small>
+                    </div>
+                    <div class="col-sm-4">
+                          <input type="hidden" value="<?php echo $fields['urbandistrict'];?>">
+                          <select name="urbandistrict" class="form-control" id="urbandistrict" onChange="getRegion($(this),'urbandistrict');" required>
+                              <option value="">KABUPATEN</option>
+                          </select>
+                          <small><?php echo $errors['urbandistrict'];?></small>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-4" for="textinput"></div>
+                    <div class="col-sm-4">
+                          <input type="hidden" value="<?php echo $fields['suburban'];?>" required>
+                          <select name="suburban" class="form-control" id="suburban" onChange="getRegion($(this),'suburban');" required>
+                              <option value="">KECAMATAN</option>
+                          </select>
+                          <small><?php echo $errors['suburban'];?></small>
+                    </div>
+
+                    <div class="col-sm-4">
+                          <input type="text" name="zipcode" placeholder="Kode Pos" class="form-control" value="<?php echo $fields['zipcode'];?>" required>
+                          <small><?php echo $errors['zipcode'];?></small>
+                    </div>
+                  </div>
+                    
+                    <div class="form-group">
+                      <label class="col-sm-4 control-label" for="baby_name">Nama si Kecil</label>
                       <div class="col-sm-8">
-                        <input type="text" placeholder="* Nama Baby" class="form-control" id="baby_name" name="baby_name" value="<?php echo set_value('baby_name', $fields['baby_name']); ?>"/>
+                        <input type="text" placeholder="* Nama si Kecil" class="form-control" id="baby_name" name="baby_name" value="<?php echo set_value('baby_name', $fields['baby_name']); ?>"/>
                       </div>
                       <small class="text-danger"><?php echo $errors['fullname'];?></small>
                     </div>
 
                     <div class="form-group">
-                      <label class="col-sm-4 control-label" for="baby_birthday">Tanggal Lahir Baby</label>
+                      <label class="col-sm-4 control-label" for="baby_birthday">Tanggal Lahir si Kecil</label>
                       <div class="col-sm-8">
                         <input type="text" placeholder="* DD/MM/YYYY" class="form-control datepicker" id="baby_birthday" name="baby_birthday" value="<?php echo set_value('baby_birthday', $fields['baby_birthday']); ?>"/>
                       </div>
@@ -90,7 +183,7 @@
 
                   <div class="form-group">
                     <div class="boxed-grey">
-                        <label class="col-sm-2 pull-left control-label" for="captcha">Kode Captcha <a class="img-thumbnail reload_captcha" title="Rubah" data-toggle="tooltip" data-placement="right" rel="<?=base_url()?>account/reload_captcha" href="javascript:;">
+                        <label class="col-sm-4 control-label" for="captcha">Kode Captcha <a class="img-thumbnail reload_captcha" title="Rubah" rel="<?=base_url()?>account/reload_captcha" href="javascript:;">
                             <?php echo $captcha['image'];?></a><!--small class="text-danger">&nbsp; Captcha expired in 60 Seconds.</small-->
                             <br/><span><small class="text-muted">* Klik gambar untuk rubah</small></span>
                         </label>
@@ -103,11 +196,28 @@
                       </div>
                       <small class="text-danger"><?php echo $errors['captcha'];?></small>
                     </div>
-                    <label class="col-sm-12 control-label" for="about">Ceritakan Momen Momy & si Kecil</label>
+                    <label class="col-sm-12 control-label" for="about">Ceritakan Momen Mamy & si Kecil bersama MamyPoko Pants</label>
                     <div class="col-sm-12 textarea-message">
                       <textarea class="form-control" type="textarea" id="about" placeholder="* Cerita.." name="about" maxlength="140" rows="6"><?php echo set_value('phone_home', $fields['about']); ?></textarea>
                     </div>
                     <small class="text-danger"><?php echo $errors['about'];?></small>
+                    
+                    <div class="col-sm-12 radio-handler">
+                        <label class="col-sm-12 control-label" for="about">Darimanakah Mamy mengetahui activity ini ?</label>
+                        <ul class="list-group col-sm-7">
+                        <?php 
+                            $i = 0;
+                            foreach ($findout as $find) { 
+                                echo $i == 5 ? '</ul><ul class="list-group col-sm-5">' : '';
+                                echo '<li class="list-group-item"><label for="'.$find.'">';
+                                echo form_radio('findout',$find, $i == 0 ? TRUE : FALSE);
+                                echo '&nbsp;'.$find.'</label></li>';
+                                $i++;
+                            }
+                        ?>  
+                        </ul>                          
+                    </div>
+                    
                     <div class="col-sm-12">
                         <div class="checkbox">
                           <input type="checkbox" class="" placeholder="* No. Hp" id="agreement" name="agreement" value="<?php echo $fields['agreement']; ?>"/>

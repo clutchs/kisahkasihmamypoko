@@ -1,5 +1,9 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-
+<script type="text/javascript">
+window.onload = function() {
+    FB.Canvas.setSize({ width: 810, height: 700 });
+}
+</script>
 <div class="bg-yellow row">
     <div class="col-xs-7">
       <h1><img class="kisah-title" src="<?php echo base_url('assets/public/img');?>/kisah-kasih.png" alt="kisah kasih mamypoko"></h1>
@@ -23,7 +27,7 @@
       Dan raih Hadiah Hiburan setiap 2 minggu sekali
       berupa ratusan karton popok Mamypoko Pants
     </div>
-    <div class="col-xs-3 vag-font"><button type="submit" class="btn submit-color" onclick="window.location.href='account/register';">Daftar</button></div>
+    <div class="col-xs-3 vag-font"><button type="submit" class="btn submit-color" onclick="window.location.href='account';">Daftar</button></div>
   </div>
   <div class="note pull-right">
     &ast;Gambar hanya ilustrasi. Tipe warna, merek hadiah sesuai dengan ketentuan pihak Unicharm.
@@ -78,8 +82,10 @@
               }
         ?>
       </div><!--.carousel-inner-->
+    <?php if ($participants) { ?>
         <a data-slide="prev" href="#Carousel" class="left carousel-control"><img class="nav-carousel" src="<?php echo base_url('assets/public/img');?>/right-arrow-right-hi.png" alt="next"></a>
         <a data-slide="next" href="#Carousel" class="right carousel-control"><img class="nav-carousel" src="<?php echo base_url('assets/public/img');?>/left-arrow-right-hi.png" alt="next"></a>
+    <?php } ?>  
     </div><!--.Carousel-->
   </div>
 </div>

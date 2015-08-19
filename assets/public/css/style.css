@@ -285,8 +285,8 @@ ul.galeri li{margin-bottom: 15px;}
   -webkit-border-radius: 10px 10px 10px 10px;
   border: 5px solid #820f46;
 }
-.nama-mamy{color: #ec008c; font-size: 1.0em; margin: 6px 0 4px 0;}
-.nama-baby{color: #AAE1F7; font-size: 0.98em; font-weight: bold; margin: 0;}
+.nama-mamy{color: #ec008c; font-size: 0.98em; margin: 6px 0 4px 0; white-space: nowrap; overflow: hidden;}
+.nama-baby{color: #AAE1F7; font-size: 0.98em; font-weight: bold; margin: 0; white-space: nowrap; overflow: hidden;}
 .galeri-thumbnail{margin-left: -14px;margin-right: 40px;}
 .galeri-thumbnail .thumbnail .caption { padding: 0px}
 .galeri-thumbnail .thumbnail .caption h5 { padding: 0px 0 0 0; font-weight: normal}
@@ -607,6 +607,9 @@ hr {
     color: #000;
     background-color: #28c3ab;
 }
+.radio-handler .list-group { margin-left:0px; }
+.radio-handler .list-group-item { border: 0px; padding: 0px 0px}
+.radio-handler label { font-weight: normal; font-size: 0.90em}
 
 .btn-huge {
     padding: 25px;
@@ -667,6 +670,9 @@ hr {
 .img-ctr{
   display: block;
   margin: auto;
+}
+.carousel .col-sm-3 {
+    width: 20%;
 }
 /* Media queries */
 @media(min-width: 992px){
@@ -799,12 +805,17 @@ hr {
 ------------------------------------------------*/
 /**** SAFARI & CHROME ****/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-    .main-menu {
+  .main-menu {
 		/* width:628px; */
 		font-size:0.96em;
       /* min-width: 643px; */
-    }
+  }
 	.carousel {
 		margin-bottom: 30px
-    }
+  }
+  .carousel .col-sm-3 {
+    width: 20%;
+  }
+  .nama-mamy{white-space: nowrap; overflow: hidden;}
+  .nama-baby{white-space: nowrap; overflow: hidden;}
 }

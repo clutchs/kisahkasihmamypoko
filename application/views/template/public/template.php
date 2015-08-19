@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="X-Frame-Options" content="allow" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +22,16 @@
     <script type="text/javascript">var base_URL = '<?php echo base_url();?>';</script>
 </head>
 <body>
+<div id="fb-root"></div>
+<script src="https://connect.facebook.net/en_US/all.js"></script>
+<script>
+FB.init({
+    appId : '1584357841814568',
+    status : true, // check login status
+    cookie : true, // enable cookies to allow the server to access the session
+    xfbml : true // parse XFBML
+});
+</script>
     <div id="wrapper">
         <?php $this->load->view('template/public/header'); ?>
         <div id="navigation">
@@ -55,19 +66,19 @@
     <script src="<?php echo base_url();?>assets/public/js/custom.js"></script>
 <?php
 // Use only from controller to set js messages
-if ($this->session->flashdata('inline_js')) { ?>
+//if ($this->session->flashdata('inline_js')) { ?>
     <script type="text/javascript">
     $(document).ready(function() {
     <?php
         // Set js message
         echo $this->session->flashdata('inline_js');
         // Destroy after displaying
-        $this->session->unset_userdata('inline_js');
+        // $this->session->unset_userdata('inline_js');
     ?>
     });
     </script>
 <?php
-}
+//}
 ?>
 </body>
 </html>

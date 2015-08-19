@@ -44,9 +44,9 @@ class Page extends Admin_Controller {
             $crud->set_relation('menu_id','tbl_page_menus','name');
 			// Add custom column
             // Set column
-            $crud->columns('subject','url','menu_id','synopsis','text','status','added','modified');			
+            $crud->columns('menu_id','subject','url','synopsis','text','status','added','modified');			
 			// The fields that user will see on add and edit form
-			$crud->fields('subject','url','menu_id','synopsis','text','publish_date','unpublish_date','status','added','modified');
+			$crud->fields('menu_id','subject','url','synopsis','text','publish_date','unpublish_date','status','added','modified');
             // Set column display 
             $crud->display_as('menu_id','Menu');
 			// Changes the default field type

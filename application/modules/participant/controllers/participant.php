@@ -18,20 +18,37 @@ class Participant extends Admin_Controller {
             
             // Set our Grocery CRUD
             $crud = new grocery_CRUD();
+            // Set where conditions
+            $crud->where('file_name !=','');
+            $crud->where('status','1');
             // Set tables
             $crud->set_table('tbl_participants');
+             // Set table relation
+            $crud->set_relation('province','tbl_provinces','name');
+            // Set table relation
+            $crud->set_relation('urbandistrict','tbl_urban_districts','name');
+            // Set table relation
+            $crud->set_relation('suburban','tbl_sub_urbans','name');
             // Set CRUD subject
             $crud->set_subject('Participant');                            
+            
+			// Set column display 
+            $crud->display_as('province','Propinsi');
+            $crud->display_as('urbandistrict','Kabupaten');
+            $crud->display_as('suburban','Kecamatan');
+            
 			// Set column display 
             $crud->display_as('id_number','Id Number');
 			$crud->display_as('file_name','ID Image File');
             $crud->display_as('baby_name','Baby Name');
             $crud->display_as('baby_birthday','Baby Birthday');
+            $crud->display_as('findout','Activity From');
             
             // Set column
-            $crud->columns('identity','profile_url','photo_url','name','email','id_number','phone_number','phone_home','baby_name','baby_birthday','file_name','join_date');
+            $crud->columns('identity','profile_url','photo_url','name','email','id_number','phone_number','phone_home','address','province','urbandistrict','suburban','zipcode','findout','baby_name','baby_birthday','file_name','join_date');
             
 			// Set column display 
+            $crud->display_as('name','Mamy Name');
             $crud->display_as('identity','Provider');
             
 			// This callback escapes the default auto field output of the field name at the edit form
@@ -52,7 +69,6 @@ class Participant extends Admin_Controller {
 				//Do your awesome coding here.
 				$crud->callback_column('file_name',array($this,'_callback_filename_url'));
 			} 
-			
 			$crud->unset_add();
 			$crud->unset_edit();
 			$crud->unset_delete();

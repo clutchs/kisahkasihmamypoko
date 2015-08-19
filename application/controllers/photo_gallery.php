@@ -19,7 +19,7 @@ class Photo_Gallery extends Public_Controller {
             exit;
         }
 
-        $order = array('id' => 'DESC');
+        $order = array('modified' => 'DESC');
         
         $sort = $this->input->get('sort', true);
 		$type = $this->input->get('type', true);
@@ -36,7 +36,7 @@ class Photo_Gallery extends Public_Controller {
         }		
 		
 		// Completed image activated from admin
-		$status = 2;
+		$status = '1';
         $sort 	= $this->input->get('sort');
         $search = $this->input->get('search');
         
@@ -76,7 +76,7 @@ class Photo_Gallery extends Public_Controller {
 		$links = $this->pagination->create_links();
 		
 		// Set pagination links		
-        $data['links'] 		= $links; 
+        $data['links'] 		= $links;
 
         // Set gallery listing
 		$data['gallery'] 	= $this->Participants->get_all_images($config["per_page"], $page, $order, $search, $status);

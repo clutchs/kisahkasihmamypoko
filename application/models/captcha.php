@@ -3,7 +3,7 @@
 // Model Class Object for Captcha
 class Captcha extends CI_Model {
 	var $table = 'tbl_captcha';
-	var $expiration = 100;
+	var $expiration = 600;
 	function __construct(){
 		// Call the Model constructor
 		parent::__construct();

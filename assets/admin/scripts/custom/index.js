@@ -223,10 +223,13 @@ var Index = function () {
                 return (Math.floor(Math.random() * (1 + 50 - 20))) + 10;
             }
             
-            // Modified for ajax request for user login stats
-			$.ajax({
-                    // have to use synchronous here, else the function 
-                    // will return before the data is fetched
+
+            if ($('#login_statistics').size() != 0) {
+
+                // Modified for ajax request for user login stats
+                $.ajax({
+                // have to use synchronous here, else the function 
+                // will return before the data is fetched
                     async: false,
                     url: 'index',
                     dataType:"json",
@@ -247,9 +250,6 @@ var Index = function () {
                             ['10/2013', 1300],
                             */
                         ;
-
-
-                        if ($('#login_statistics').size() != 0) {
 
                             $('#login_statistics_loading').hide();
                             $('#login_statistics_content').show();
@@ -327,13 +327,109 @@ var Index = function () {
 									previousPoint = null;
 								}
 							});                      
+						
+					   }
+			     });
+            }
+			
+    		
+            if ($('#submit_statistics').size() != 0) {	
+    			// Modified for ajax request for participants stats
+    			$.ajax({
+                    // have to use synchronous here, else the function 
+                    // will return before the data is fetched
+                    async: false,
+                    url: 'index',
+                    dataType:"json",
+                    sortData:true,
+                    success: function(data) {
+                      var participants = data.result.stats_submit;
+
+                            $('#submit_statistics_loading').hide();
+                            $('#submit_statistics_content').show();
+
+                            var plot_statistics = $.plot($("#submit_statistics"), 
+                                [{
+                                    data:participants,
+                                    lines: {
+                                        fill: 0.6,
+                                        lineWidth: 0
+                                    },
+                                    color: ['#ff9900']
+                                },
+                                {
+                                    data: participants,
+                                    points: {
+                                        show: true,
+                                        fill: true,
+                                        radius: 5,
+                                        fillColor: "#ff9933",
+                                        lineWidth: 3
+                                    },
+                                    color: '#fff',
+                                    shadowSize: 0
+                                }],
+                                {
+                                xaxis: {
+                                    tickLength: 0,
+                                    tickDecimals: 0,                        
+                                    mode: "categories",
+                                    min: 0,
+                                    font: {
+                                        lineHeight: 14,
+                                        style: "normal",
+                                        variant: "small-caps",
+                                        color: "#6F7B8A"
+                                    }
+                                },
+                                yaxis: {
+                                    ticks: 5,
+                                    tickDecimals: 0,
+                                    tickColor: "#eee",
+                                    font: {
+                                        lineHeight: 14,
+                                        style: "normal",
+                                        variant: "small-caps",
+                                        color: "#6F7B8A"
+                                    }
+                                },
+                                grid: {
+                                    hoverable: true,
+                                    clickable: true,
+                                    tickColor: "#eee",
+                                    borderColor: "#eee",
+                                    borderWidth: 1
+                                }
+                            });
+
+							var previousPoint = null;
+							$("#submit_statistics").bind("plothover", function (event, pos, item) {
+								$("#x").text(pos.x.toFixed(2));
+								$("#y").text(pos.y.toFixed(2));
+								if (item) {
+									if (previousPoint != item.dataIndex) {
+										previousPoint = item.dataIndex;
+
+										$("#tooltip").remove();
+										var x = item.datapoint[0].toFixed(2),
+											y = item.datapoint[1].toFixed(2);
+
+										showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + ' Submit');
+									}
+								} else {
+									$("#tooltip").remove();
+									previousPoint = null;
+								}
+							});                      
 						}
-					}
-			});
+					
+		         });
+			}
 			
 			
-			// Modified for ajax request for participants stats
-			$.ajax({
+            if ($('#join_statistics').size() != 0) { 
+                // Modified for ajax request for participants stats
+                $.ajax({
                     // have to use synchronous here, else the function 
                     // will return before the data is fetched
                     async: false,
@@ -342,8 +438,6 @@ var Index = function () {
                     sortData:true,
                     success: function(data) {
                       var participants = data.result.stats_join;
-
-                        if ($('#join_statistics').size() != 0) {
 
                             $('#join_statistics_loading').hide();
                             $('#join_statistics_content').show();
@@ -402,32 +496,29 @@ var Index = function () {
                                 }
                             });
 
-							var previousPoint = null;
-							$("#join_statistics").bind("plothover", function (event, pos, item) {
-								$("#x").text(pos.x.toFixed(2));
-								$("#y").text(pos.y.toFixed(2));
-								if (item) {
-									if (previousPoint != item.dataIndex) {
-										previousPoint = item.dataIndex;
+                            var previousPoint = null;
+                            $("#join_statistics").bind("plothover", function (event, pos, item) {
+                                $("#x").text(pos.x.toFixed(2));
+                                $("#y").text(pos.y.toFixed(2));
+                                if (item) {
+                                    if (previousPoint != item.dataIndex) {
+                                        previousPoint = item.dataIndex;
 
-										$("#tooltip").remove();
-										var x = item.datapoint[0].toFixed(2),
-											y = item.datapoint[1].toFixed(2);
+                                        $("#tooltip").remove();
+                                        var x = item.datapoint[0].toFixed(2),
+                                            y = item.datapoint[1].toFixed(2);
 
-										showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + ' Join');
-									}
-								} else {
-									$("#tooltip").remove();
-									previousPoint = null;
-								}
-							});                      
-						}
-					}
-			});
-			
-			
-			
-			
+                                        showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + ' Join');
+                                    }
+                                } else {
+                                    $("#tooltip").remove();
+                                    previousPoint = null;
+                                }
+                            });                      
+                        }
+                    
+                 });
+            }
 			
 			
             /*

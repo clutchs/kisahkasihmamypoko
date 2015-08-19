@@ -19,7 +19,9 @@ $(function() {
             'transitionOut': 'elastic',
             'speedIn': 200,
             'speedOut': 200,
-            'overlayShow': true
+            'overlayShow': true,
+			'type':'image',
+			'centerOnScroll' : true
         });
         $('.fancyframe').fancybox({
             'transitionIn': 'elastic',
@@ -32,9 +34,7 @@ $(function() {
 			'width'	: '100%',
             'minHeight': '480',
 			'height': '480',
-			'autoCenter' : true,
-			'autoResize' : true,
-			'fitToView' : true,
+			'centerOnScroll' : true,
             padding:15
         });
     };

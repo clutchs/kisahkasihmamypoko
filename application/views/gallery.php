@@ -1,8 +1,8 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');?>
 <script type="text/javascript">
-//window.onload = function() {
-    //FB.Canvas.setSize({ width: 810, height: 1450 });
-//}
+window.onload = function() {
+    FB.Canvas.setSize({ width: 810, height: 780 });
+}
 </script>
     <div class="bg-yellow row">
         <h1><img class="kisah-title" src="<?php echo base_url();?>assets/public/img/galeri.png" alt="galeri page"></h1>
@@ -26,7 +26,7 @@
                     <div class="form-group">
                       <label class="sr-only" for="exampleInputAmount">Participant</label>
                       <div class="input-group">
-                        <input type="text" class="form-control cari" name="search" value="<?=$this->input->get('search');?>" id="exampleInputAmount" placeholder="Participant">
+                        <input type="text" class="form-control cari" name="search" value="<?=$this->input->get('search');?>" id="exampleInputAmount" placeholder="Mamy">
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Cari</button>
@@ -49,8 +49,8 @@
                             <?php echo $image->about;?>
                         </div>
                         <div class="caption vag-round-font">
-                            <h5 class="nama-mamy"><?=character_limiter($image->name, 14);?></h5>
-                            <h5 class="nama-baby"><?=character_limiter($image->baby_name, 14);?></h5>
+                            <h5 class="nama-mamy"><?=character_limiter($image->name, 14,'');?></h5>
+                            <h5 class="nama-baby"><?=character_limiter($image->baby_name, 12,'');?></h5>
                         </div>
                     </div>
                 </div>
@@ -64,5 +64,4 @@
         <div class="col-xs-12 pagination text-center">
             <?php echo $links; ?>
         </div>
-
       </div>

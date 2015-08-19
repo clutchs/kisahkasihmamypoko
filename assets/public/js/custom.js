@@ -207,8 +207,27 @@
         });
     });
 
-    $('.reload_captcha').click(function() {
+    $('.reload_captcha').on('click',function() {
         var url	= $(this).attr('rel');
+        $.ajax({
+            type: "POST",
+            url: url,
+            //cache: false,
+            //async: true,
+            success: function(msg){
+                $('.reload_captcha').empty().html(msg);
+                // Need random for browser recache
+                img = $('.reload_captcha').find('img');
+                src = img.attr('src');
+                ran = img.fadeOut(50).fadeIn(50).attr('src', src + '?=' + Math.random());
+            },
+            complete: function(msg) {},
+            error: function(msg) {}
+        });
+        return false;
+    });
+    $('.reload_captcha').on('touchstart',function() {
+        var url = $(this).attr('rel');
         $.ajax({
             type: "POST",
             url: url,
@@ -258,6 +277,61 @@
 })(jQuery);
 
 
+
+// Function to get area region
+function getRegion(dataSel,dataUrl) {
+    // Set ajax post handler
+    var ref = dataSel.attr('id');
+    var ids = dataSel.val();
+    var url = base_URL + 'account/get_area/' + dataUrl;
+        // Send ajax request
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: { id : ids },
+            //cache: true,
+            //async: true,
+            timeout: 8000,
+            dataType: "JSON",
+            success: function(json) {
+                // Check returned data from Parse JSON result
+                if (json.result != '' && json.result != 'null') {
+                    $('#'+json.bindto).empty();
+                    $('<option value="" name="'+json.bindto+'"/>').html(''+json.label+'').appendTo('#'+json.bindto);
+                    if (json.result != undefined) {
+                        $.each(json.result, function (index, area) {    
+                            if (area !='') {                           
+                                $('<option value="'+area.id+'" name="'+json.bindto+'"/>')
+                                .html(area.name)
+                                .appendTo('#'+json.bindto);
+                            } 
+                        });
+                    } else {
+                        $('<option value="" name="'+json.bindto+'"/>')
+                        .html('Tidak ada area tersedia')
+                        .appendTo('#'+json.bindto);
+                    };
+                    // Cheking if user click from beginning again
+                    if (ref == 'province') {
+                        //console.log($('#urbandistrict').children().length);
+                        if ($('#suburban').children().length != 1) {
+                            $('#suburban').empty();      
+                            $('<option value="" name="suburban"/>').html('KECAMATAN').appendTo('#suburban');
+                        }
+                    }
+                }
+                // Empty loader
+                //$('#result_callback').empty();
+                // Empty loader image
+                //$('#loader').html('');
+            },
+            complete: function(message) { },
+            error: function(x,message,t) { 
+                if(message==="timeout") { console.log("got timeout"); } 
+                else { /*alert(message);*/ }    
+            }
+    });
+}
 
 function popupCenter(url, title, w, h) {
     var left = (screen.width/2)-(w/2);

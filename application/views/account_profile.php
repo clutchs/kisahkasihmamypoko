@@ -1,4 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<script type="text/javascript">
+window.onload = function() {
+    FB.Canvas.setSize({ width: 810, height: 780 });
+}
+</script>
 <div class="bg-yellow row">
     <img class="kisah-title" alt="kisah kasih mamypoko" src="<?php echo base_url('assets/public/img/kisah-kasih.png');?>">
     <div class="mekanisme-body row">

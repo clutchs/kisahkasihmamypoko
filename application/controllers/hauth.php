@@ -8,8 +8,8 @@ class HAuth extends Public_Controller {
     
     public function done() { 
 		
-		//$this->load->view('hauth/done'); 
-		redirect(base_url('account'));
+		$this->load->view('hauth/done'); 
+		//redirect(base_url('account'));
         
 	}
 
@@ -20,11 +20,11 @@ class HAuth extends Public_Controller {
 		try
 		{
 			log_message('debug', 'controllers.HAuth.login: loading HybridAuthLib');
-			$this->load->library('HybridAuthLib');
+			// $this->load->library('HybridAuthLib');
 
 			if ($this->hybridauthlib->providerEnabled($provider))
 			{
-				log_message('debug', "controllers.HAuth.login: service $provider enabled, trying to authenticate.");
+				//log_message('debug', "controllers.HAuth.login: service $provider enabled, trying to authenticate.");
 				$service = $this->hybridauthlib->authenticate($provider);
 
 				if ($service->isUserConnected())
@@ -60,24 +60,31 @@ class HAuth extends Public_Controller {
 
                             $participant_id = $this->Participants->setParticipant($object);
 
-                            //echo $participant_id;
-                            redirect(base_url('account/register'));								
+                            $participant = $this->Participants->getParticipantByIdentity($user_profile->identifier,$provider);
+
+                          	$this->session->set_userdata('participant',$participant);
+
+                            redirect(base_url('account/register'),'refresh');
 
                         } else {
 
                             $this->session->set_userdata('participant',$participant);
 
-                            redirect(base_url('account'));
+                            redirect(base_url('account'),'refresh');
 
-                        }
+                    	}
+
+                    	//$this->session->set_userdata('participant',$participant);
+
+                        //redirect(base_url('account'));
                                                         
                     }
                     
-					$this->load->view('hauth/done',$data);
+					//$this->load->view('hauth/done',$data);
 				}
 				else // Cannot authenticate user
 				{
-					show_error('Cannot authenticate user');
+					//show_error('Cannot authenticate user');
 				}
 			}
 			else // This service is not enabled.
@@ -120,7 +127,8 @@ class HAuth extends Public_Controller {
 			}
 
 			log_message('error', 'controllers.HAuth.login: '.$error);
-			show_error('Error authenticating user.');
+			// show_error('Error authenticating user.' . $error);
+			redirect(base_url('account'),'refresh');
 		}
 	}
 

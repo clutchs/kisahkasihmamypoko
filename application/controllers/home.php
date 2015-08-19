@@ -5,9 +5,6 @@ class Home extends Public_Controller {
 	public function __construct() {
 		parent::__construct();
 
-		// Load User related model in admin module
-		$this->load->model('admin/Participants');
-
 		// Load Page related model in admin module
 		$this->load->model('page/Pagemenus');
 		$this->load->model('page/Pages');

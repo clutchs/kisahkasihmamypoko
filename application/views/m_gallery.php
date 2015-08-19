@@ -26,7 +26,7 @@
                     <div class="form-group">
                       <label class="sr-only" for="exampleInputAmount">Participant</label>
                       <div class="input-group">
-                        <input type="text" class="form-control cari" name="search" value="<?=$this->input->get('search');?>" id="exampleInputAmount" placeholder="Participant">
+                        <input type="text" class="form-control cari" name="search" value="<?=$this->input->get('search');?>" id="exampleInputAmount" placeholder="Mamy">
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Cari</button>
@@ -49,8 +49,8 @@
                             <?php echo $image->about;?>
                         </div>
                         <div class="caption vag-round-font">
-                            <h5 class="nama-mamy"><?=character_limiter($image->name, 14);?></h5>
-                            <h5 class="nama-baby"><?=character_limiter($image->baby_name, 14);?></h5>
+                            <h5 class="nama-mamy"><?=character_limiter($image->name, 14,'');?></h5>
+                            <h5 class="nama-baby"><?=character_limiter($image->baby_name, 12,'');?></h5>
                         </div>
                         </div>
                     </div>

@@ -32,7 +32,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/admin/plugins/fancybox/source/jquery.fancybox.css"/>
 <link href="<?php echo base_url();?>assets/admin/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css"/>
 <!--<link href="<?php echo base_url();?>assets/admin/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>-->
-<link href="<?php echo base_url();?>assets/admin/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css"/>
 <!-- END PAGE LEVEL PLUGIN STYLES -->
 <!-- BEGIN PAGE LEVEL STYLES -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/admin/plugins/select2/select2.css"/>
@@ -153,16 +152,11 @@
 <script src="<?php echo base_url()?>assets/admin/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url()?>assets/admin/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/flot/jquery.flot.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/flot/jquery.flot.resize.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/flot/jquery.flot.pie.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/flot/jquery.flot.categories.min.js"></script>
-
 <script src="<?php echo base_url()?>assets/admin/plugins/jquery.blockui.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url()?>assets/admin/plugins/jquery.cokie.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url()?>assets/admin/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url()?>assets/admin/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-<!--<script src="<?php echo base_url()?>assets/admin/plugins/fancybox/source/jquery.fancybox.js" type="text/javascript"></script>-->
+<script src="<?php echo base_url()?>assets/admin/plugins/fancybox/source/jquery.fancybox.js" type="text/javascript"></script>
 
  <?php if (!empty($js_files)) { foreach ($js_files as $file): ?>
     <script src="<?php echo $file; ?>"></script>
@@ -172,10 +166,8 @@
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
 <script src="<?php echo base_url()?>assets/admin/plugins/fullcalendar/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url()?>assets/admin/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js" type="text/javascript"></script>
 <script src="<?php echo base_url()?>assets/admin/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/jquery.cookie.js"></script>
-<!--<script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js">-->
 <script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/select2/select2.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/data-tables/jquery.dataTables.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/admin/plugins/data-tables/DT_bootstrap.js"></script>
@@ -206,19 +198,15 @@
     
 <script>
 jQuery(document).ready(function() {    
-    
     App.init(); // initlayout and core plugins   
     Index.init();
-    Index.initCharts(); // init index page's custom scripts        
     TableManaged.init();
     ComponentsPickers.init();    
-    Charts.initPieCharts();    
     // Custom in admin pages
     FormStatus.init();
     FormUser.init();
     FormModule.init();
     FormSetting.init();
-    
 <?php echo ($js_inline) ? "\t".$js_inline."\n" : "";?>
 <?php if ($this->session->flashdata('message')) { ?>
 	bootbox.alert('<h3><?php echo $this->session->flashdata('message');?></h3>');

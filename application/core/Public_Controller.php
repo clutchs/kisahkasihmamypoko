@@ -22,6 +22,9 @@ class Public_Controller extends MY_Controller {
 		$this->load->model('admin/Settings');
 		$this->load->model('participant/Participants');
 
+		// Load Hauth library
+		$this->load->library('HybridAuthLib');
+		
 		// Set default site copyright
 		$this->config->set_item('site_title', $this->Settings->getByParameter('title_default')->value);
 		$this->config->set_item('copyright', $this->Settings->getByParameter('copyright')->value);
@@ -61,6 +64,10 @@ class Public_Controller extends MY_Controller {
 		//$this->template->layout     = 'template/public/site_template';
 
 		//print_r($this->template);
+		//header( 'X-Frame-Options: ALLOW-FROM https://apps.facebook.com' );
+		//header('Access-Control-Allow-Origin: *');  
+		//print_r($this->participant);
+	    header('Access-Control-Allow-Origin: *');
 
 	}
 

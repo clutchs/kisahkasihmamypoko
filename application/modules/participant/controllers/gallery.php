@@ -17,22 +17,28 @@ class Gallery extends Admin_Controller {
         try {
 			// Set our Grocery CRUD
             $crud = new grocery_CRUD();
+            // Set Query
+            $crud->where('status',1);
+            $crud->where('file_name !=','');
             // Set tables
-            $crud->set_table('tbl_participant_images');
+            $crud->set_table('tbl_participants');
             // Set CRUD subject
             $crud->set_subject('Gallery');                            
-            // Set table relation
-            $crud->set_relation('part_id','tbl_participants','name');
             // Set column
-			$crud->columns('type', 'part_id','file_name','status','added','modified');
+			$crud->columns('name','baby_name','file_name', 'about','modified','join_date','status');
 			
+            $crud->fields('name','baby_name','file_name', 'about','status');
 			$crud->field_type('status','dropdown',array('0' => 'Inactive','1' => 'Active','2' => 'Completed')); 
-			$crud->field_type('type','dropdown',array('16' => 'Stiker 16', '2' => 'Stiker 2'));
-			$crud->field_type('file_name','text');
-			$crud->edit_fields('status','modified');			
-            
+			$crud->field_type('about','text');
+			$crud->field_type('join_date','text');
+			$crud->field_type('modified','text');
+
+			// Set column display 
+            $crud->display_as('name','Mamy Name');
+			
 			$crud->callback_column('added',array($this,'_callback_time'));
-			$crud->callback_column('modified',array($this,'_callback_time'));
+			//$crud->callback_column('modified',array($this,'_callback_time'));
+			//$crud->callback_column('join_date',array($this,'_callback_time'));  
 			$crud->callback_column('file_name',array($this,'_callback_filename'));
             
 			$state = $crud->getState();
@@ -48,13 +54,16 @@ class Gallery extends Admin_Controller {
 				$crud->callback_field('modified',array($this,'_callback_time_modified'));				
 			}
 			
+            // Set upload field
+            $crud->set_field_upload('file_name','uploads/gallery');
+            
 			// $crud->set_field_upload('file_name','uploads/gallery');
 			// $crud->callback_column('modified',array($this,'_callback_time'));  
 			// Sets the required fields of add and edit fields
 			// $crud->required_fields('subject','name','text','status'); 
             // Set upload field
             // $crud->set_field_upload('file_name','uploads/pages');
-			// $crud->unset_edit();
+			// $crud->unset_edit();            
 			$crud->unset_add();
 			$crud->unset_delete();
 			$this->load($crud, 'gallery');
@@ -64,7 +73,7 @@ class Gallery extends Admin_Controller {
     }
     
     public function _callback_time ($value, $row) {
-		return empty($value) ? '-' : date('D, d-M-Y',$value);
+		return empty($value) ? '-' : date('Y-m-d h:m:s',$value);
     }
     
     public function _callback_time_added ($value, $row) {

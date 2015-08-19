@@ -34,14 +34,15 @@ class Dashboard extends Admin_Controller {
 			base_url('assets/admin/plugins/flot/jquery.flot.min.js'),
 			base_url('assets/admin/plugins/flot/jquery.flot.resize.min.js'),
 			base_url('assets/admin/plugins/flot/jquery.flot.categories.min.js'),
-			base_url('assets/admin/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js'));
+            base_url('assets/admin/plugins/flot/jquery.flot.pie.min.js'),            
+			//base_url('assets/admin/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js')
+            );
 		
 		// Load WYSIHTML CSS and Others
-		$data['css_files'] = array(
-			base_url('assets/admin/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css"'));
+		//$data['css_files'] = array(base_url('assets/admin/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css'));
 		
 		// Load Text Editor execution
-		$data['js_inline'] = "Index.initCharts(); // Initialize graph";
+		$data['js_inline'] = "Index.initCharts(); Charts.initPieCharts(); // Initialize Graph and Chart";
 		
         // Total users count
 	    $data['tusers']			= $this->Users->getCount(1);
@@ -50,9 +51,9 @@ class Dashboard extends Admin_Controller {
 	    $data['tparticipant']   = $this->Participants->getCount();
 	    
 	    // Total image count
-	    $data['timages']	    = $this->Participants->getCountImages(1);
+	    $data['timages']	    = $this->Participants->getCountImages(1);		
 		
-		// Total active gallery count
+		// Total user unregistered count
 	    $data['ta_users']	    = $this->Participants->getNotRegistered(1);
         
 		// Set class name to view
@@ -81,23 +82,8 @@ public function stat_dashboard() {
             if (!$this->input->is_ajax_request()) {
                 exit('No direct script access allowed');		
             }
-            
-            /*
-			var visitors = [
-					['01/2013', 500],
-					['02/2013', 1500],
-					['03/2013', 2600],
-					['04/2013', 1200],
-					['05/2013', 560],
-					['06/2013', 2000],
-					['07/2013', 2350],
-					['08/2013', 1500],
-					['09/2013', 4700],
-					['10/2013', 1300],
-				];
-			 * 
-			 */
 			
+
 			// Check range post
 			$range_post = $this->input->post('reportrange');
 			$range		= explode(" to ", $range_post);
@@ -126,35 +112,54 @@ public function stat_dashboard() {
                 $result['result']['stats_join'] = $temp_join;
 
             }
-			/*
-			// Sender statistics Join stats
-			$gender_stats = $this->Participants->getGenderStats();
+
+            // Participant Submitted stats
+			$submit_stats = $this->Participants->getSubmitStats($range);
 			
-            if(!empty($gender_stats)) {
-				
-				$temp_gender = '';
-				foreach ( $gender_stats as $gender) {
-					$temp_gender['Pria'] = $gender->pria;
-					$temp_gender['Wanita'] = $gender->wanita;
-					//$temp_gender['Total'] = array($gender->total);
-				}
-				$result['result']['gender_stats'] = $temp_gender;
+            if(!empty($submit_stats)) {
+                    
+                $temp_submit = array();
+                foreach ($submit_stats as $submit) {
+                    $temp_submit[] = array($submit->join_date,$submit->total_join);
+                }
+                $result['result']['stats_submit'] = $temp_submit;
 
             }
+            
+            /*
+            // Sender statistics Find Out stats
+			$findout_stats = $this->Participants->getFindOutStats();
 			
-			// Sender statistics Oshis Favorite stats
-			$oshis_stats = $this->Participants->getOshiStats();
+            if(!empty($findout_stats)) {
+
+				$temp_findout = '';
+				foreach ( $findout_stats as $findout) {
+					$temp_findout['Facebook MamyPoko Indonesia'] = $findout->facebook;
+					$temp_findout['Brosur'] = $findout->brosur;
+                    $temp_findout['Lihat di Pasar'] = $findout->pasar;
+					$temp_findout['Lihat di Supermarket \\ Hypermarket'] = $findout->supermarket;
+					$temp_findout['Teman'] = $findout->teman;
+					$temp_findout['Iklan di Facebook'] = $findout->facebook_ads;
+					$temp_findout['Tabloid'] = $findout->tabloid;
+					$temp_findout['TV'] = $findout->tv;
+                    $temp_findout['SPG'] = $findout->spg;					
+				}
+				$result['result']['findout_stats'] = $temp_findout;
+            }
+            */
+            
+            // Sender statistics findout stats
+			$findout_stats = $this->Participants->getFindOutStats2();
 			
-            if(!empty($oshis_stats)) {
+            if(!empty($findout_stats)) {
 				  	 
-				$temp_oshis  = array();
-				foreach ($oshis_stats as $oshi) {
-					$temp_oshis[$oshi->oshi_favorite] = $oshi->sum;
+				$temp_findout  = array();
+				foreach ($findout_stats as $findout) {
+					$temp_findout[$findout->findout] = $findout->sum;
 				}
-				$result['result']['oshis_stats'] = $temp_oshis;
+				$result['result']['findout_stats'] = $temp_findout;
 
-            }
-			*/
+            } 
             
             // Return data esult
             $data['json'] = $result;

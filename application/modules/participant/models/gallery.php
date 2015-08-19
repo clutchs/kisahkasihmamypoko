@@ -181,10 +181,10 @@ class Gallery Extends CI_Model {
 	public function get_all_images ($limit = 0, $start = 0, $order=array(), $search='', $column=array(), $status='') {
 		$data = array();
         
-        if ($search != '') {       
+        if ($search) {       
             $this->db->like('name', $search); 
         } 
-        if ($status != '') {
+        if ($status) {
 			$this->db->where('status',$status);
         }
 		$this->db->where('file_name !=','');
@@ -223,7 +223,7 @@ class Gallery Extends CI_Model {
                 $this->db->where($col, $val);
             }
         }
-		if ($status != '') {
+		if ($status) {
 			$this->db->where('status',$status);
         }
         $this->db->from('participant_images');

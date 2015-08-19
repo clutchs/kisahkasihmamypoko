@@ -49,8 +49,10 @@
 
 
       </div><!--.carousel-inner-->
+      <?php if ($participants) { ?>
         <a data-slide="prev" href="#Carousel" class="left carousel-control"><img class="nav-carousel" src="<?php echo base_url('assets/public/img');?>/right-arrow-right-hi.png" alt="next"></a>
         <a data-slide="next" href="#Carousel" class="right carousel-control"><img class="nav-carousel" src="<?php echo base_url('assets/public/img');?>/left-arrow-right-hi.png" alt="next"></a>
+      <?php } ?>
     </div><!--.Carousel-->
 
   </div>
@@ -58,5 +60,5 @@
 
 <img class="hadiah img-responsive" src="<?php echo base_url('assets/public/img');?>/home-mobile-hadiah.png" alt="hadiah mobil">
 <div class="mdaftar-home vag-font">
-    <button type="submit" class="btn submit-color" onclick="window.location.href='account/register';">Daftar</button>
+    <button type="submit" class="btn submit-color" onclick="window.location.href='account';">Daftar</button>
 </div>

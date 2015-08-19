@@ -47,43 +47,48 @@
 				View more <i class="m-icon-swapright m-icon-white"></i>
 			    </a>
 			</div>
-		    </div>
+		    </div>		    
+		    <?php 
+		    // This is for developers only
+		    if (Acl::user()->group_id == 1) { ?>
 		    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			<div class="dashboard-stat yellow">
-			    <div class="visual"><i class="fa fa-user"></i></div>
-			    <div class="details">
-				<div class="number"><?=$tparticipant;?></div>
-				<div class="desc">Total Participant</div>
-			    </div>
-			    <a class="more" href="<?=base_url(ADMIN.'participant/index');?>">
-				View more <i class="m-icon-swapright m-icon-white"></i>
-			    </a>
-			</div>
-		    </div>
-		    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			<div class="dashboard-stat blue">
-			    <div class="visual"><i class="fa fa-camera"></i></div>
-			    <div class="details">
-				<div class="number"><?=$timages;?></div>
-				<div class="desc">Total Image</div>
-			    </div>
-			    <a class="more" href="<?=base_url(ADMIN.'gallery/index');?>">
-				View more <i class="m-icon-swapright m-icon-white"></i>
-			    </a>
-			</div>
+				<div class="dashboard-stat yellow">
+				    <div class="visual"><i class="fa fa-user"></i></div>
+				    <div class="details">
+					<div class="number"><?=$tparticipant;?></div>
+					<div class="desc">Total Participant</div>
+				    </div>
+				    <a class="more" href="<?=base_url(ADMIN.'participant/index');?>">
+					View more <i class="m-icon-swapright m-icon-white"></i>
+				    </a>
+				</div>
 		    </div>
 			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			<div class="dashboard-stat red">
-			    <div class="visual"><i class="fa fa-user"></i></div>
-			    <div class="details">
-				<div class="number"><?=$ta_users;?></div>
-				<div class="desc">User Unregistered</div>
-			    </div>
-			    <a class="more" href="<?=base_url(ADMIN.'participant/index');?>">
-				View more <i class="m-icon-swapright m-icon-white"></i>
-			    </a>
-			</div>
+				<div class="dashboard-stat red">
+				    <div class="visual"><i class="fa fa-user"></i></div>
+				    <div class="details">
+					<div class="number"><?=$ta_users;?></div>
+					<div class="desc">User Unregistered</div>
+				    </div>
+				    <a class="more" href="<?=base_url(ADMIN.'participant/index');?>">
+					View more <i class="m-icon-swapright m-icon-white"></i>
+				    </a>
+				</div>
 		    </div>
+		    <?php } ?>
+		    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				<div class="dashboard-stat blue">
+				    <div class="visual"><i class="fa fa-camera"></i></div>
+				    <div class="details">
+					<div class="number"><?=$timages;?></div>
+					<div class="desc">Total Image</div>
+				    </div>
+				    <a class="more" href="<?=base_url(ADMIN.'gallery/index');?>">
+					View more <i class="m-icon-swapright m-icon-white"></i>
+				    </a>
+				</div>
+		    </div>
+
 		</div>
 		<!-- END DASHBOARD STATS -->
 		<div class="clearfix">
@@ -111,6 +116,9 @@
 				</div>
 			</div>	
 			
+		    <?php 
+		    // This is for developers only
+		    if (Acl::user()->group_id == 1) { ?>
 			<div class="col-md-12 col-sm-12">
 				<div class="portlet box red">
 					<div class="portlet-title">
@@ -143,14 +151,47 @@
 					</div>
 				</div>
 			</div>	
-		
+			<?php } ?>
+
+		    <div class="col-md-12 col-sm-12">
+				<div class="portlet box red">
+					<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-user"></i>Submitted Image Activities
+					</div>
+					</div>
+					<div class="portlet-body">
+					<form class="form-horizontal" name="form-report-range" method="POST">
+					<fieldset>
+						<div class="control-group">
+							<div class="controls">
+								<div class="input-prepend input-group">
+									<span class="add-on input-group-addon">
+									<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+									</span>
+									<input id="reportrangepicker" class="form-control" type="text" value="" name="reportrange" style="width: 200px">
+									<button type="submit" class="btn btn-default">Get</button>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					</form>
+					<div id="submit_statistics_loading">
+						<img src="<?php echo base_url();?>assets/admin/img/loading.gif" alt="loading"/>
+					</div>
+					<div id="submit_statistics_content" class="display-none">
+						<div id="submit_statistics" class="chart"></div>
+					</div>
+					</div>
+				</div>
+			</div>
 			
-			<div class="row-fluid hidden">
-				<div class="col-md-6">
+			<div class="row-fluid">
+				<div class="col-md-12">
 					<div class="portlet box yellow">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-gift"></i>Genders
+								<i class="fa fa-gift"></i>Participant Find out Activity
 							</div>
 							<div class="tools">
 								<!--a class="config" data-toggle="modal" href="#portlet-config">
@@ -165,6 +206,7 @@
 						</div>
 					</div>
 				</div>
+                <?php /*
 				<div class="col-md-6">
 					<div class="portlet box blue">
 						<div class="portlet-title">
@@ -184,6 +226,9 @@
 						</div>
 					</div>
 				</div>
+                 * 
+                 */
+                ?>
 			</div>
 			
 		    <div class="col-md-12 col-sm-12 hidden">

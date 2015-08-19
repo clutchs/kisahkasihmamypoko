@@ -43,9 +43,14 @@ class Participants Extends CI_Model {
                 . '`about` TEXT NULL, '
                 . '`address` VARCHAR(512) NULL, '
                 . '`region` VARCHAR(64) NULL, '	
+                . '`province` VARCHAR(8) NULL, '	
+				. '`urbandistrict` VARCHAR(8) NULL, '	
+				. '`suburban` VARCHAR(8) NULL, '	
+				. '`zipcode` VARCHAR(8) NULL, '					
 				. '`phone_number` VARCHAR(32) NULL, '
                 . '`phone_home` VARCHAR(32) NULL, '
                 . '`id_number` VARCHAR(32) NULL, '
+                . '`findout` VARCHAR(72) NULL, '
 				. '`file_name` VARCHAR(512) NULL, '
                 . '`verify` VARCHAR(8) NULL, '
 				. '`completed` TINYINT(1) NULL, '
@@ -85,7 +90,7 @@ class Participants Extends CI_Model {
     public function getCountImages($status = null){
 		$options = array();
 		if ($status) {
-			$options = array('file_name !=' => '');
+			$options = array('file_name !=' => '','status' => 1);
 		}
 		$this->db->where($options,1);
 		$this->db->from($this->table);
@@ -174,7 +179,7 @@ class Participants Extends CI_Model {
 		$data = array();
         // Get conditions
         $this->db->where('file_name !=', '');
-        $this->db->order_by('join_date');
+        $this->db->order_by('join_date')->order_by('id','DESC');
 		$Q = $this->db->get($this->table);
 			if ($Q->num_rows() > 0){
 				//foreach ($Q->result_object() as $row){
@@ -221,21 +226,97 @@ class Participants Extends CI_Model {
 	    }
 	}
 	// Get all Participants Join stats by join_date
-	public function getJoinStats() {
+	public function getJoinStats($range='') {
 	    
 		/* SELECT count(`part_id`) `total_join`, date(`join_date`) `join_date` FROM `tbl_participants` WHERE date(`join_date`) >= '2014-10-25' AND date(`join_date`) <= '2015-03-25' GROUP BY date(`join_date`) ORDER BY `join_date` ASC */
 		
+		$range[0] = ($range[0]) ? $range[0] : date('Y-m-d',strtotime("-22 day", time()));
+		$range[1] = ($range[1]) ? $range[1] : date('Y/m/d');
+		
+		
 	    $sql = 'SELECT count(`id`) `total_join`, date(`join_date`) `join_date` '
                     .'FROM `'. $this->table .'`'
-                    .'WHERE date(`join_date`) >= \''.date('Y-m-d',strtotime("-5 month", time())).'\' '
-                    .'AND date(`join_date`) <= \''.date('Y/m/d').'\' '
+                    .'WHERE date(`join_date`) >= \''. $range[0] .'\' '
+                    .'AND date(`join_date`) <= \''. $range[1] .'\' '
+                    //.'AND `status` = 1 '
                     .'GROUP BY date(`join_date`) ORDER BY `join_date` ASC';
 	    
 	    $query = $this->db->query($sql);
             
 	    return $query->result_object();
 	}
-    
+	// Get all Submitted Imagee stats by join_date
+	public function getSubmitStats($range='') {
+	    
+		/* SELECT count(`part_id`) `total_join`, date(`join_date`) `join_date` FROM `tbl_participants` WHERE date(`join_date`) >= '2014-10-25' AND date(`join_date`) <= '2015-03-25' GROUP BY date(`join_date`) ORDER BY `join_date` ASC */
+		
+		$range[0] = ($range[0]) ? $range[0] : date('Y-m-d',strtotime("-22 day", time()));
+		$range[1] = ($range[1]) ? $range[1] : date('Y/m/d');
+		
+		
+	    $sql = 'SELECT count(`id`) `total_join`, date(`join_date`) `join_date` '
+                    .'FROM `'. $this->table .'`'
+                    .'WHERE date(`join_date`) >= \''. $range[0] .'\' '
+                    .'AND `file_name` != \'\' '
+                    .'AND date(`join_date`) <= \''. $range[1] .'\' '
+                    .'AND `status` = 1 '
+                    .'GROUP BY date(`join_date`) ORDER BY `join_date` ASC';
+	    
+	    $query = $this->db->query($sql);
+            
+	    return $query->result_object();
+	}
+    // Get all Participants Find out stats
+	public function getFindOutStats($range='') {
+        
+        /*
+        // Participant Data findout from where
+        $this->findout = array(
+            'Facebook MamyPoko Indonesia',
+            'Brosur',
+            'Lihat di Pasar',
+            'Lihat di Supermarket \\ Hypermarket',
+            'Teman',
+            'Iklan di Facebook',
+            'Tabloid',
+            'TV',
+            'SPG'
+        );
+         */
+        
+	    $sql = 'SELECT '
+				. 'COUNT(CASE WHEN findout = \'Facebook MamyPoko Indonesia\' THEN `id` END) as facebook, '
+				. 'COUNT(CASE WHEN findout = \'Brosur\' THEN `id` END) as brosur, '
+                . 'COUNT(CASE WHEN findout = \'Lihat di Pasar\' THEN `id` END) as pasar, '
+				. 'COUNT(CASE WHEN findout = \'Lihat di Supermarket \\ Hypermarket\' THEN `id` END) as supermarket, '
+				. 'COUNT(CASE WHEN findout = \'Teman\' THEN `id` END) as teman, '
+				. 'COUNT(CASE WHEN findout = \'Iklan di Facebook\' THEN `id` END) as facebook_ads, '
+                . 'COUNT(CASE WHEN findout = \'Tabloid\' THEN `id` END) as tabloid, '
+                . 'COUNT(CASE WHEN findout = \'TV\' THEN `id` END) as tv, '
+                . 'COUNT(CASE WHEN findout = \'SPG\' THEN `id` END) as spg, '
+				. 'COUNT(*) as total '
+				. 'FROM '.$this->table.' WHERE `findout` !="";';
+	    
+	    $query = $this->db->query($sql);
+        //print_r($query);
+		return $query->result_object();
+       
+	}
+	// Get all Participant Age stats
+	public function getAgeStats() {
+		$sql = 'SELECT `age`, count(`age`) sum FROM `'.$this->table.'` GROUP BY `age`;';
+	
+		$query = $this->db->query($sql);
+        //print_r($query);
+		return $query->result_object();
+	}
+	// Get all findout from where from participants
+	public function getFindOutStats2() {
+        $sql = 'SELECT `findout`, count(`findout`) sum FROM `'.$this->table.'` WHERE `findout` != "" AND file_name != "" AND status = 1 GROUP BY `findout`;';
+		$query = $this->db->query($sql);
+        //print_r($query);
+		return $query->result_object();
+	}
     // Authenticate function for user login
 	public function login($object=null){		
 	    if(!empty($object)){
@@ -326,13 +407,20 @@ class Participants Extends CI_Model {
             'address'	=> @$object['address'],
             'region'	=> @$object['region'],
             
+			'province' 		=> @$object['province'],
+            'urbandistrict' => @$object['urbandistrict'],
+            'suburban' 	=> @$object['suburban'],
+            'zipcode' 	=> @$object['zipcode'],
+
             'phone_number' => @$object['phone_number'],
-            'phone_home' => @$object['phone_home'],
-            'id_number' => @$object['id_number'],
-            
+            'phone_home' => @$object['phone_home'],            
+
             'file_name'	=> @$object['file_name'],
             'verify' => @$object['verify'],
+
+            'findout' => @$object['findout'],
             'status' => @$object['status'],
+			'modified' => date('Y-m-d h:m:s',time())
 		);
 
 		// Insert Participant data
@@ -374,13 +462,21 @@ class Participants Extends CI_Model {
             'address'	=> @$object['address'],
             'region'	=> @$object['region'],
             
+			'province' 		=> @$object['province'],
+            'urbandistrict' => @$object['urbandistrict'],
+            'suburban' 	=> @$object['suburban'],
+            'zipcode' 	=> @$object['zipcode'],
+
             'phone_number' => @$object['phone_number'],
-            'phone_home' => @$object['phone_home'],
-            'id_number' => @$object['id_number'],
-            
+            'phone_home' => @$object['phone_home'],            
+
             'file_name'	=> @$object['file_name'],
             'verify' => @$object['verify'],
-            'status' => @$object['status'],
+
+            'findout' => @$object['findout'],
+            
+			'status' => @$object['status'],
+			'modified' => date('Y-m-d h:m:s',time())
 		);
 	    //Get user id
 	    $this->db->where('id', $id);
@@ -415,13 +511,13 @@ class Participants Extends CI_Model {
         return $data;   
     }
 	
-	public function get_all_images ($limit = 0, $start = 0, $order=array(), $search='', $column=array(), $status='') {
+	public function get_all_images ($limit = 0, $start = 0, $order=array(), $search='', $column=array(), $status='1') {
 		$data = array();
         
-        if ($search != '') {       
+        if ($search) {       
             $this->db->like('name', $search); 
         } 
-        if ($status != '') {
+        if ($status) {
 			$this->db->where('status',$status);
         }
 		$this->db->where('file_name !=','');
@@ -451,7 +547,7 @@ class Participants Extends CI_Model {
 		return $data;	
 	}
 
-    public function get_count_images ($search='',$column=array(),$status='') {
+    public function get_count_images ($search='',$column=array(),$status='1') {
         if (!empty($search)) {
             $this->db->like('name', $search);            
         }
@@ -460,9 +556,10 @@ class Participants Extends CI_Model {
                 $this->db->where($col, $val);
             }
         }
-		if ($status != '') {
+		if ($status) {
 			$this->db->where('status',$status);
         }
+        $this->db->where('file_name !=','');
         $this->db->from('participants');
         return $this->db->count_all_results();
     }
