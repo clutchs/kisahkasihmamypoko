@@ -744,7 +744,7 @@ hr {
   .popover_bootbox { display: block; height: 140px; overflow: hidden; }
 }
 
-@media (max-width:360px) {
+@media (min-width:360px) and (max-width:375px) {
   body {
     padding-top: 55px;
     padding-bottom: 0px;
@@ -801,17 +801,17 @@ hr {
   .gallery-list-360 {height: 60px;}
 }
 /*----------------------------------------------
-        WEBKIT CSS 
+        WEBKIT CSS
 ------------------------------------------------*/
 /**** SAFARI & CHROME ****/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   .main-menu {
-		/* width:628px; */
-		font-size:0.96em;
+    /* width:628px; */
+    font-size:0.96em;
       /* min-width: 643px; */
   }
-	.carousel {
-		margin-bottom: 30px
+  .carousel {
+    margin-bottom: 30px
   }
   .carousel .col-sm-3 {
     width: 20%;
